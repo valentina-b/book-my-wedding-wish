@@ -13,9 +13,15 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
+# @app.route('/')
+# def hello():
+#     return 'Hello world'
+
 @app.route('/')
-def hello():
-    return 'Hello world'
+@app.route('/homepage')
+def homepage():
+    return render_template('homepage.html')
+
 
 
 if __name__ == '__main__':

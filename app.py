@@ -23,6 +23,19 @@ def homepage():
     return render_template('homepage.html')
 
 
+@app.route('/create_wishlistname', methods=['POST'])
+def create_wishlistname():
+    wishlists = mongo.db.wishlists
+    wishlists.insert_one(request.form.to_dict())
+    return redirect('homepage')
+
+
+# route to wishlist form
+# @app.route('/<>')
+# def edit_wishlist():
+#     return render_template('edit_wishlist.html')
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

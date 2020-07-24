@@ -23,11 +23,16 @@ def homepage():
     return render_template('homepage.html')
 
 
+@app.route('/edit_wishlist')
+def edit_wishlist():
+    return render_template('edit_wishlist.html')
+
+
 @app.route('/create_wishlistname', methods=['POST'])
 def create_wishlistname():
     wishlists = mongo.db.wishlists
     wishlists.insert_one(request.form.to_dict())
-    return redirect('homepage')
+    return redirect('edit_wishlist')
 
 
 # route to wishlist form

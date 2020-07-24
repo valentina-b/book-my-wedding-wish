@@ -32,7 +32,7 @@ def edit_wishlist():
 def create_wishlistname():
     wishlists = mongo.db.wishlists
     wishlists.insert_one(request.form.to_dict())
-    return redirect('edit_wishlist')
+    return redirect(url_for('edit_wishlist'))
 
 
 # route to wishlist form

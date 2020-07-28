@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1>WWELCOME XYZ</h1>
+<p>here add presents below</p>
+
+    <form action="{{ url_for('add_present') }}" method="POST">
+        <div class="form-group">
+            <!-- wishlist description -->
+            <label for="presentDescription">Wishlist Description</label>
+            <input type="text" class="form-control" id="presentDescription" name="presentDescription">
+            <!-- header image -->
+            <label for=presentHeaderImageURL">Wishlist Header Image</label>
+            <input type="text" class="form-control" id="presentHeaderImageURL" name="presentHeaderImageURL">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+
+{% endblock %}

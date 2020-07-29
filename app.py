@@ -20,42 +20,30 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/homepage')
 def homepage():
-    return render_template('homepage.html')
+    return render_template('homepage.html',
+                            page_title="Welcome to Book My Wedding Wish!")
 
 
-@app.route('/create_wishlistname', methods=['POST'])
-def create_wishlistname():
+# on the homepage, enter and submit a wishlist name to the DB through a form
+# submit wishlist info to the DB
+@app.route('/create_wishlist_name', methods=['POST'])
+def create_wishlist_name():
     wishlists = mongo.db.wishlists
     wishlists.insert_one(request.form.to_dict())
-    return redirect(url_for('view_presents'))
+    return redirect(url_for('owner_view'))
 
 
-# @app.route('/edit_wishlist')
-# def edit_wishlist():
-#     return render_template('edit_wishlist.html')
-
-
-@app.route('/view_presents')
-def view_presents():
-    return render_template('view_presents.html')
-
-
-@app.route('/add_presents')
-def add_new_present():
-    return render_template('add_presents.html')
+# go to wishlist owner page where owner can add presents
+@app.route('/owner/wishlist_name')
+def owner_view():
+    return render_template('owner_view.html')
 
 
 @app.route('/add_presents', methods=['POST'])
-def add_present():
+def add_new_present():
     present = mongo.db.present
     present.insert_one(request.form.to_dict())
-    return redirect(url_for('view_presents'))
-
-
-# route to wishlist form
-# @app.route('/<>')
-# def edit_wishlist():
-#     return render_template('edit_wishlist.html')
+    return render_template('present_added.html')
 
 
 

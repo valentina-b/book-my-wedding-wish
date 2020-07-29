@@ -1,15 +1,13 @@
 {% extends 'base.html'%}
 {% block content %}
-<h1>{{ page_title }}</h1>
-<p>paragraph</p>
 
-<!-- prepare the form -->
-<h3>Create Wishlist</h3>
+<h1>WISHLIST NAME xxx</h1>
+<p>UPDATE THE FORM HERE</p>
 
-    <form action="{{ url_for('create_wishlist_name') }}" method="POST">
+
+
+    <form action="{{ url_for('add_presents') }}" method="POST">
         <div class="form-group">
-            <label for="wishlist_name">Wishlist Name</label>
-            <input type="text" class="form-control" id="wishlist_name" name="wishlist_name">
 
             <!-- wishlist description -->
             <label for="wishlist_description">Wishlist Description</label>
@@ -17,11 +15,10 @@
             <!-- header image -->
             <label for="wishlist_header_image_URL">Wishlist Header Image</label>
             <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL">
-
+            
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
-
 
 {% endblock %}

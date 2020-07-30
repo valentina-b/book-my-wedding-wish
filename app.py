@@ -24,8 +24,7 @@ def homepage():
                             page_title="Welcome to Book My Wedding Wish!")
 
 
-# on the homepage, enter and submit a wishlist name to the DB through a form
-# submit wishlist info to the DB
+# on the homepage, enter and submit a wishlist name/description through a form
 @app.route('/create_wishlist_name', methods=['POST'])
 def create_wishlist_name():
     wishlists = mongo.db.wishlists
@@ -33,18 +32,18 @@ def create_wishlist_name():
     return redirect(url_for('owner_view'))
 
 
-# go to wishlist owner page where owner can add presents
+# go to created wishlist owner page where owner can add presents
 @app.route('/owner/wishlist_name')
 def owner_view():
     return render_template('owner_view.html')
 
 
+# function that lets you add presents to the wishlist on the owner view
 @app.route('/add_presents', methods=['POST'])
 def add_new_present():
     present = mongo.db.present
     present.insert_one(request.form.to_dict())
     return render_template('present_added.html')
-
 
 
 if __name__ == '__main__':

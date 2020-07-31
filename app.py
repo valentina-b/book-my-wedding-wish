@@ -30,6 +30,12 @@ def create_wishlist_name():
     wishlists = mongo.db.wishlists
     new_wishlist = wishlists.insert_one(request.form.to_dict())
     new_wishlist_id = new_wishlist.inserted_id
+    wishlists.update({'_id': ObjectId(new_wishlist_id)},
+        {'$set':
+            {'present_description': "",
+            'present_header_image_URL': ""
+            }
+        })
     return redirect(url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id))
 
 
@@ -40,11 +46,15 @@ def owner_view_dynamic(new_wishlist_id):
 
 
 # function that lets you add presents to the wishlist on the owner view
-@app.route('/present_added', methods=['POST'])
-def add_new_present():
-    present = mongo.db.present
-    present.insert_one(request.form.to_dict())
-    return render_template('present_added.html')
+@app.route('/<new_wishlist_id>/present_added', methods=['POST'])
+def add_new_present(new_wishlist_id):
+    mongo.db.wishlists.update({'_id': ObjectId(new_wishlist_id)},
+        {'$set':
+            {'present_description': request.form.get('present_description'),
+            'present_header_image_URL': request.form.get('present_header_image_URL')
+            }
+        })
+    return render_template('present_added.html', new_wishlist_id=new_wishlist_id)
 
 
 if __name__ == '__main__':

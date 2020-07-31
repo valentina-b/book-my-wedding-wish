@@ -20,26 +20,36 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/homepage')
 def homepage():
-    return render_template('homepage.html')
+    return render_template('homepage.html',
+                            page_title="Welcome to Book My Wedding Wish!")
 
 
-@app.route('/edit_wishlist')
-def edit_wishlist():
-    return render_template('edit_wishlist.html')
-
-
-@app.route('/create_wishlistname', methods=['POST'])
-def create_wishlistname():
+# on the homepage, enter and submit a wishlist name/description through a form
+@app.route('/create_wishlist_name', methods=['POST'])
+def create_wishlist_name():
     wishlists = mongo.db.wishlists
-    wishlists.insert_one(request.form.to_dict())
-    return redirect(url_for('edit_wishlist'))
+    new_wishlist = wishlists.insert_one(request.form.to_dict())
+    new_wishlist_id = new_wishlist.inserted_id
+    return redirect(url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id))
 
 
-# route to wishlist form
-# @app.route('/<>')
-# def edit_wishlist():
-#     return render_template('edit_wishlist.html')
+# # # go to created wishlist owner page where owner can add presents
+# @app.route('/owner/wishlist_name')
+# def owner_view():
+#     return render_template('owner_view.html')
 
+# go to created wishlist owner page where owner can add presents
+@app.route('/owner/<new_wishlist_id>')
+def owner_view_dynamic(new_wishlist_id):
+    return render_template('owner_view.html')
+
+
+# function that lets you add presents to the wishlist on the owner view
+@app.route('/add_presents', methods=['POST'])
+def add_new_present():
+    present = mongo.db.present
+    present.insert_one(request.form.to_dict())
+    return render_template('present_added.html')
 
 
 if __name__ == '__main__':

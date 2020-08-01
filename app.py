@@ -42,7 +42,9 @@ def create_wishlist_name():
 # go to created wishlist owner page where owner can add presents
 @app.route('/<new_wishlist_id>/owner')
 def owner_view_dynamic(new_wishlist_id):
-    return render_template('owner_view.html', new_wishlist_id=new_wishlist_id)
+    the_wishlist = mongo.db.wishlists.find_one({'_id': ObjectId(new_wishlist_id)})
+    wishlist_presents = the_wishlist['presents']
+    return render_template('owner_view.html', new_wishlist_id=new_wishlist_id, the_wishlist=the_wishlist, wishlist_presents=wishlist_presents)
 
 
 # function that lets you add presents to the wishlist on the owner view

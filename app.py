@@ -32,8 +32,8 @@ def create_wishlist_name():
     new_wishlist_id = new_wishlist.inserted_id
     wishlists.update({'_id': ObjectId(new_wishlist_id)},
         {'$set':
-            {'present_description': "",
-            'present_header_image_URL': ""
+            {
+                'presents':[]
             }
         })
     return redirect(url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id))
@@ -49,9 +49,13 @@ def owner_view_dynamic(new_wishlist_id):
 @app.route('/<new_wishlist_id>/present_added', methods=['POST'])
 def add_new_present(new_wishlist_id):
     mongo.db.wishlists.update({'_id': ObjectId(new_wishlist_id)},
-        {'$set':
-            {'present_description': request.form.get('present_description'),
-            'present_header_image_URL': request.form.get('present_header_image_URL')
+        {'$push':
+            {
+                'presents':
+                    {
+                        'present_description': request.form.get('present_description'),
+                        'present_header_image_URL': request.form.get('present_header_image_URL')
+                    }
             }
         })
     return render_template('present_added.html', new_wishlist_id=new_wishlist_id)

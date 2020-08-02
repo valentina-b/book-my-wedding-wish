@@ -30,26 +30,37 @@ def create_wishlist_name():
     wishlists = mongo.db.wishlists
     new_wishlist = wishlists.insert_one(request.form.to_dict())
     new_wishlist_id = new_wishlist.inserted_id
+    wishlists.update({'_id': ObjectId(new_wishlist_id)},
+        {'$set':
+            {
+                'presents':[]
+            }
+        })
     return redirect(url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id))
 
 
-# # # go to created wishlist owner page where owner can add presents
-# @app.route('/owner/wishlist_name')
-# def owner_view():
-#     return render_template('owner_view.html')
-
 # go to created wishlist owner page where owner can add presents
-@app.route('/owner/<new_wishlist_id>')
+@app.route('/<new_wishlist_id>/owner')
 def owner_view_dynamic(new_wishlist_id):
-    return render_template('owner_view.html')
+    the_wishlist = mongo.db.wishlists.find_one({'_id': ObjectId(new_wishlist_id)})
+    wishlist_presents = the_wishlist['presents']
+    return render_template('owner_view.html', new_wishlist_id=new_wishlist_id, the_wishlist=the_wishlist, wishlist_presents=wishlist_presents)
 
 
 # function that lets you add presents to the wishlist on the owner view
-@app.route('/add_presents', methods=['POST'])
-def add_new_present():
-    present = mongo.db.present
-    present.insert_one(request.form.to_dict())
-    return render_template('present_added.html')
+@app.route('/<new_wishlist_id>/present_added', methods=['POST'])
+def add_new_present(new_wishlist_id):
+    mongo.db.wishlists.update({'_id': ObjectId(new_wishlist_id)},
+        {'$push':
+            {
+                'presents':
+                    {
+                        'present_description': request.form.get('present_description'),
+                        'present_header_image_URL': request.form.get('present_header_image_URL')
+                    }
+            }
+        })
+    return render_template('present_added.html', new_wishlist_id=new_wishlist_id)
 
 
 if __name__ == '__main__':

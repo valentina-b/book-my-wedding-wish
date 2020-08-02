@@ -1,11 +1,27 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<h1>WWELCOME OWNER</h1>
+<h1>WELCOME OWNER</h1>
 <p>here add presents below</p>
 
+<p>THIS IS THE DOC ID: {{ new_wishlist_id }}</p>
 
-    <form action="{{ url_for('add_new_present') }}" method="POST">
+<p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
+
+<!-- <p>test {{ wishlist_presents }} </p> -->
+
+<h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
+<p>
+{% for present in wishlist_presents %}
+        <li>
+            {{ present.present_description }}
+        </li>
+        {% endfor %}
+</p>
+
+
+<h4>FORM TO SUBMIT NEW PRESENTS:</h4>
+    <form action="{{ url_for('add_new_present', new_wishlist_id=new_wishlist_id) }}" method="POST">
         <div class="form-group">
             <!-- wishlist description -->
             <label for="present_description">Present Description</label>

@@ -62,11 +62,9 @@ def add_new_present(new_wishlist_id):
 
 
 # delete a present from the present collection
-@app.route('/<new_wishlist_id>/<present_id>/present_deleted', methods=['POST'])
+@app.route('/<new_wishlist_id>/present_deleted/<present_id>')
 def delete_present(new_wishlist_id, present_id):
-    presents = mongo.db.present
-    the_present = presents.find_one({'_id': ObjectId(present_id)})
-    the_present.remove()
+    mongo.db.present.remove({'_id': ObjectId(present_id)})
     return render_template('present_deleted.html', new_wishlist_id=new_wishlist_id, present_id=present_id)
 
 

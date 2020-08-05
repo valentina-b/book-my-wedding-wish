@@ -65,7 +65,31 @@ def add_new_present(new_wishlist_id):
 @app.route('/<new_wishlist_id>/present_deleted/<present_id>')
 def delete_present(new_wishlist_id, present_id):
     mongo.db.present.remove({'_id': ObjectId(present_id)})
-    return render_template('present_deleted.html', new_wishlist_id=new_wishlist_id, present_id=present_id)
+    return render_template('present_deleted.html', new_wishlist_id=new_wishlist_id,
+                            present_id=present_id)
+
+
+# edit a present of a wishlist
+@app.route('/<new_wishlist_id>/edit_present/<present_id>')
+def edit_present(new_wishlist_id, present_id):
+    the_present =  mongo.db.present.find_one({"_id": ObjectId(present_id)})
+    return render_template('present_editing.html', new_wishlist_id=new_wishlist_id,
+                            present_id=present_id, present=the_present)
+
+
+# update the present in the edit view
+@app.route('/<new_wishlist_id>/update_present/<present_id>', methods=["POST"])
+def update_present(new_wishlist_id, present_id):
+    presents = mongo.db.present
+    presents.update({"_id": ObjectId(present_id)},
+        {'$set':
+            {
+                'present_description': request.form.get('present_description'),
+                'present_header_image_URL': request.form.get('present_header_image_URL'),
+            }
+        })
+    return render_template('present_updated.html', new_wishlist_id=new_wishlist_id,
+                            present_id=present_id)
 
 
 if __name__ == '__main__':

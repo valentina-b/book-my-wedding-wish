@@ -16,7 +16,7 @@
         <li>
             <h5>{{ present.present_description }}</h5>
             <a href="#" class="">Edit</a>
-            <a href="#" class="">Delete</a>
+            <a href="{{ url_for('delete_present', new_wishlist_id=new_wishlist_id, present_id=present_id) }}" class="">Delete</a>
         </li>
 {% endfor %}
 </p>

@@ -34,6 +34,7 @@ def create_wishlist_name():
 
 
 # go to created wishlist owner page where owner can add presents
+# display all the presents stored with the created wishlist id in the presents collection
 @app.route('/<new_wishlist_id>/owner')
 def owner_view_dynamic(new_wishlist_id):
     the_wishlist = mongo.db.wishlists.find_one({'_id': ObjectId(new_wishlist_id)})
@@ -44,7 +45,8 @@ def owner_view_dynamic(new_wishlist_id):
                             displayed_presents=displayed_presents)
 
 
-# function that lets you add presents to the wishlist on the owner view
+# function that lets you add presents stored with the created wishlist id in the presents collection
+# create a link back to the owner's wishlist
 @app.route('/<new_wishlist_id>/present_added', methods=['POST'])
 def add_new_present(new_wishlist_id):
     presents = mongo.db.present
@@ -57,6 +59,15 @@ def add_new_present(new_wishlist_id):
             }
         })
     return render_template('present_added.html', new_wishlist_id=new_wishlist_id)
+
+
+# delete a present from the present collection
+@app.route('/<new_wishlist_id>/<present_id>/present_deleted', methods=['POST'])
+def delete_present(new_wishlist_id, present_id):
+    presents = mongo.db.present
+    the_present = presents.find_one({'_id': ObjectId(present_id)})
+    the_present.remove()
+    return render_template('present_deleted.html', new_wishlist_id=new_wishlist_id, present_id=present_id)
 
 
 if __name__ == '__main__':

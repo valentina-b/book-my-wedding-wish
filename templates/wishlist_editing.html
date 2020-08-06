@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1>WISHLIST BEING EDITED</h1>
+<p>return to the wishlist</p>
+
+<p>{{ new_wishlist_id }} hi</p>
+
+<a href="{{ url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id) }}">Return to wishlist</a>
+<p>{{ the_present }}</p>
+
+
+<h4>FORM TO EDIT THE WISHLIST:</h4>
+    <form action="{{ url_for('update_wishlist', new_wishlist_id=new_wishlist_id) }}" method="POST">
+        <div class="form-group">
+
+            <label for="wishlist_name">Wishlist Name</label>
+            <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" value="{{ wishlist.wishlist_name }}">
+            <!-- wishlist description -->
+            <label for="wishlist_description">Wishlist Description</label>
+            <input type="text" class="form-control" id="wishlist_description" name="wishlist_description" value="{{ wishlist.wishlist_description }}">
+            <!-- header image -->
+            <label for="wishlist_header_image_URL">Wishlist Header Image</label>
+            <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="{{ wishlist.wishlist_header_image_URL }}">
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+

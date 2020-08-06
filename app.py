@@ -85,11 +85,38 @@ def update_present(new_wishlist_id, present_id):
         {'$set':
             {
                 'present_description': request.form.get('present_description'),
-                'present_header_image_URL': request.form.get('present_header_image_URL'),
+                'present_header_image_URL': request.form.get('present_header_image_URL')
             }
         })
     return render_template('present_updated.html', new_wishlist_id=new_wishlist_id,
                             present_id=present_id)
+
+
+# edit the wishlist
+@app.route('/<new_wishlist_id>/owner/edit_wishlist')
+def edit_wishlist(new_wishlist_id):
+    the_wishlist =  mongo.db.wishlists.find_one({"_id": ObjectId(new_wishlist_id)})
+    return render_template('wishlist_editing.html', new_wishlist_id=new_wishlist_id,
+                            wishlist=the_wishlist)
+
+
+# update the wishlist in the edit view
+@app.route('/<new_wishlist_id>/owner/update_wishlist', methods=["POST"])
+def update_wishlist(new_wishlist_id):
+    wishlist = mongo.db.wishlists
+    wishlist.update({"_id": ObjectId(new_wishlist_id)},
+        {'$set':
+            {
+                'wishlist_name': request.form.get('wishlist_name'),
+                'wishlist_description': request.form.get('wishlist_description'),
+                'wishlist_header_image_URL': request.form.get('wishlist_header_image_URL')
+            }
+        })
+    return render_template('wishlist_updated.html', new_wishlist_id=new_wishlist_id)
+
+
+
+
 
 
 if __name__ == '__main__':

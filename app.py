@@ -72,7 +72,7 @@ def delete_present(new_wishlist_id, present_id):
 # edit a present of a wishlist
 @app.route('/<new_wishlist_id>/edit_present/<present_id>')
 def edit_present(new_wishlist_id, present_id):
-    the_present =  mongo.db.present.find_one({"_id": ObjectId(present_id)})
+    the_present = mongo.db.present.find_one({"_id": ObjectId(present_id)})
     return render_template('present_editing.html', new_wishlist_id=new_wishlist_id,
                             present_id=present_id, present=the_present)
 
@@ -115,8 +115,12 @@ def update_wishlist(new_wishlist_id):
     return render_template('wishlist_updated.html', new_wishlist_id=new_wishlist_id)
 
 
-
-
+# delete the wishlist
+@app.route('/<new_wishlist_id>/owner/wishlist_deleted')
+def delete_wishlist(new_wishlist_id):
+    mongo.db.wishlists.remove({'_id': ObjectId(new_wishlist_id)})
+    mongo.db.present.remove({"wishlist_id": ObjectId(new_wishlist_id)})
+    return render_template('wishlist_deleted.html', new_wishlist_id=new_wishlist_id)
 
 
 if __name__ == '__main__':

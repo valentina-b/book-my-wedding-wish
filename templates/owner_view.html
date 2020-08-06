@@ -12,11 +12,13 @@
 
 <h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
 <p>
-{% for present in wishlist_presents %}
+{% for present in displayed_presents %}
         <li>
-            {{ present.present_description }}
+            <h5>{{ present.present_description }}</h5>
+            <a href="{{ url_for('edit_present', new_wishlist_id=new_wishlist_id, present_id=present._id) }}" class="">Edit</a>
+            <a href="{{ url_for('delete_present', new_wishlist_id=new_wishlist_id, present_id=present._id) }}" class="">Delete</a>
         </li>
-        {% endfor %}
+{% endfor %}
 </p>
 
 

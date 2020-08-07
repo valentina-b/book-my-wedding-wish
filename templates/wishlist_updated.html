@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1>WISHLIST UPDATED</h1>
+<p>return to the wishlist</p>
+
+<p>{{ new_wishlist_id }} hi</p>
+
+<a href="{{ url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id) }}">Return to wishlist</a>
+<p>{{ new_wishlist_id }}</p>
+
+{% endblock %}

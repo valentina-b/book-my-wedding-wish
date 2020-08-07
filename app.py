@@ -72,7 +72,7 @@ def delete_present(new_wishlist_id, present_id):
 # edit a present of a wishlist
 @app.route('/<new_wishlist_id>/edit_present/<present_id>')
 def edit_present(new_wishlist_id, present_id):
-    the_present =  mongo.db.present.find_one({"_id": ObjectId(present_id)})
+    the_present = mongo.db.present.find_one({"_id": ObjectId(present_id)})
     return render_template('present_editing.html', new_wishlist_id=new_wishlist_id,
                             present_id=present_id, present=the_present)
 
@@ -85,11 +85,42 @@ def update_present(new_wishlist_id, present_id):
         {'$set':
             {
                 'present_description': request.form.get('present_description'),
-                'present_header_image_URL': request.form.get('present_header_image_URL'),
+                'present_header_image_URL': request.form.get('present_header_image_URL')
             }
         })
     return render_template('present_updated.html', new_wishlist_id=new_wishlist_id,
                             present_id=present_id)
+
+
+# edit the wishlist
+@app.route('/<new_wishlist_id>/owner/edit_wishlist')
+def edit_wishlist(new_wishlist_id):
+    the_wishlist =  mongo.db.wishlists.find_one({"_id": ObjectId(new_wishlist_id)})
+    return render_template('wishlist_editing.html', new_wishlist_id=new_wishlist_id,
+                            wishlist=the_wishlist)
+
+
+# update the wishlist in the edit view
+@app.route('/<new_wishlist_id>/owner/update_wishlist', methods=["POST"])
+def update_wishlist(new_wishlist_id):
+    wishlist = mongo.db.wishlists
+    wishlist.update({"_id": ObjectId(new_wishlist_id)},
+        {'$set':
+            {
+                'wishlist_name': request.form.get('wishlist_name'),
+                'wishlist_description': request.form.get('wishlist_description'),
+                'wishlist_header_image_URL': request.form.get('wishlist_header_image_URL')
+            }
+        })
+    return render_template('wishlist_updated.html', new_wishlist_id=new_wishlist_id)
+
+
+# delete the wishlist
+@app.route('/<new_wishlist_id>/owner/wishlist_deleted')
+def delete_wishlist(new_wishlist_id):
+    mongo.db.wishlists.remove({'_id': ObjectId(new_wishlist_id)})
+    mongo.db.present.remove({"wishlist_id": ObjectId(new_wishlist_id)})
+    return render_template('wishlist_deleted.html', new_wishlist_id=new_wishlist_id)
 
 
 if __name__ == '__main__':

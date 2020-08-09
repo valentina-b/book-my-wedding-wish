@@ -123,6 +123,18 @@ def delete_wishlist(new_wishlist_id):
     return render_template('wishlist_deleted.html', new_wishlist_id=new_wishlist_id)
 
 
+# go to guest page where guests can book presents
+# display all the presents stored with the created wishlist id in the presents collection
+@app.route('/<new_wishlist_id>/guest')
+def guest_view_dynamic(new_wishlist_id):
+    the_wishlist = mongo.db.wishlists.find_one({'_id': ObjectId(new_wishlist_id)})
+    presents = mongo.db.present
+    displayed_presents = presents.find({'wishlist_id': ObjectId(new_wishlist_id)})
+    return render_template('guest_view.html', new_wishlist_id=new_wishlist_id,
+                            the_wishlist=the_wishlist,
+                            displayed_presents=displayed_presents)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

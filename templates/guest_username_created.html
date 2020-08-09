@@ -6,7 +6,7 @@
 
 <p>{{ new_wishlist_id }} hi</p>
 
-<a href="#">return to the GUEST wishlist and BOOK PRESENTS</a>
+<a href="{{ url_for('guest_view_dynamic', new_wishlist_id=new_wishlist_id, new_username_id=new_username_id) }}">return to the GUEST wishlist and BOOK PRESENTS</a>
 <p>{{ new_wishlist_id }}</p>
 
 <p>Username ID</p>

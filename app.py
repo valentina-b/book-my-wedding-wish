@@ -153,6 +153,18 @@ def add_guest_username(new_wishlist_id):
                             new_username_id=new_username_id)
 
 
+# go back to the guest wishlist as a 'registered' wishlist guest
+@app.route('/<new_wishlist_id>/guest/<new_username_id>')
+def guest_view_dynamic(new_wishlist_id, new_username_id):
+    the_wishlist = mongo.db.wishlists.find_one({'_id': ObjectId(new_wishlist_id)})
+    presents = mongo.db.present
+    displayed_presents = presents.find({'wishlist_id': ObjectId(new_wishlist_id)})
+    return render_template('guest_view_username.html', new_wishlist_id=new_wishlist_id,
+                            new_username_id=new_username_id,
+                            displayed_presents=displayed_presents,
+                            the_wishlist=the_wishlist)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

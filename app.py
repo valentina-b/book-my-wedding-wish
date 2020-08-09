@@ -55,7 +55,9 @@ def add_new_present(new_wishlist_id):
     mongo.db.present.update({'_id': ObjectId(new_present_id)},
         {'$set':
             {
-                'wishlist_id': ObjectId(new_wishlist_id)
+                'wishlist_id': ObjectId(new_wishlist_id),
+                'present_availability': True,
+                'present_booked_by': ""
             }
         })
     return render_template('present_added.html', new_wishlist_id=new_wishlist_id)
@@ -126,13 +128,23 @@ def delete_wishlist(new_wishlist_id):
 # go to guest page where guests can book presents
 # display all the presents stored with the created wishlist id in the presents collection
 @app.route('/<new_wishlist_id>/guest')
-def guest_view_dynamic(new_wishlist_id):
+def guest_view_static(new_wishlist_id):
     the_wishlist = mongo.db.wishlists.find_one({'_id': ObjectId(new_wishlist_id)})
     presents = mongo.db.present
     displayed_presents = presents.find({'wishlist_id': ObjectId(new_wishlist_id)})
     return render_template('guest_view.html', new_wishlist_id=new_wishlist_id,
                             the_wishlist=the_wishlist,
                             displayed_presents=displayed_presents)
+
+
+# create a guest username to book the presents
+@app.route('/<new_wishlist_id>/username_created', methods=["POST"])
+def add_guest_username(new_wishlist_id):
+    usernames = mongo.db.username
+    new_username = usernames.insert_one(request.form.to_dict())
+    new_username_id = new_username.inserted_id
+    return render_template('guest_username_created.html', new_wishlist_id=new_wishlist_id,
+                            new_username_id=new_username_id)
 
 
 if __name__ == '__main__':

@@ -8,17 +8,30 @@
 
 <p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
 
-<!-- <p>test {{ wishlist_presents }} </p> -->
-
 <h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
+
 <p>
 {% for present in displayed_presents %}
         <li>
             <h5>{{ present.present_description }}</h5>
+            <a href="#" class="">BOOK MY WISH</a>
         </li>
 {% endfor %}
 </p>
 
+
+<h4>FORM TO SUBMIT A USERNAME:</h4>
+    <form action="{{ url_for('add_guest_username', new_wishlist_id=new_wishlist_id, new_username_id=new_username_id) }}" method="POST">
+        <div class="form-group">
+            <!-- Name -->
+            <label for="user_name">USER NAME</label>
+            <input type="text" class="form-control" id="user_name" name="user_name">
+            <!-- Surname -->
+            <label for="user_surname">USER SURNAME</label>
+            <input type="text" class="form-control" id="user_surname" name="user_surname">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
 
 
 {% endblock %}

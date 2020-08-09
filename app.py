@@ -138,11 +138,17 @@ def guest_view_static(new_wishlist_id):
 
 
 # create a guest username to book the presents
-@app.route('/<new_wishlist_id>/username_created', methods=["POST"])
+@app.route('/<new_wishlist_id>/guest/username_created', methods=["POST"])
 def add_guest_username(new_wishlist_id):
     usernames = mongo.db.username
     new_username = usernames.insert_one(request.form.to_dict())
     new_username_id = new_username.inserted_id
+    mongo.db.username.update({'_id': ObjectId(new_username_id)},
+        {'$set':
+            {
+                'wishlist_id': ObjectId(new_wishlist_id),
+            }
+        })
     return render_template('guest_username_created.html', new_wishlist_id=new_wishlist_id,
                             new_username_id=new_username_id)
 

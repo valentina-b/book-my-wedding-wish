@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<h1>WELCOME OWNER</h1>
+<h1>WELCOME GUEST</h1>
 <p>here add presents below</p>
 
 <p>THIS IS THE DOC ID: {{ new_wishlist_id }}</p>
@@ -20,7 +20,7 @@
 
 
 <h4>FORM TO SUBMIT A USERNAME:</h4>
-    <form action="{{ url_for('add_guest_username', new_wishlist_id=new_wishlist_id, new_username_id=new_username_id) }}" method="POST">
+    <form action="{{ url_for('add_guest_username', new_wishlist_id=new_wishlist_id) }}" method="POST">
         <div class="form-group">
             <!-- Name -->
             <label for="user_name">USER NAME</label>

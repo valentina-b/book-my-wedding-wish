@@ -166,10 +166,19 @@ def guest_view_dynamic(new_wishlist_id, new_username_id):
 
 
 # book a present as a guest
-@app.route('/<new_wishlist_id>/guest/<new_username_id>/present_booked')
-def book_present(new_wishlist_id, new_username_id):
+@app.route('/<new_wishlist_id>/guest/<new_username_id>/<present_id>/present_booked', methods=["POST", "GET"])
+def book_present(new_wishlist_id, new_username_id, present_id):
+    presents = mongo.db.present
+    presents.update({"_id": ObjectId(present_id)},
+        {'$set':
+            {
+                'present_availability': False,
+                'present_booked_by': new_username_id
+            }
+        })
     return render_template('present_booked.html', new_wishlist_id=new_wishlist_id,
-                            new_username_id=new_username_id)
+                            new_username_id=new_username_id,
+                            present_id=present_id)
 
 
 if __name__ == '__main__':

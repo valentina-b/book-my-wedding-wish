@@ -22,7 +22,7 @@
             <p>
             {% if present.present_booked_by == new_username_id %}
                 <p>I am booked already by YOU</p>
-                <a href="#" class="">UNBOOK ME</a>
+                <a href="{{ url_for('unbook_present', new_wishlist_id=new_wishlist_id, new_username_id=new_username_id, present_id=present._id) }}" class="">UNBOOK ME</a>
             {% elif present.present_availability == False %}
                 <p>I am booked already by someone else</p>
                 <p class="text-muted">BOOK MY WISH</p>

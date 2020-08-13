@@ -181,6 +181,22 @@ def book_present(new_wishlist_id, new_username_id, present_id):
                             present_id=present_id)
 
 
+# unbook a present as a guest
+@app.route('/<new_wishlist_id>/guest/<new_username_id>/<present_id>/present_unbooked', methods=["POST", "GET"])
+def unbook_present(new_wishlist_id, new_username_id, present_id):
+    presents = mongo.db.present
+    presents.update({"_id": ObjectId(present_id)},
+        {'$set':
+            {
+                'present_availability': True,
+                'present_booked_by': ""
+            }
+        })
+    return render_template('present_unbooked.html', new_wishlist_id=new_wishlist_id,
+                            new_username_id=new_username_id,
+                            present_id=present_id)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

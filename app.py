@@ -146,7 +146,7 @@ def add_guest_username(new_wishlist_id):
     mongo.db.username.update({'_id': ObjectId(new_username_id)},
         {'$set':
             {
-                'wishlist_id': ObjectId(new_wishlist_id),
+                'wishlist_id': ObjectId(new_wishlist_id)
             }
         })
     return render_template('guest_username_created.html', new_wishlist_id=new_wishlist_id,
@@ -163,6 +163,13 @@ def guest_view_dynamic(new_wishlist_id, new_username_id):
                             new_username_id=new_username_id,
                             displayed_presents=displayed_presents,
                             the_wishlist=the_wishlist)
+
+
+# book a present as a guest
+@app.route('/<new_wishlist_id>/guest/<new_username_id>/present_booked')
+def book_present(new_wishlist_id, new_username_id):
+    return render_template('present_booked.html', new_wishlist_id=new_wishlist_id,
+                            new_username_id=new_username_id)
 
 
 if __name__ == '__main__':

@@ -8,8 +8,6 @@
 
 <p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
 
-<!-- <p>test {{ wishlist_presents }} </p> -->
-
 <h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
 <p>
 {% for present in displayed_presents %}
@@ -38,5 +36,6 @@
 <h4>EDIT WISHLIST</h4>
 <a href="{{ url_for('edit_wishlist', new_wishlist_id=new_wishlist_id) }}">Edit wishlist</a>
 <a href="{{ url_for('delete_wishlist', new_wishlist_id=new_wishlist_id) }}">Delete wishlist</a>
+<a href="{{ url_for('guest_view_static', new_wishlist_id=new_wishlist_id) }}" class="">Visit Guest Page</a>
 
 {% endblock %}

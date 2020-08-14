@@ -2,7 +2,8 @@
 
 :root {
     --app-font-family: "Montserrat", sans-serif;
-    --app-background-color-primary: #EAEAEA;
+    --app-color-subtle: #EAEAEA;
+    --app-color-accent: #7D0C31;
     --app-text-color: #49341C;
 
     --box-shadow: 5px 1px 10px rgba(73, 52, 28, 0.4);
@@ -13,12 +14,40 @@ html {
 }
 
 body {
-    background-color: var(--app-background-color-primary);
+    background-color: var(--app-color-subtle);
     font-family: var(--app-font-family);
     color: var(--app-text-color);
 }
 
+a {
+    color: var(--app-text-color);
+}
+
+a:hover {
+    color: var(--app-color-accent);
+    /* text-decoration: underline!important; */
+}
+
+h1 {
+    font-size: 55px;
+    line-height: 67px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
 .navbar {
     box-shadow: var(--box-shadow);
-    background-color: var(--app-background-color-primary);
+    background-color: var(--app-color-subtle);
+    height: 53px;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        height: fit-content;
+    }
+}
+
+.container {
+    max-width: 1060px;
 }

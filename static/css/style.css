@@ -4,9 +4,12 @@
     --app-font-family: "Montserrat", sans-serif;
     --app-color-subtle: #EAEAEA;
     --app-color-accent: #7D0C31;
-    --app-text-color: #49341C;
+    --app-color-supporting-1: #E2D6CD;
+    --app-color-supporting-2: #CFB7A5;
+    --app-color-text: #49341C;
 
     --box-shadow: 5px 1px 10px rgba(73, 52, 28, 0.4);
+    --border-radius: 2px;
 }
 
 html {
@@ -16,14 +19,14 @@ html {
 body {
     background-color: var(--app-color-subtle);
     font-family: var(--app-font-family);
-    color: var(--app-text-color);
+    color: var(--app-color-text);
 }
 
-a {
-    color: var(--app-text-color);
+.navbar-brand, .nav-link {
+    color: var(--app-color-text);
 }
 
-a:hover {
+.navbar-brand:hover, .nav-link:hover {
     color: var(--app-color-accent);
     /* text-decoration: underline!important; */
 }
@@ -54,4 +57,28 @@ h1 {
 
 header {
     margin-bottom: 40px;
+}
+
+.svg {
+    filter: drop-shadow(var(--box-shadow));
+}
+
+.cta {
+    text-transform: uppercase;
+    color: var(--app-color-subtle);
+    background-color: var(--app-color-accent);
+    border: 1px solid var(--app-color-text);
+    padding: 10px 20px;
+    margin: 40px auto;
+    display: block;
+    width: fit-content;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.cta:hover {
+    background-color: var(--app-color-supporting-2);
+    text-decoration: none;
+    color: var(--app-color-text);
+    
 }

@@ -29,7 +29,7 @@ a:hover {
 }
 
 h1 {
-    font-size: 55px;
+    font-size: 50px;
     line-height: 67px;
     text-align: center;
     letter-spacing: 0.15em;
@@ -39,7 +39,7 @@ h1 {
 .navbar {
     box-shadow: var(--box-shadow);
     background-color: var(--app-color-subtle);
-    height: 53px;
+    height: 45px;
 }
 
 @media (max-width: 992px) {
@@ -50,4 +50,8 @@ h1 {
 
 .container {
     max-width: 1060px;
+}
+
+header {
+    margin-bottom: 40px;
 }

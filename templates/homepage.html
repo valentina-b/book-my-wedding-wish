@@ -1,10 +1,45 @@
 {% extends 'base.html'%}
 {% block content %}
+<!-- header part -->
 <h1 class="text-uppercase">Book My Wedding Wish</h1>
 <p class="header-p text-center">Free online shareable wedding gift wishlist for your friends and family</p>
 <a href="#" class="cta">Create Your Wishlist</a>
+<!-- header part -->
 
-<!-- prepare the form -->
+<section id="section-usp">
+    <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+        <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
+    </svg>
+    <div class="container">
+        <div class="row usp-row">
+            <div class="col-lg-4">
+                <div class="usp-img-background">
+                    <img src="{{ url_for('static', filename='images/icons/icon-list.svg') }}" class="usp-icon" alt="Wishlist icon">
+                </div>
+                <p class="usp-text">Create an <strong>online list</strong> of your desired presents</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="usp-img-background">
+                    <img src="{{ url_for('static', filename='images/icons/icon-letter.svg') }}" class="usp-icon" alt="Letter icon">
+                </div>
+                <p class="usp-text">Send the wishlist to your <strong>friends and family</strong></p>
+            </div>
+            <div class="col-lg-4">
+                <div class="usp-img-background">
+                    <img src="{{ url_for('static', filename='images/icons/icon-present.svg') }}" class="usp-icon-3" alt="Present icon">
+                </div>
+                <p class="usp-text">Enjoy the <strong>lovely presents</strong> after the celebration</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- form -->
+<div class="container">
 <h3>Create Wishlist</h3>
 
     <form action="{{ url_for('create_wishlist_name') }}" method="POST">
@@ -23,6 +58,6 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
-
+</div>
 
 {% endblock %}

@@ -82,3 +82,39 @@ header {
     color: var(--app-color-text);
     
 }
+
+.usp-img-background {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1.5px solid var(--app-color-supporting-2);
+    background-color: var(--app-color-subtle);
+}
+
+.usp-icon, .usp-icon-3 {
+    margin: auto;
+    display: block;
+    position: relative;
+}
+
+.usp-icon-3 {
+    top: 30px;
+}
+
+.usp-icon {
+    top: 45px;
+}
+
+.usp-text {
+    max-width: 257px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 35px;
+}
+
+.usp-row {
+    position: relative;
+    bottom: 350px;
+}

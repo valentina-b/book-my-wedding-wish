@@ -8,7 +8,7 @@
     --app-color-supporting-2: #CFB7A5;
     --app-color-text: #49341C;
 
-    --box-shadow: 5px 1px 10px rgba(73, 52, 28, 0.4);
+    --box-shadow: 1px 1px 10px rgba(189, 189, 189, 0.4);
     --border-radius: 2px;
 }
 
@@ -49,6 +49,12 @@ h1 {
     .navbar {
         height: fit-content;
     }
+}
+
+.navbar-toggler:focus, .navbar-toggler:active:focus, .navbar-toggler:focus {
+    outline: none;
+    border: 1px solid var(--app-color-text);
+    border-radius: var(--border-radius);
 }
 
 .container {

@@ -31,12 +31,24 @@ body {
     /* text-decoration: underline!important; */
 }
 
-h1 {
+h1, h3 {
     font-size: 50px;
     line-height: 67px;
-    text-align: center;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    line-height: 155%;
 }
 
 .navbar {
@@ -62,7 +74,7 @@ h1 {
 }
 
 header {
-    margin-bottom: 40px;
+    margin-bottom: 55px;
 }
 
 .svg {
@@ -75,7 +87,7 @@ header {
     background-color: var(--app-color-accent);
     border: 1px solid var(--app-color-text);
     padding: 10px 20px;
-    margin: 40px auto;
+    margin: 55px auto;
     display: block;
     width: fit-content;
     border-radius: var(--border-radius);
@@ -123,4 +135,30 @@ header {
 .usp-row {
     position: relative;
     bottom: 350px;
+}
+
+.container-icons {
+    height: 0px;
+}
+
+#section-additional {
+    margin-top: 55px;
+}
+
+.img-additional {
+    width: 85%;
+    box-shadow: var(--box-shadow);
+}
+
+#section-break {
+    margin-bottom: 55px;
+}
+
+.form-p {
+    width: 707px;
+}
+
+.form-text, .form-p {
+    display: block;
+    margin: auto;
 }

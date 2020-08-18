@@ -31,8 +31,7 @@ body {
     /* text-decoration: underline!important; */
 }
 
-h1, h3 {
-    font-size: 50px;
+h1, h3, label {
     line-height: 67px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -47,8 +46,25 @@ h3 {
     font-size: 20px;
 }
 
+label {
+    margin-bottom: 0;
+}
+
 p {
     line-height: 155%;
+}
+
+input {
+    border: 1px solid var(--app-color-supporting-2)!important;
+    border-radius: var(--border-radius)!important;
+    box-shadow: var(--box-shadow)!important;
+    color: var(--app-color-text)!important;
+    height: 45px!important;
+    background-color: var(--app-color-subtle)!important;
+}
+
+input:focus {
+    border: 1px solid var(--app-color-text)!important;
 }
 
 .navbar {
@@ -161,4 +177,10 @@ header {
 .form-text, .form-p {
     display: block;
     margin: auto;
+}
+
+form {
+    margin: auto;
+    min-width: 85%;
+    margin-top: 35px;
 }

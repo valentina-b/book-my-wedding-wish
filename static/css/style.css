@@ -2,23 +2,226 @@
 
 :root {
     --app-font-family: "Montserrat", sans-serif;
-    --app-background-color-primary: #EAEAEA;
-    --app-text-color: #49341C;
+    --app-color-subtle: #EAEAEA;
+    --app-color-accent: #7D0C31;
+    --app-color-supporting-1: #E2D6CD;
+    --app-color-supporting-2: #CFB7A5;
+    --app-color-text: #49341C;
 
-    --box-shadow: 5px 1px 10px rgba(73, 52, 28, 0.4);
+    --box-shadow: 1px 1px 10px rgba(189, 189, 189, 0.4);
+    --border-radius: 2px;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+#scroll {
+    position: relative;
+    bottom: 100px;
+}
+
 body {
-    background-color: var(--app-background-color-primary);
+    background-color: var(--app-color-subtle);
     font-family: var(--app-font-family);
-    color: var(--app-text-color);
+    color: var(--app-color-text);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--app-color-text);
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: var(--app-color-accent);
+    /* text-decoration: underline!important; */
+}
+
+h1, h3, label {
+    line-height: 67px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+p {
+    line-height: 155%;
+}
+
+input {
+    border: 1px solid var(--app-color-supporting-2)!important;
+    border-radius: var(--border-radius)!important;
+    box-shadow: var(--box-shadow)!important;
+    color: var(--app-color-text)!important;
+    height: 45px!important;
+    background-color: var(--app-color-subtle)!important;
+}
+
+input:focus {
+    border: 1px solid var(--app-color-text)!important;
 }
 
 .navbar {
     box-shadow: var(--box-shadow);
-    background-color: var(--app-background-color-primary);
+    background-color: var(--app-color-subtle);
+    height: 45px;
 }
+
+@media (max-width: 992px) {
+    .navbar {
+        height: fit-content;
+    }
+}
+
+.navbar-toggler:focus, .navbar-toggler:active:focus, .navbar-toggler:focus {
+    outline: none;
+    border: 1px solid var(--app-color-text);
+    border-radius: var(--border-radius);
+}
+
+.container {
+    max-width: 1060px;
+}
+
+header {
+    margin-bottom: 55px;
+}
+
+.svg {
+    filter: drop-shadow(var(--box-shadow));
+}
+
+.cta {
+    text-transform: uppercase;
+    color: var(--app-color-subtle);
+    background-color: var(--app-color-accent);
+    border: 1px solid var(--app-color-text);
+    padding: 10px 20px;
+    margin: 55px auto;
+    display: block;
+    width: fit-content;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.cta:hover {
+    background-color: var(--app-color-supporting-2);
+    text-decoration: none;
+    color: var(--app-color-text);
+}
+
+.cta-button {
+    padding: 10px 30px;
+}
+
+.cta-button:focus, .cta:focus, button:focus {
+    border: 1.5px solid var(--app-color-text);
+}
+
+.usp-img-background {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1.5px solid var(--app-color-supporting-2);
+    background-color: var(--app-color-subtle);
+}
+
+.usp-icon, .usp-icon-3 {
+    margin: auto;
+    display: block;
+    position: relative;
+}
+
+.usp-icon-3 {
+    top: 30px;
+}
+
+.usp-icon {
+    top: 45px;
+}
+
+.usp-text {
+    max-width: 257px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 35px;
+}
+
+.usp-row {
+    position: relative;
+    bottom: 350px;
+}
+
+.container-icons, .container-footer {
+    height: 0px;
+}
+
+#section-additional {
+    margin-top: 55px;
+}
+
+.img-additional {
+    width: 85%;
+    box-shadow: var(--box-shadow);
+}
+
+#section-break {
+    margin-bottom: 55px;
+}
+
+.form-p {
+    width: 707px;
+}
+
+.form-text, .form-p {
+    display: block;
+    margin: auto;
+}
+
+form {
+    margin: auto;
+    min-width: 85%;
+    margin-top: 35px;
+}
+
+/* Footer */
+
+.social-icons {
+    margin: auto;
+}
+
+.social-icons a:hover {
+    text-decoration: none;
+    color: transparent;
+}
+
+.social-icons a {
+    margin: 0 30px;
+}
+
+#footer-content {
+    position: relative;
+    bottom: 140px;
+    color: var(--app-color-subtle);
+    margin: auto;
+}
+
+.copyrights {
+    margin: auto;
+    margin-top: 40px;
+}
+
+/* Footer */

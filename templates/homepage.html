@@ -1,27 +1,101 @@
 {% extends 'base.html'%}
 {% block content %}
-<h1>{{ page_title }}</h1>
-<p>paragraph</p>
+<!-- header part -->
+<h1 class="text-uppercase">Book My Wedding Wish</h1>
+<p class="header-p text-center">Free online shareable wedding gift wishlist for your friends and family</p>
+<a href="#scroll" class="cta">Create Your Wishlist</a>
+<!-- header part -->
 
-<!-- prepare the form -->
-<h3>Create Wishlist</h3>
-
-    <form action="{{ url_for('create_wishlist_name') }}" method="POST">
-        <div class="form-group">
-            <label for="wishlist_name">Wishlist Name</label>
-            <input type="text" class="form-control" id="wishlist_name" name="wishlist_name">
-
-            <!-- wishlist description -->
-            <label for="wishlist_description">Wishlist Description</label>
-            <input type="text" class="form-control" id="wishlist_description" name="wishlist_description">
-            <!-- header image -->
-            <label for="wishlist_header_image_URL">Wishlist Header Image</label>
-            <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL">
-
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+<section id="section-usp">
+    <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+        <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
+    </svg>
+    <div class="container container-icons">
+        <div class="row usp-row">
+            <div class="col-md-4">
+                <div class="usp-img-background">
+                    <img src="{{ url_for('static', filename='images/icons/icon-list.svg') }}" class="usp-icon" alt="Wishlist icon">
+                </div>
+                <p class="usp-text">Create an <strong>online list</strong> of your desired presents</p>
+            </div>
+            <div class="col-md-4">
+                <div class="usp-img-background">
+                    <img src="{{ url_for('static', filename='images/icons/icon-letter.svg') }}" class="usp-icon" alt="Letter icon">
+                </div>
+                <p class="usp-text">Send the wishlist to your <strong>friends and family</strong></p>
+            </div>
+            <div class="col-md-4">
+                <div class="usp-img-background">
+                    <img src="{{ url_for('static', filename='images/icons/icon-present.svg') }}" class="usp-icon-3" alt="Present icon">
+                </div>
+                <p class="usp-text">Enjoy the <strong>lovely presents</strong> after the celebration</p>
+            </div>
         </div>
-    </form>
+    </div>
+</section>
+
+<section id="section-additional">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/img-additional.png') }}" class="img-additional" alt="Wedding Rings">
+            </div>
+            <div class="col-lg-6">
+                <div class="text-additional">
+                    <h3 class="text-left">Book My Wedding Wish</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
+                    sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <a href="#scroll" class="cta">Create Your Wishlist</a>
+        </div>
+    </div>
+</section>
+
+<section id="section-break">
+    <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+        <defs>
+            <clipPath id="theClippingPathBreak"> 
+                <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
+            </clipPath> 
+        </defs> 
+        <image xlink:href="{{ url_for('static', filename='images/img-break.png') }}" clip-path="url(#theClippingPathBreak)"></image>
+   </svg>
+   <div id="scroll">
+   </div>
+</section>
+
+<section id="section-form">
+    <div class="container">
+        <div class="row">
+            <div class="form-text">
+                <h3 class="text-center">Create a Unique Wishlist Name and Add Presents to it</h3>
+                <p class="text-center form-p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+            </div>
+        </div>
+        <div class="row">
+            <form action="{{ url_for('create_wishlist_name') }}" method="POST" id="form">
+                <div class="form-group">
+                    <label for="wishlist_name">Wishlist Name</label>
+                    <input type="text" class="form-control" id="wishlist_name" name="wishlist_name">
+                    <!-- wishlist description -->
+                    <label for="wishlist_description">Wishlist Description</label>
+                    <input type="text" class="form-control" id="wishlist_description" name="wishlist_description">
+                    <!-- header image -->
+                    <label for="wishlist_header_image_URL">Wishlist Header Image</label>
+                    <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL">
+                    <button type="submit" class="cta cta-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
 
 
 {% endblock %}

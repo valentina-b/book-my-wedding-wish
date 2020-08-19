@@ -114,7 +114,14 @@ header {
     background-color: var(--app-color-supporting-2);
     text-decoration: none;
     color: var(--app-color-text);
-    
+}
+
+.cta-button {
+    padding: 10px 30px;
+}
+
+.cta-button:focus, .cta:focus, button:focus {
+    border: 1.5px solid var(--app-color-text);
 }
 
 .usp-img-background {
@@ -153,7 +160,7 @@ header {
     bottom: 350px;
 }
 
-.container-icons {
+.container-icons, .container-footer {
     height: 0px;
 }
 
@@ -184,3 +191,32 @@ form {
     min-width: 85%;
     margin-top: 35px;
 }
+
+/* Footer */
+
+.social-icons {
+    margin: auto;
+}
+
+.social-icons a:hover {
+    text-decoration: none;
+    color: transparent;
+}
+
+.social-icons a {
+    margin: 0 30px;
+}
+
+#footer-content {
+    position: relative;
+    bottom: 160px;
+    color: var(--app-color-subtle);
+    margin: auto;
+}
+
+.copyrights {
+    margin: auto;
+    margin-top: 40px;
+}
+
+/* Footer */

@@ -16,6 +16,11 @@ html {
     scroll-behavior: smooth;
 }
 
+#scroll {
+    position: relative;
+    bottom: 100px;
+}
+
 body {
     background-color: var(--app-color-subtle);
     font-family: var(--app-font-family);
@@ -209,7 +214,7 @@ form {
 
 #footer-content {
     position: relative;
-    bottom: 160px;
+    bottom: 140px;
     color: var(--app-color-subtle);
     margin: auto;
 }

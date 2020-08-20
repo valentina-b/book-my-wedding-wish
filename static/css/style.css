@@ -78,12 +78,6 @@ input:focus {
     height: 45px;
 }
 
-@media (max-width: 992px) {
-    .navbar {
-        height: fit-content;
-    }
-}
-
 .navbar-toggler:focus, .navbar-toggler:active:focus, .navbar-toggler:focus {
     outline: none;
     border: 1px solid var(--app-color-text);
@@ -162,11 +156,72 @@ header {
 
 .usp-row {
     position: relative;
-    bottom: 350px;
+    /* bottom: 350px; */
+    bottom: 21rem;
+}
+
+/* how to fix svg responsiveness */
+@media (max-width: 1280px) {
+    .usp-row {
+        bottom: 18rem;
+    }
+}
+
+@media (max-width: 1095px) {
+    .usp-row {
+        bottom: 17rem;
+    }
 }
 
 .container-icons, .container-footer {
     height: 0px;
+}
+
+@media (max-width: 991px) {
+    .navbar {
+        height: fit-content;
+    }
+    .container-icons {
+        height: fit-content;
+        box-shadow: var(--box-shadow);
+    }
+    .usp-row {
+        bottom: 0;
+        background-color: var(--app-color-supporting-1);
+        padding: 60px!important;
+    }
+    .usp-container {
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 38px;
+    }
+    .img-additional {
+        max-width: 60%;
+        margin: auto;
+        display: block;
+    }
+    .text-additional {
+        width: 70%;
+        margin: auto;
+    }
+    .text-additional h3, .text-additional p {
+        text-align: center!important;
+
+    }
+    .navbar-brand {
+        font-size: 16px;
+    }
+    .form-group, .form-text {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .form-p {
+        margin-top: 30px!important;
+    }
+    .form-text h3, .form-text label {
+        line-height: 30px;
+    }
 }
 
 #section-additional {
@@ -183,7 +238,7 @@ header {
 }
 
 .form-p {
-    width: 707px;
+    max-width: 707px;
 }
 
 .form-text, .form-p {
@@ -217,6 +272,10 @@ form {
     bottom: 140px;
     color: var(--app-color-subtle);
     margin: auto;
+}
+
+#footer-content .row {
+    margin-right: 0;
 }
 
 .copyrights {

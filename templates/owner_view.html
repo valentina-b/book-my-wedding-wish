@@ -19,8 +19,8 @@
 {% endfor %}
 </p>
 
-
-<h4>FORM TO SUBMIT NEW PRESENTS:</h4>
+<div class="container">
+    <h3>FORM TO SUBMIT NEW PRESENTS:</h3>
     <form action="{{ url_for('add_new_present', new_wishlist_id=new_wishlist_id) }}" method="POST">
         <div class="form-group">
             <!-- wishlist description -->
@@ -29,9 +29,11 @@
             <!-- header image -->
             <label for="present_header_image_URL">Present Header Image</label>
             <input type="text" class="form-control" id="present_header_image_URL" name="present_header_image_URL">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="cta cta-button">Submit</button>
         </div>
     </form>
+</div>
+
 
 <h4>EDIT WISHLIST</h4>
 <a href="{{ url_for('edit_wishlist', new_wishlist_id=new_wishlist_id) }}">Edit wishlist</a>

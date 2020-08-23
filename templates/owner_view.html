@@ -19,20 +19,28 @@
 {% endfor %}
 </p>
 
-<div class="container">
-    <h3>FORM TO SUBMIT NEW PRESENTS:</h3>
-    <form action="{{ url_for('add_new_present', new_wishlist_id=new_wishlist_id) }}" method="POST">
-        <div class="form-group">
-            <!-- wishlist description -->
-            <label for="present_description">Present Description</label>
-            <input type="text" class="form-control" id="present_description" name="present_description">
-            <!-- header image -->
-            <label for="present_header_image_URL">Present Header Image</label>
-            <input type="text" class="form-control" id="present_header_image_URL" name="present_header_image_URL">
-            <button type="submit" class="cta cta-button">Submit</button>
+
+<section id="section-form">
+    <div class="container">
+        <div class="form-text">
+            <h3 class="text-center">FORM TO SUBMIT NEW PRESENTS</h3>
+            <p class="text-center form-p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
         </div>
-    </form>
-</div>
+        <div class="row">
+            <form action="{{ url_for('add_new_present', new_wishlist_id=new_wishlist_id) }}" method="POST">
+                <div class="form-group">
+                    <!-- wishlist description -->
+                    <label for="present_description">Present Description</label>
+                    <input type="text" class="form-control" id="present_description" name="present_description">
+                    <!-- header image -->
+                    <label for="present_header_image_URL">Present Header Image</label>
+                    <input type="text" class="form-control" id="present_header_image_URL" name="present_header_image_URL">
+                    <button type="submit" class="cta cta-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 
 
 <h4>EDIT WISHLIST</h4>

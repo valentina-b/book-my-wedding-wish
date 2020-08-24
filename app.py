@@ -20,8 +20,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/homepage')
 def homepage():
-    return render_template('homepage.html',
-                            page_title="Welcome to Book My Wedding Wish!")
+    return render_template('homepage.html')
 
 
 # on the homepage, enter and submit a wishlist name/description through a form

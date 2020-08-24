@@ -96,6 +96,10 @@ header {
     filter: drop-shadow(var(--box-shadow));
 }
 
+.svg-display {
+    display: none;
+}
+
 .cta {
     text-transform: uppercase;
     color: var(--app-color-subtle);
@@ -301,7 +305,7 @@ form {
     h1 {
         font-size: 28px;
         line-height: 40px;
-        margin: 1rem auto;
+        margin: 0.5rem auto;
     }
     body {
         font-size: 14px;
@@ -368,6 +372,22 @@ form {
     }
     .usp-icon {
         top: 2rem;
+    }
+    .svg-hide-display {
+        display: none;
+    }
+    .svg-display {
+        display: block;
+    }
+    header {
+        margin-bottom: 1rem;
+    }
+    #footer-content {
+        bottom: 5.2rem;
+    }
+    .copyrights {
+        margin-top: 20px;
+        font-size: 11px;
     }
 }
 

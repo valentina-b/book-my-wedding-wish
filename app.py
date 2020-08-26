@@ -1,4 +1,5 @@
 import os
+import string
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -24,12 +25,59 @@ def homepage():
 
 
 # on the homepage, enter and submit a wishlist name/description through a form
-@app.route('/create_wishlist_name', methods=['POST'])
+@app.route('/complete_wishlist', methods=['POST'])
 def create_wishlist_name():
     wishlists = mongo.db.wishlists
     new_wishlist = wishlists.insert_one(request.form.to_dict())
     new_wishlist_id = new_wishlist.inserted_id
-    return redirect(url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id))
+    the_wishlist = mongo.db.wishlists.find_one({"_id": ObjectId(new_wishlist_id)})
+    # capitalise entered wishlist name
+    the_wishlist_name = the_wishlist['wishlist_name']
+    the_wishlist_name_capitalised = string.capwords(the_wishlist_name, sep = None)
+    # create wishlist username - which goes into the link
+    the_wishlist_username = the_wishlist_name.lower().replace(" ", "-")
+    # validate the username against other wishlist usernames (must be unique, it's in the link)
+    check_wishlist_usernames = wishlists.count_documents((
+        {
+            'wishlist_username': the_wishlist_username
+         }))
+    if check_wishlist_usernames == 0:
+        # update the wishlist with the new information
+        wishlists.update({"_id": ObjectId(new_wishlist_id)},
+            {'$set':
+                {
+                    'wishlist_username': the_wishlist_username,
+                    'wishlist_name': the_wishlist_name_capitalised
+                }
+            })
+        return render_template('wishlist_completing.html', new_wishlist_id=new_wishlist_id,
+                                wishlist=the_wishlist_name_capitalised)
+    else:
+        # return error page
+        return redirect(url_for('wishlist_username_not_available'))
+
+
+# return error page, wishlist username is taken
+@app.route('/wishlist_username_not_available')
+def wishlist_username_not_available():
+    return render_template('wishlist_username_not_available.html')
+
+
+# complete the wishlist
+@app.route('/<new_wishlist_id>/owner/complete_wishlist', methods=['POST'])
+def complete_wishlist(new_wishlist_id):
+    wishlists = mongo.db.wishlists
+    the_wishlist = wishlists.find_one({'_id': ObjectId(new_wishlist_id)})
+    wishlists.update({"_id": ObjectId(new_wishlist_id)},
+        {'$set':
+            {
+                'wishlist_description': request.form.get('wishlist_description'),
+                'wishlist_header_image_URL': request.form.get('wishlist_header_image_URL'),
+                'wishlist_wedding_date': request.form.get('wishlist_wedding_date')
+            }
+        })
+    return redirect(url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id,
+                            wishlist=the_wishlist))
 
 
 # go to created wishlist owner page where owner can add presents

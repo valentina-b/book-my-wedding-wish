@@ -53,7 +53,9 @@ def create_wishlist_name():
         return render_template('wishlist_completing.html', new_wishlist_id=new_wishlist_id,
                                 wishlist=the_wishlist_name_capitalised)
     else:
-        # return error page
+        # delete this document and return error page
+        mongo.db.wishlists.remove({'_id': ObjectId(new_wishlist_id)})
+        mongo.db.present.remove({"wishlist_id": ObjectId(new_wishlist_id)})
         return redirect(url_for('wishlist_username_not_available'))
 
 

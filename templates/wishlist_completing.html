@@ -2,11 +2,8 @@
 {% block content %}
 
 <h1>WISHLIST BEING COMPLETED HERE</h1>
-<p>return to the wishlist</p>
 
-<p>{{ new_wishlist_id }} hi</p>
-
-<a href="{{ url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id) }}">Return to wishlist</a>
+<p>{{ new_wishlist_id }}</p>
 
 <h4>FORM TO COMPLETE THE WISHLIST:</h4>
     <p>Welcome to your "{{ wishlist }}" Wishlist!</p>
@@ -20,10 +17,7 @@
             <!-- header image -->
             <label for="wishlist_header_image_URL">Wishlist Header Image</label>
             <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="" required>
-
-
-
-            <!-- header image -->
+            <!-- wedding date -->
             <label for="wishlist_wedding_date">Wedding date</label>
             <input type="text" class="form-control" id="wishlist_wedding_date" name="wishlist_wedding_date" value="" required>
 

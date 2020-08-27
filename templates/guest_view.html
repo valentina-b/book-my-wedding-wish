@@ -4,7 +4,7 @@
 <h1>WELCOME GUEST</h1>
 <p>here add presents below</p>
 
-<p>THIS IS THE DOC ID: {{ new_wishlist_id }}</p>
+<p>THIS IS THE DOC ID: {{ wishlist_username }}</p>
 
 <p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
 
@@ -20,7 +20,7 @@
 
 
 <h4>FORM TO SUBMIT A USERNAME:</h4>
-    <form action="{{ url_for('add_guest_username', new_wishlist_id=new_wishlist_id) }}" method="POST">
+    <form action="{{ url_for('add_guest_username', wishlist_username=wishlist_username) }}" method="POST">
         <div class="form-group">
             <!-- Name -->
             <label for="user_name">USER NAME</label>

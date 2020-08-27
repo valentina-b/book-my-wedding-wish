@@ -4,14 +4,14 @@
 <h1>WISHLIST BEING EDITED</h1>
 <p>return to the wishlist</p>
 
-<p>{{ new_wishlist_id }} hi</p>
+<p>{{ wishlist_username }} hi</p>
 
-<a href="{{ url_for('owner_view_dynamic', new_wishlist_id=new_wishlist_id) }}">Return to wishlist</a>
+<a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}">Return to wishlist</a>
 <p>{{ the_present }}</p>
 
 
 <h4>FORM TO EDIT THE WISHLIST:</h4>
-    <form action="{{ url_for('update_wishlist', new_wishlist_id=new_wishlist_id) }}" method="POST">
+    <form action="{{ url_for('update_wishlist', wishlist_username=wishlist_username) }}" method="POST">
         <div class="form-group">
 
             <label for="wishlist_name">Wishlist Name</label>

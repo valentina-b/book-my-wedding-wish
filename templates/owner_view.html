@@ -4,8 +4,8 @@
 <h1>WELCOME OWNER</h1>
 <p>here add presents below</p>
 
-<p>THIS IS THE DOC ID: {{ new_wishlist_id }}</p>
-
+<p>THIS IS THE DOC ID: {{ wishlist_id }}</p>
+<p>wishlist username: {{ wishlist_username }}</p>
 <p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
 
 <h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
@@ -13,12 +13,11 @@
 {% for present in displayed_presents %}
         <li>
             <h5>{{ present.present_description }}</h5>
-            <a href="{{ url_for('edit_present', new_wishlist_id=new_wishlist_id, present_id=present._id) }}" class="">Edit</a>
-            <a href="{{ url_for('delete_present', new_wishlist_id=new_wishlist_id, present_id=present._id) }}" class="">Delete</a>
+            <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
+            <a href="{{ url_for('delete_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Delete</a>
         </li>
 {% endfor %}
 </p>
-
 
 <section id="section-form">
     <div class="container">
@@ -27,7 +26,7 @@
             <p class="text-center form-p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
         </div>
         <div class="row">
-            <form action="{{ url_for('add_new_present', new_wishlist_id=new_wishlist_id) }}" method="POST">
+            <form action="{{ url_for('add_new_present', wishlist_username=wishlist_username) }}" method="POST">
                 <div class="form-group">
                     <!-- wishlist description -->
                     <label for="present_description">Present Description</label>
@@ -44,8 +43,8 @@
 
 
 <h4>EDIT WISHLIST</h4>
-<a href="{{ url_for('edit_wishlist', new_wishlist_id=new_wishlist_id) }}">Edit wishlist</a>
-<a href="{{ url_for('delete_wishlist', new_wishlist_id=new_wishlist_id) }}">Delete wishlist</a>
-<a href="{{ url_for('guest_view_static', new_wishlist_id=new_wishlist_id) }}" class="">Visit Guest Page</a>
+<a href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}">Edit wishlist</a>
+<a href="{{ url_for('delete_wishlist', wishlist_username=wishlist_username) }}">Delete wishlist</a>
+<a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" class="">Visit Guest Page</a>
 
 {% endblock %}

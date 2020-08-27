@@ -176,6 +176,7 @@ def update_wishlist(wishlist_username):
 def delete_wishlist(wishlist_username):
     mongo.db.wishlists.remove({"wishlist_username": wishlist_username})
     mongo.db.present.remove({"wishlist_id_username": wishlist_username})
+    mongo.db.username.remove({"wishlist_id_username": wishlist_username})
     return render_template('wishlist_deleted.html', wishlist_username=wishlist_username)
 
 

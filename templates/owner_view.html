@@ -45,6 +45,6 @@
 <h4>EDIT WISHLIST</h4>
 <a href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}">Edit wishlist</a>
 <a href="{{ url_for('delete_wishlist', wishlist_username=wishlist_username) }}">Delete wishlist</a>
-<a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" class="">Visit Guest Page</a>
+<a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" target="_blank" class="">Visit Guest Page</a>
 
 {% endblock %}

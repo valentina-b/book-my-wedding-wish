@@ -198,47 +198,58 @@ def add_guest_username(wishlist_username):
     usernames = mongo.db.username
     new_username = usernames.insert_one(request.form.to_dict())
     new_username_id = new_username.inserted_id
+    the_new_username = usernames.find_one({"_id": ObjectId(new_username_id)})
+    # capitalise entered username name and surname
+    the_user_name = the_new_username['user_name']
+    the_user_surname = the_new_username['user_surname']
+    the_user_name = string.capwords(the_user_name, sep = None)
+    the_user_surname = string.capwords(the_user_surname, sep = None)
+    # combine name and surname to create full username - which goes into the link
+    the_full_user_username = the_user_name + " " + the_user_surname
+    the_full_user_username_id = the_full_user_username.lower().replace(" ", "-")
     mongo.db.username.update({'_id': ObjectId(new_username_id)},
         {'$set':
             {
-                'wishlist_id_username': wishlist_username
+                'wishlist_id_username': wishlist_username,
+                'full_username': the_full_user_username,
+                'full_username_id': the_full_user_username_id
             }
         })
     return render_template('guest_username_created.html', wishlist_username=wishlist_username,
-                            new_username_id=new_username_id)
+                            the_full_user_username_id=the_full_user_username_id)
 
 
 # go back to the guest wishlist as a 'registered' wishlist guest
-@app.route('/<wishlist_username>/guest/<new_username_id>')
-def guest_view_dynamic(wishlist_username, new_username_id):
+@app.route('/<wishlist_username>/guest/<the_full_user_username_id>')
+def guest_view_dynamic(wishlist_username, the_full_user_username_id):
     the_wishlist = mongo.db.wishlists.find_one({'wishlist_username': wishlist_username})
     presents = mongo.db.present
     displayed_presents = presents.find({'wishlist_id_username': wishlist_username})
     return render_template('guest_view_username.html', wishlist_username=wishlist_username,
-                            new_username_id=new_username_id,
+                            the_full_user_username_id=the_full_user_username_id,
                             displayed_presents=displayed_presents,
                             the_wishlist=the_wishlist)
 
 
 # book a present as a guest
-@app.route('/<wishlist_username>/guest/<new_username_id>/<present_id>/present_booked', methods=["POST", "GET"])
-def book_present(wishlist_username, new_username_id, present_id):
+@app.route('/<wishlist_username>/guest/<the_full_user_username_id>/<present_id>/present_booked', methods=["POST", "GET"])
+def book_present(wishlist_username, the_full_user_username_id, present_id):
     presents = mongo.db.present
     presents.update({"_id": ObjectId(present_id)},
         {'$set':
             {
                 'present_availability': False,
-                'present_booked_by': new_username_id
+                'present_booked_by': the_full_user_username_id
             }
         })
     return render_template('present_booked.html', wishlist_username=wishlist_username,
-                            new_username_id=new_username_id,
+                            the_full_user_username_id=the_full_user_username_id,
                             present_id=present_id)
 
 
 # unbook a present as a guest
-@app.route('/<wishlist_username>/guest/<new_username_id>/<present_id>/present_unbooked', methods=["POST", "GET"])
-def unbook_present(wishlist_username, new_username_id, present_id):
+@app.route('/<wishlist_username>/guest/<the_full_user_username_id>/<present_id>/present_unbooked', methods=["POST", "GET"])
+def unbook_present(wishlist_username, the_full_user_username_id, present_id):
     presents = mongo.db.present
     presents.update({"_id": ObjectId(present_id)},
         {'$set':
@@ -248,7 +259,7 @@ def unbook_present(wishlist_username, new_username_id, present_id):
             }
         })
     return render_template('present_unbooked.html', wishlist_username=wishlist_username,
-                            new_username_id=new_username_id,
+                            the_full_user_username_id=the_full_user_username_id,
                             present_id=present_id)
 
 

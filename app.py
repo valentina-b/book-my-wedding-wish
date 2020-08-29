@@ -111,7 +111,8 @@ def add_new_present(wishlist_username):
             {
                 'wishlist_id_username': wishlist_username,
                 'present_availability': True,
-                'present_booked_by': ""
+                'present_booked_by_id': "",
+                'present_booked_by_name': ""
             }
         })
     return render_template('present_added.html', wishlist_username=wishlist_username)
@@ -234,12 +235,16 @@ def guest_view_dynamic(wishlist_username, the_full_user_username_id):
 # book a present as a guest
 @app.route('/<wishlist_username>/guest/<the_full_user_username_id>/<present_id>/present_booked', methods=["POST", "GET"])
 def book_present(wishlist_username, the_full_user_username_id, present_id):
+    usernames = mongo.db.username
+    find_username_doc = usernames.find_one({'full_username_id': the_full_user_username_id})
+    the_username = find_username_doc['full_username']
     presents = mongo.db.present
     presents.update({"_id": ObjectId(present_id)},
         {'$set':
             {
                 'present_availability': False,
-                'present_booked_by': the_full_user_username_id
+                'present_booked_by_id': the_full_user_username_id,
+                'present_booked_by_name': the_username
             }
         })
     return render_template('present_booked.html', wishlist_username=wishlist_username,
@@ -255,7 +260,8 @@ def unbook_present(wishlist_username, the_full_user_username_id, present_id):
         {'$set':
             {
                 'present_availability': True,
-                'present_booked_by': ""
+                'present_booked_by_id': "",
+                'present_booked_by_name': ""
             }
         })
     return render_template('present_unbooked.html', wishlist_username=wishlist_username,

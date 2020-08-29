@@ -14,11 +14,11 @@
 {% for present in displayed_presents %}
         <li>
             <h5>{{ present.present_description }}</h5>
-            <p>booked by: [ {{ present.present_booked_by }} ]</p>
+            <p>booked by: [ {{ present.present_booked_by_name }} ]</p>
             <p>ID: [ {{ present._id }} ]</p>
             
             <p>
-            {% if present.present_booked_by == the_full_user_username_id %}
+            {% if present.present_booked_by_id == the_full_user_username_id %}
                 <p>I am booked already by YOU</p>
                 <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="">UNBOOK ME</a>
             {% elif present.present_availability == False %}

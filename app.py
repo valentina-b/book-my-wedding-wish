@@ -164,9 +164,9 @@ def update_wishlist(wishlist_username):
     wishlist.update({"wishlist_username": wishlist_username},
         {'$set':
             {
-                'wishlist_name': request.form.get('wishlist_name'),
                 'wishlist_description': request.form.get('wishlist_description'),
-                'wishlist_header_image_URL': request.form.get('wishlist_header_image_URL')
+                'wishlist_header_image_URL': request.form.get('wishlist_header_image_URL'),
+                'wishlist_wedding_date': request.form.get('wishlist_wedding_date')
             }
         })
     return render_template('wishlist_updated.html', wishlist_username=wishlist_username)

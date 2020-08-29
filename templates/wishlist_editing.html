@@ -14,14 +14,15 @@
     <form action="{{ url_for('update_wishlist', wishlist_username=wishlist_username) }}" method="POST">
         <div class="form-group">
 
-            <label for="wishlist_name">Wishlist Name</label>
-            <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" value="{{ wishlist.wishlist_name }}">
             <!-- wishlist description -->
             <label for="wishlist_description">Wishlist Description</label>
             <input type="text" class="form-control" id="wishlist_description" name="wishlist_description" value="{{ wishlist.wishlist_description }}">
             <!-- header image -->
             <label for="wishlist_header_image_URL">Wishlist Header Image</label>
             <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="{{ wishlist.wishlist_header_image_URL }}">
+            <!-- wedding date -->
+            <label for="wishlist_wedding_date">Wedding date</label>
+            <input type="text" class="form-control" id="wishlist_wedding_date" name="wishlist_wedding_date" value="{{ wishlist.wishlist_wedding_date }}">
 
 
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -213,8 +213,8 @@ def add_guest_username(wishlist_username):
                 'full_username_id': the_full_user_username_id
             }
         })
-    return render_template('guest_username_created.html', wishlist_username=wishlist_username,
-                            the_full_user_username_id=the_full_user_username_id)
+    return redirect(url_for('guest_view_dynamic', wishlist_username=wishlist_username,
+                            the_full_user_username_id=the_full_user_username_id))
 
 
 # go back to the guest wishlist as a 'registered' wishlist guest
@@ -244,9 +244,9 @@ def book_present(wishlist_username, the_full_user_username_id, present_id):
                 'present_booked_by_name': the_username
             }
         })
-    return render_template('present_booked.html', wishlist_username=wishlist_username,
+    return redirect(url_for('guest_view_dynamic', wishlist_username=wishlist_username,
                             the_full_user_username_id=the_full_user_username_id,
-                            present_id=present_id)
+                            present_id=present_id))
 
 
 # unbook a present as a guest

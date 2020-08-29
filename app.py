@@ -129,7 +129,7 @@ def delete_present(wishlist_username, present_id):
 # edit a present of a wishlist
 @app.route('/<wishlist_username>/edit_present/<present_id>')
 def edit_present(wishlist_username, present_id):
-    the_present = mongo.db.present.find_one({"wishlist_id_username": wishlist_username})
+    the_present = mongo.db.present.find_one({'_id': ObjectId(present_id)})
     return render_template('present_editing.html', wishlist_username=wishlist_username,
                             present_id=present_id, present=the_present)
 
@@ -138,7 +138,7 @@ def edit_present(wishlist_username, present_id):
 @app.route('/<wishlist_username>/update_present/<present_id>', methods=["POST"])
 def update_present(wishlist_username, present_id):
     presents = mongo.db.present
-    presents.update({"wishlist_id_username": wishlist_username},
+    presents.update({'_id': ObjectId(present_id)},
         {'$set':
             {
                 'present_description': request.form.get('present_description'),

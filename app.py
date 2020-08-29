@@ -79,9 +79,7 @@ def complete_wishlist(new_wishlist_id):
                 'wishlist_wedding_date': request.form.get('wishlist_wedding_date')
             }
         })
-    return render_template('wishlist_created.html', new_wishlist_id=new_wishlist_id,
-                            wishlist=the_wishlist,
-                            wishlist_username=wishlist_username)
+    return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username))
 
 
 # go to created wishlist owner page where owner can add presents
@@ -115,7 +113,7 @@ def add_new_present(wishlist_username):
                 'present_booked_by_name': ""
             }
         })
-    return render_template('present_added.html', wishlist_username=wishlist_username)
+    return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username))
 
 
 # delete a present from the present collection
@@ -145,8 +143,7 @@ def update_present(wishlist_username, present_id):
                 'present_header_image_URL': request.form.get('present_header_image_URL')
             }
         })
-    return render_template('present_updated.html', wishlist_username=wishlist_username,
-                            present_id=present_id)
+    return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username))
 
 
 # edit the wishlist
@@ -169,7 +166,7 @@ def update_wishlist(wishlist_username):
                 'wishlist_wedding_date': request.form.get('wishlist_wedding_date')
             }
         })
-    return render_template('wishlist_updated.html', wishlist_username=wishlist_username)
+    return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username))
 
 
 # delete the wishlist

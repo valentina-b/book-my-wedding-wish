@@ -20,7 +20,30 @@
             <p>
             {% if present.present_booked_by_id == the_full_user_username_id %}
                 <p>I am booked already by YOU</p>
-                <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="">UNBOOK ME</a>
+                <!-- Button trigger modal - Unbook Present-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unbookPresentModal">
+                    UNBOOK ME
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="unbookPresentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to unbook this present?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="">Unbook present</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             {% elif present.present_availability == False %}
                 <p>I am booked already by someone else</p>
                 <p class="text-muted">BOOK MY WISH</p>

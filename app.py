@@ -120,8 +120,8 @@ def add_new_present(wishlist_username):
 @app.route('/<wishlist_username>/present_deleted/<present_id>')
 def delete_present(wishlist_username, present_id):
     mongo.db.present.remove({'_id': ObjectId(present_id)})
-    return render_template('present_deleted.html', wishlist_username=wishlist_username,
-                            present_id=present_id)
+    return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username,
+                            present_id=present_id))
 
 
 # edit a present of a wishlist
@@ -261,9 +261,9 @@ def unbook_present(wishlist_username, the_full_user_username_id, present_id):
                 'present_booked_by_name': ""
             }
         })
-    return render_template('present_unbooked.html', wishlist_username=wishlist_username,
+    return redirect(url_for('guest_view_dynamic', wishlist_username=wishlist_username,
                             the_full_user_username_id=the_full_user_username_id,
-                            present_id=present_id)
+                            present_id=present_id))
 
 
 if __name__ == '__main__':

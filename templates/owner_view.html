@@ -13,6 +13,7 @@
 {% for present in displayed_presents %}
         <li>
             <h5>{{ present.present_description }}</h5>
+            <p>Present booked by: "{{ present.present_booked_by_name }}"</p>
             <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
             <!-- Button trigger modal - Present-->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#presentModal{{ present._id }}">

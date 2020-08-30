@@ -14,6 +14,7 @@
 {% for present in displayed_presents %}
         <li>
             <h5>{{ present.present_description }}</h5>
+            <p>Present booked by: "{{ present.present_booked_by_name }}"</p>
         </li>
 {% endfor %}
 </p>

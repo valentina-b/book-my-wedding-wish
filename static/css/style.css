@@ -92,12 +92,12 @@ header {
     margin-bottom: 55px;
 }
 
-.svg {
-    filter: drop-shadow(var(--box-shadow));
+.img-display {
+    display: none;
 }
 
-.svg-display {
-    display: none;
+.img-width-100 {
+    width: 100%;
 }
 
 .cta {
@@ -373,10 +373,13 @@ form {
     .usp-icon {
         top: 2rem;
     }
-    .svg-hide-display {
+    .usp-text {
+        max-width: 200px;
+    }
+    .img-hide-display {
         display: none;
     }
-    .svg-display {
+    .img-display {
         display: block;
     }
     header {

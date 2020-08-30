@@ -9,7 +9,7 @@
 <!-- header part -->
 
 <section id="section-usp">
-    <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-content d-none d-lg-block">
+    <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-content d-none d-lg-block">
         <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
     </svg>
     <div class="container container-icons">
@@ -66,16 +66,17 @@
 </section>
 
 <section id="section-break">
-    <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+    <!-- <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
         <defs>
             <clipPath id="theClippingPathBreak"> 
                 <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
             </clipPath> 
         </defs> 
         <image xlink:href="{{ url_for('static', filename='images/img-break.png') }}" clip-path="url(#theClippingPathBreak)"></image>
-   </svg>
-   <div id="scroll">
-   </div>
+   </svg> -->
+    <img src="{{ url_for('static', filename='images/section-img.png') }}" class="img-width-100" alt="">
+    <div id="scroll">
+    </div>
 </section>
 
 <section id="section-form">
@@ -83,7 +84,7 @@
         <div class="row">
             <div class="form-text">
                 <h3 class="text-center">Create a Unique Wishlist Name and Add Presents to it</h3>
-                <p class="text-center form-p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+                <p class="text-center form-p">After submitting a wishlist name, you will be able to customise the wishlist and send it to the guests.</p>
             </div>
         </div>
         <div class="row">

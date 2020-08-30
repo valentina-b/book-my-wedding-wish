@@ -36,7 +36,7 @@
     </nav>
 
 <header>
-    <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
+    <!-- <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
         <defs>
             <clipPath id="theClippingPathHeader"> 
                 <path d="M0 0H1440V428C1154.28 463.616 994.274 464.759 708.5 430C435.096 396.559 279.852 395.667 0 428V0Z" fill="#E2D6CD"/>
@@ -51,7 +51,9 @@
             </clipPath> 
         </defs> 
         <image xlink:href="{{ url_for('static', filename='images/img-header-mob.png') }}" clip-path="url(#theClippingPathHeaderMob)"></image>
-    </svg>
+    </svg> -->
+    <img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
 </header>
 
 
@@ -62,7 +64,7 @@
 
 
 <footer>
-    <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
+    <!-- <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
         <defs>
             <clipPath id="theClippingPathFooter"> 
                 <path d="M1440 456L8.07047e-05 456V27.4397C285.724 -8.22297 445.726 -9.36743 731.5 25.4371C1004.9 58.9221 1160.15 59.815 1440 27.4397V456Z" fill="#E2D6CD"/>
@@ -77,7 +79,9 @@
             </clipPath> 
         </defs> 
         <image xlink:href="{{ url_for('static', filename='images/img-footer-mob.png') }}" clip-path="url(#theClippingPathFooterMob)"></image>
-    </svg>
+    </svg> -->
+    <img src="{{ url_for('static', filename='images/footer-dsk.png') }}" class="img-hide-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-mob.png') }}" class="img-display img-width-100" alt="">
     <div id="footer-content" class="container-footer">
         <div class="row">
         <div class="social-icons">

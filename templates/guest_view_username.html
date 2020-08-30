@@ -21,11 +21,11 @@
             {% if present.present_booked_by_id == the_full_user_username_id %}
                 <p>I am booked already by YOU</p>
                 <!-- Button trigger modal - Unbook Present-->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unbookPresentModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unbookPresentModal{{ present._id }}">
                     UNBOOK ME
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" id="unbookPresentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="unbookPresentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">

@@ -15,13 +15,13 @@
             <h5>{{ present.present_description }}</h5>
             <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
             <!-- Button trigger modal - Present-->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#presentModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#presentModal{{ present._id }}">
                 Delete
             </button>
         </li>
         
         <!-- Present Modal -->
-        <div class="modal fade" id="presentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="presentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -31,7 +31,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete?
+                        Are you sure you want to delete your "{{ present.present_description }}" present?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -88,7 +88,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Are you sure you want to delete your wishlist?
+                    Are you sure you want to delete your "{{ wishlist_username }}" wishlist?
                 </p>
             </div>
             <div class="modal-footer">

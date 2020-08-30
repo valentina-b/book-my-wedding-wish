@@ -4,8 +4,8 @@
 <h1>WELCOME OWNER</h1>
 <p>here add presents below</p>
 
-<p>THIS IS THE DOC ID: {{ new_wishlist_id }}</p>
-
+<p>THIS IS THE DOC ID: {{ wishlist_id }}</p>
+<p>wishlist username: {{ wishlist_username }}</p>
 <p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
 
 <h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
@@ -13,12 +13,36 @@
 {% for present in displayed_presents %}
         <li>
             <h5>{{ present.present_description }}</h5>
-            <a href="{{ url_for('edit_present', new_wishlist_id=new_wishlist_id, present_id=present._id) }}" class="">Edit</a>
-            <a href="{{ url_for('delete_present', new_wishlist_id=new_wishlist_id, present_id=present._id) }}" class="">Delete</a>
+            <p>Present booked by: "{{ present.present_booked_by_name }}"</p>
+            <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
+            <!-- Button trigger modal - Present-->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#presentModal{{ present._id }}">
+                Delete
+            </button>
         </li>
+        
+        <!-- Present Modal -->
+        <div class="modal fade" id="presentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete your "{{ present.present_description }}" present?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <a href="{{ url_for('delete_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endfor %}
 </p>
-
 
 <section id="section-form">
     <div class="container">
@@ -27,7 +51,7 @@
             <p class="text-center form-p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
         </div>
         <div class="row">
-            <form action="{{ url_for('add_new_present', new_wishlist_id=new_wishlist_id) }}" method="POST">
+            <form action="{{ url_for('add_new_present', wishlist_username=wishlist_username) }}" method="POST">
                 <div class="form-group">
                     <!-- wishlist description -->
                     <label for="present_description">Present Description</label>
@@ -44,8 +68,37 @@
 
 
 <h4>EDIT WISHLIST</h4>
-<a href="{{ url_for('edit_wishlist', new_wishlist_id=new_wishlist_id) }}">Edit wishlist</a>
-<a href="{{ url_for('delete_wishlist', new_wishlist_id=new_wishlist_id) }}">Delete wishlist</a>
-<a href="{{ url_for('guest_view_static', new_wishlist_id=new_wishlist_id) }}" class="">Visit Guest Page</a>
+<a href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}">Edit wishlist</a>
+<!-- Button trigger modal - Wishlist -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wishlistModal">
+    Delete Wishlist
+</button>
+<a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" target="_blank" class="">Visit Guest Page</a>
+
+
+
+<!-- Wishlist Modal -->
+<div class="modal fade" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Are you sure you want to delete your "{{ wishlist_username }}" wishlist?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="{{ url_for('delete_wishlist', wishlist_username=wishlist_username) }}">Delete wishlist</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

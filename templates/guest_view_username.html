@@ -2,33 +2,54 @@
 {% block content %}
 
 <h1>WELCOME GUEST</h1>
-<p>THIS IS YOUR ID: {{ new_username_id }}</p>
+<p>THIS IS YOUR ID: {{ the_full_user_username_id }}</p>
 <p>here add presents below</p>
 
-<p>THIS IS THE DOC ID: {{ new_wishlist_id }}</p>
+<p>THIS IS THE DOC ID: {{ wishlist_username }}</p>
 
 <p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
-
-<p>THIS IS YOUR USERNAME ID: {{ new_username_id }}</p>
 
 <h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
 <p>
 {% for present in displayed_presents %}
         <li>
             <h5>{{ present.present_description }}</h5>
-            <p>booked by: [ {{ present.present_booked_by }} ]</p>
+            <p>booked by: [ {{ present.present_booked_by_name }} ]</p>
             <p>ID: [ {{ present._id }} ]</p>
             
             <p>
-            {% if present.present_booked_by == new_username_id %}
+            {% if present.present_booked_by_id == the_full_user_username_id %}
                 <p>I am booked already by YOU</p>
-                <a href="{{ url_for('unbook_present', new_wishlist_id=new_wishlist_id, new_username_id=new_username_id, present_id=present._id) }}" class="">UNBOOK ME</a>
+                <!-- Button trigger modal - Unbook Present-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unbookPresentModal{{ present._id }}">
+                    UNBOOK ME
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="unbookPresentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to unbook this "{{ present.present_description }}" present?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="">Unbook present</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             {% elif present.present_availability == False %}
                 <p>I am booked already by someone else</p>
                 <p class="text-muted">BOOK MY WISH</p>
             {% else %}
                 <p>I am available to you</p>
-                <a href="{{ url_for('book_present', new_wishlist_id=new_wishlist_id, new_username_id=new_username_id, present_id=present._id) }}" class="text-success">BOOK MY WISH</a>
+                <a href="{{ url_for('book_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="text-success">BOOK MY WISH</a>
             {% endif %}
             </p>
         </li>

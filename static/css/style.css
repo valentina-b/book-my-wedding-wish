@@ -100,7 +100,7 @@ header {
     width: 100%;
 }
 
-.cta, .cta-supporting {
+.cta {
     text-transform: uppercase;
     color: var(--app-color-subtle);
     background-color: var(--app-color-accent);
@@ -113,22 +113,29 @@ header {
     box-shadow: var(--box-shadow);
 }
 
-.cta-supporting {
-    background-color: var(--app-color-supporting-2);
-}
-
-.cta:hover, .cta-supporting:hover {
+.cta:hover {
     background-color: var(--app-color-supporting-2);
     text-decoration: none;
     color: var(--app-color-text);
 }
 
-.cta-button, .cta-supporting {
+.cta-button {
     padding: 10px 30px;
 }
 
-.cta-button:focus, .cta:focus, button:focus, .cta-supporting:focus {
+.cta-button:focus, .cta:focus, button:focus {
     border: 1.5px solid var(--app-color-text);
+}
+
+.return-link {
+    color: var(--app-color-text);
+    text-decoration: underline;
+    display: block;
+    margin: -30px auto 20px auto;
+}
+
+.return-link:hover, .return-link:focus {
+    color: var(--app-color-accent);
 }
 
 .usp-img-background {
@@ -322,6 +329,9 @@ form {
     }
     .cta {
         margin: 40px auto;
+    }
+    .return-link {
+        margin: -20px auto 20px auto;
     }
     .form-group {
         width: 90%;

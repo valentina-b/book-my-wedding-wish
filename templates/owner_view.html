@@ -1,14 +1,18 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<h1>WELCOME OWNER</h1>
+<!-- <h1>WELCOME OWNER</h1>
 <p>here add presents below</p>
 
 <p>THIS IS THE DOC ID: {{ wishlist_id }}</p>
 <p>wishlist username: {{ wishlist_username }}</p>
 <p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
 
-<h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
+<h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4> -->
+
+<h1>"{{ the_wishlist.wishlist_name }}"</h1>
+<h3 class="text-center wishlist-header-h3">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3>
+
 <p>
 {% for present in displayed_presents %}
         <li>

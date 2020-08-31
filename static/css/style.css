@@ -100,7 +100,7 @@ header {
     width: 100%;
 }
 
-.cta {
+.cta, .cta-supporting {
     text-transform: uppercase;
     color: var(--app-color-subtle);
     background-color: var(--app-color-accent);
@@ -113,17 +113,21 @@ header {
     box-shadow: var(--box-shadow);
 }
 
-.cta:hover {
+.cta-supporting {
+    background-color: var(--app-color-supporting-2);
+}
+
+.cta:hover, .cta-supporting:hover {
     background-color: var(--app-color-supporting-2);
     text-decoration: none;
     color: var(--app-color-text);
 }
 
-.cta-button {
+.cta-button, .cta-supporting {
     padding: 10px 30px;
 }
 
-.cta-button:focus, .cta:focus, button:focus {
+.cta-button:focus, .cta:focus, button:focus, .cta-supporting:focus {
     border: 1.5px solid var(--app-color-text);
 }
 
@@ -203,14 +207,20 @@ header {
     margin: auto;
 }
 
+.form-text h3 {
+    font-size: 20px;
+    line-height: 2em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
 form {
     margin: auto;
     min-width: 85%;
-    margin-top: 35px;
+    margin-top: 2rem;
 }
 
 /* Footer */
-
 .social-icons {
     margin: auto;
 }
@@ -289,7 +299,7 @@ form {
     .form-p {
         margin-top: 30px!important;
     }
-    .form-text h3, .form-text label {
+    .form-text label {
         line-height: 30px;
     }
 }
@@ -333,30 +343,6 @@ form {
         width: 85%;
         /* margin: auto; */
     }
-    /* .text-additional h3, .text-additional p {
-        text-align: center!important;
-    } */
-
-
-    /* .container-icons {
-        height: fit-content;
-        box-shadow: var(--box-shadow);
-    } */
-
-    /* .usp-container {
-        margin: 20px auto;
-    } */
-    /* .form-p {
-        margin-top: 30px!important;
-    }
-    .form-text h3, .form-text label {
-        line-height: 30px;
-    } */
-        /* /* .usp-row {
-        bottom: 0;
-        background-color: var(--app-color-supporting-1);
-        padding: 60px!important;
-    } */
     .usp-row {
         padding: 20px!important;
     }
@@ -398,6 +384,9 @@ form {
     .header-content {
         max-width: 300px;
         margin: auto;
+    }
+    form {
+        margin-top: 1rem;
     }
 }
 /* Media - responsiveness */

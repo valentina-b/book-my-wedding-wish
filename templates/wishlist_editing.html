@@ -1,33 +1,39 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<h1>WISHLIST BEING EDITED</h1>
+<!-- <h1>WISHLIST BEING EDITED</h1>
 <p>return to the wishlist</p>
 
-<p>{{ wishlist_username }} hi</p>
+<p>{{ wishlist_username }} hi</p> -->
 
-<a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}">Return to wishlist</a>
-<p>{{ the_present }}</p>
-
-
-<h4>FORM TO EDIT THE WISHLIST:</h4>
-    <form action="{{ url_for('update_wishlist', wishlist_username=wishlist_username) }}" method="POST">
-        <div class="form-group">
-
-            <!-- wishlist description -->
-            <label for="wishlist_description">Wishlist Description</label>
-            <input type="text" class="form-control" id="wishlist_description" name="wishlist_description" value="{{ wishlist.wishlist_description }}">
-            <!-- header image -->
-            <label for="wishlist_header_image_URL">Wishlist Header Image</label>
-            <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="{{ wishlist.wishlist_header_image_URL }}">
-            <!-- wedding date -->
-            <label for="wishlist_wedding_date">Wedding date</label>
-            <input type="text" class="form-control" id="wishlist_wedding_date" name="wishlist_wedding_date" value="{{ wishlist.wishlist_wedding_date }}">
-
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+<section id="section-form">
+    <div class="container">
+        <div class="form-text">
+            <h3 class="text-center">Please edit your wishlist information below:</h3>
         </div>
-    </form>
+        <div class="row">
+            <form action="{{ url_for('update_wishlist', wishlist_username=wishlist_username) }}" method="POST">
+                <div class="form-group">
+                    <!-- wishlist description -->
+                    <label for="wishlist_description">Wishlist Description</label>
+                    <input type="text" class="form-control" id="wishlist_description" name="wishlist_description" value="{{ wishlist.wishlist_description }}">
+                    <!-- header image -->
+                    <label for="wishlist_header_image_URL">Wishlist Header Image</label>
+                    <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="{{ wishlist.wishlist_header_image_URL }}">
+                    <!-- wedding date -->
+                    <label for="wishlist_wedding_date">Wedding date</label>
+                    <input type="text" class="form-control" id="wishlist_wedding_date" name="wishlist_wedding_date" value="{{ wishlist.wishlist_wedding_date }}">
+                    <!-- wedding location -->
+                    <label for="wishlist_wedding_location">Wedding location</label>
+                    <input type="text" class="form-control" id="wishlist_wedding_location" name="wishlist_wedding_location" value="{{ wishlist.wishlist_wedding_location }}">
+
+                    <button type="submit" class="cta cta-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        <a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}" class="cta-supporting">Return to wishlist</a>
+</section>
 
 {% endblock %}
 

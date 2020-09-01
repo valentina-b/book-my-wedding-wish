@@ -36,24 +36,7 @@
     </nav>
 
 <header>
-    <!-- <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
-        <defs>
-            <clipPath id="theClippingPathHeader"> 
-                <path d="M0 0H1440V428C1154.28 463.616 994.274 464.759 708.5 430C435.096 396.559 279.852 395.667 0 428V0Z" fill="#E2D6CD"/>
-            </clipPath> 
-        </defs> 
-        <image xlink:href="{{ url_for('static', filename='images/img-header.png') }}" clip-path="url(#theClippingPathHeader)"></image>
-    </svg>
-    <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-display">
-        <defs>
-            <clipPath id="theClippingPathHeaderMob"> 
-                <path d="M0 0H600V375.93C480.948 407.213 414.281 408.217 295.208 377.687C181.29 348.314 116.605 347.531 0 375.93V0Z" fill="#E2D6CD"/>
-            </clipPath> 
-        </defs> 
-        <image xlink:href="{{ url_for('static', filename='images/img-header-mob.png') }}" clip-path="url(#theClippingPathHeaderMob)"></image>
-    </svg> -->
-    <img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
-    <img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
+    {% block header %} {% endblock %}
 </header>
 
 

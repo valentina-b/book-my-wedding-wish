@@ -19,7 +19,7 @@
                     <input type="text" class="form-control" id="wishlist_description" name="wishlist_description" value="{{ wishlist.wishlist_description }}">
                     <!-- header image -->
                     <label for="wishlist_header_image_URL">Wishlist Header Image</label>
-                    <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="{{ wishlist.wishlist_header_image_URL }}">
+                    <input type="url" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="{{ wishlist.wishlist_header_image_URL }}">
                     <!-- wedding date -->
                     <label for="wishlist_wedding_date">Wedding date</label>
                     <input type="text" class="form-control" id="wishlist_wedding_date" name="wishlist_wedding_date" value="{{ wishlist.wishlist_wedding_date }}">
@@ -28,7 +28,7 @@
                     <input type="text" class="form-control" id="wishlist_wedding_location" name="wishlist_wedding_location" value="{{ wishlist.wishlist_wedding_location }}">
 
                     <button type="submit" class="cta cta-button">Submit</button>
-                    <a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}" class="return-link text-center">Return to wishlist</a>
+                    <a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}" class="return-link return-link-form text-center">Return to wishlist</a>
                 </div>
             </form>
         </div>

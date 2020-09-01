@@ -1,11 +1,11 @@
 {% extends 'base.html'%}
+
+{% block header %}
+<img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
+<img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
+{% endblock %}
+
 {% block content %}
-
-<!-- <h1>Welcome to Book My Wedding Wish</h1> -->
-
-<!-- <p>{{ new_wishlist_id }}</p>
-<p>{{ wishlist }}</p> -->
-
 <section id="section-form">
     <div class="container">
         <div class="form-text">
@@ -19,7 +19,7 @@
                     <input type="text" class="form-control" id="wishlist_description" name="wishlist_description" value="" required>
                     <!-- header image -->
                     <label for="wishlist_header_image_URL">Wishlist Header Image</label>
-                    <input type="text" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="" required>
+                    <input type="url" class="form-control" id="wishlist_header_image_URL" name="wishlist_header_image_URL" value="" required>
                     <!-- wedding date -->
                     <label for="wishlist_wedding_date">Wedding date</label>
                     <input type="text" class="form-control" id="wishlist_wedding_date" name="wishlist_wedding_date" value="" required>

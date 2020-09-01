@@ -1,11 +1,14 @@
 {% extends 'base.html'%}
-{% block content %}
 
-<h1>HOPE TO SEE YOU SOON!</h1>
+{% block header %}
+<img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
+<img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
+{% endblock %}
+
+{% block content %}
+<h3 class="text-center">HOPE TO SEE YOU SOON!</h3>
 <p class="text-center">Thank you for using BMWL - we're sad to see you go but remember you can create new wishlists anytime!</p>
 
-<p class="text-center">Let us know if you have any feedback at XXXXX</p>
-
-<p class="text-center"><a href="{{ url_for('homepage') }}">Return to Homepage</a></p>
+<p class="text-center"><a href="{{ url_for('homepage') }}" class="return-link">Return to Homepage</a></p>
 
 {% endblock %}

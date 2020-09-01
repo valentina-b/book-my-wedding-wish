@@ -92,8 +92,36 @@ header {
     margin-bottom: 55px;
 }
 
-.img-display {
+.header-content {
+    margin-top: 2rem;
+}
+
+.owner-header {
+    position: absolute;
+    top: 7%;
+    width: 100%;
+}
+
+.owner-header-image-div {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.owner-header-image-div img {
+    height: 100%;
+}
+
+.img-display, .svg-display {
     display: none;
+}
+
+.svg {
+    filter: drop-shadow(var(--box-shadow));
 }
 
 .img-width-100 {
@@ -130,6 +158,9 @@ header {
 .return-link {
     color: var(--app-color-text);
     text-decoration: underline;
+}
+
+.return-link-form {
     display: block;
     margin: -30px auto 20px auto;
 }
@@ -372,10 +403,10 @@ form {
     .usp-text {
         max-width: 200px;
     }
-    .img-hide-display {
+    .img-hide-display, .svg-hide-display {
         display: none;
     }
-    .img-display {
+    .img-display, .svg-display {
         display: block;
     }
     header {

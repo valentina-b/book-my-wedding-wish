@@ -20,18 +20,25 @@
 </p>
 
 
-<h4>FORM TO SUBMIT A USERNAME:</h4>
-    <form action="{{ url_for('add_guest_username', wishlist_username=wishlist_username) }}" method="POST">
-        <div class="form-group">
-            <!-- Name -->
-            <label for="user_name">USER NAME</label>
-            <input type="text" class="form-control" id="user_name" name="user_name">
-            <!-- Surname -->
-            <label for="user_surname">USER SURNAME</label>
-            <input type="text" class="form-control" id="user_surname" name="user_surname">
-            <button type="submit" class="btn btn-primary">Submit</button>
+<section id="section-form">
+    <div class="container">
+        <div class="form-text">
+            <h3 class="text-center">Please submit your name and surname below:</h3>
         </div>
-    </form>
-
+        <div class="row">
+            <form action="{{ url_for('add_guest_username', wishlist_username=wishlist_username) }}" method="POST">
+                <div class="form-group">
+                    <!-- Name -->
+                    <label for="user_name">Your Name</label>
+                    <input type="text" class="form-control" id="user_name" name="user_name" required>
+                    <!-- Surname -->
+                    <label for="user_surname">Your Surname</label>
+                    <input type="text" class="form-control" id="user_surname" name="user_surname" required>
+                    <button type="submit" class="cta cta-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

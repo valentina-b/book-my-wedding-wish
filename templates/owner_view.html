@@ -11,7 +11,7 @@
         <div class="owner-header-image-div">
             <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Couple Photo">
         </div>
-        <h1>"{{ the_wishlist.wishlist_name }}"</h1>
+        <h1>{{ the_wishlist.wishlist_name }}</h1>
         <h3 class="text-center">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3>
     </div>
 {% endblock %}
@@ -28,6 +28,7 @@
 
 <!-- <h1>"{{ the_wishlist.wishlist_name }}"</h1>
 <h3 class="text-center">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3> -->
+<p class="text-center font-italic wishlist-description-p">"{{ the_wishlist.wishlist_description }}"</p>
 
 <p>
 {% for present in displayed_presents %}
@@ -64,7 +65,7 @@
 {% endfor %}
 </p>
 
-<section id="section-form">
+<!-- <section id="section-form">
     <div class="container">
         <div class="form-text">
             <h3 class="text-center">FORM TO SUBMIT NEW PRESENTS</h3>
@@ -73,16 +74,55 @@
         <div class="row">
             <form action="{{ url_for('add_new_present', wishlist_username=wishlist_username) }}" method="POST">
                 <div class="form-group">
-                    <!-- wishlist description -->
+
                     <label for="present_description">Present Description</label>
                     <input type="text" class="form-control" id="present_description" name="present_description">
-                    <!-- header image -->
+
                     <label for="present_header_image_URL">Present Header Image</label>
                     <input type="text" class="form-control" id="present_header_image_URL" name="present_header_image_URL">
                     <button type="submit" class="cta cta-button">Submit</button>
                 </div>
             </form>
         </div>
+    </div>
+</section> -->
+
+
+
+
+<section id="section-presents">
+    <div class="container">
+
+<div class="present-form-div">
+
+            <form action="{{ url_for('add_new_present', wishlist_username=wishlist_username) }}" method="POST">
+                <div class="form-group-present">
+
+                        <label class="d-none" for="present_header_image_URL">Present Image</label>
+                        <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL">
+                        <!-- present title -->
+                        <label class="d-none" for="present_title">Present Title</label>
+                        <input type="text" class="form-control" id="present_title" name="present_title" placeholder="Add Title">
+                        <!-- present description -->
+                        <label class="d-none" for="present_description">Present Description</label>
+                        <textarea class="form-control present-description" id="present_description" name="present_description" rows="4"  placeholder="We have always wanted to get this beautiful camera to capture our moments together"></textarea>
+
+                        <!-- present quantity -->
+                        <label class="d-none" for="present_quantity">Present Quantity</label>
+                        <input type="text" class="form-control" id="present_quantity" name="present_quantity" placeholder="Add Quantity">
+                        <!-- present price -->
+                        <label class="d-none" for="present_price">Present Price</label>
+                        <input type="text" class="form-control" id="present_price" name="present_price" placeholder="Add Price">
+                        <!-- present category -->
+                        <label class="d-none" for="present_category">Present Category</label>
+                        <input type="text" class="form-control" id="present_category" name="present_category" placeholder="">
+
+                    <button type="submit" class="cta cta-button cta-present-form">Submit</button>
+
+                </div>
+            </form>
+
+</div>
     </div>
 </section>
 

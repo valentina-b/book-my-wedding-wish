@@ -68,8 +68,10 @@ input {
     background-color: var(--app-color-subtle)!important;
 }
 
-input:focus {
+input:focus, textarea:focus {
     border: 1px solid var(--app-color-text)!important;
+    /* outline: none!important; */
+    background-color: var(--app-color-subtle)!important;
 }
 
 .navbar {
@@ -258,6 +260,49 @@ form {
     margin-top: 2rem;
 }
 
+.wishlist-description-p {
+    display: block;
+    margin: auto;
+    max-width: 770px;
+}
+
+::placeholder {
+    text-transform: uppercase;
+}
+
+.present-description::placeholder {
+    text-transform: none;
+    font-style: italic;
+}
+
+.present-form-div, .present-form-div textarea {
+    width: 315px;
+    height: 540px;
+    border: 1px solid var(--app-color-supporting-2);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: var(--app-color-subtle);
+}
+
+.present-description {
+    height: 105px!important;
+    margin-bottom: 30px!important;
+}
+
+.present-form-div input, .present-form-div textarea {
+    width: 277px;
+    margin: 3px auto 10px auto;
+    /* height: 540px;
+    border: 1px solid var(--app-color-supporting-2);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: var(--app-color-subtle); */
+}
+
+.cta-present-form {
+    margin: 30px auto 0 auto;
+}
+
 /* Footer */
 .social-icons {
     margin: auto;
@@ -364,7 +409,7 @@ form {
     .return-link {
         margin: -20px auto 20px auto;
     }
-    .form-group {
+    .form-group, .form-group-present {
         width: 90%;
         margin: 0 auto;
     }

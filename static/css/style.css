@@ -51,6 +51,13 @@ h3 {
     font-size: 20px;
 }
 
+h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 label {
     margin-bottom: 0;
 }
@@ -270,6 +277,7 @@ form {
 .wishlist-description-p {
     display: block;
     margin: auto;
+    margin-bottom: 45px;
     max-width: 770px;
 }
 
@@ -283,7 +291,7 @@ form {
     font-style: italic;
 }
 
-.present-form-div, .present-form-div textarea {
+.present-form-div, .present-description, .present-div {
     width: 315px;
     height: 540px;
     border: 1px solid var(--app-color-supporting-2);
@@ -291,12 +299,12 @@ form {
     box-shadow: var(--box-shadow);
     background-color: var(--app-color-subtle);
     color: var(--app-color-text);
-    font-size: 14px;
 }
 
 .present-description {
     height: 105px!important;
     margin-bottom: 30px!important;
+    font-size: 14px;
 }
 
 .present-form-div input, .present-form-div textarea, .present-form-div select {
@@ -311,6 +319,24 @@ form {
 
 .cta-present-form {
     margin: 30px auto 0 auto;
+}
+
+.present-img-div {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 23px auto;
+}
+
+.present-content-div {
+    width: 255px;
+    height: 260px;
+    margin: auto;
+}
+
+.present-card, .present-card-form {
+    margin-bottom: 35px;
 }
 
 /* Footer */

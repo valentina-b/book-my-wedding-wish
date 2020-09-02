@@ -59,13 +59,20 @@ p {
     line-height: 155%;
 }
 
-input {
+input, select {
     border: 1px solid var(--app-color-supporting-2)!important;
     border-radius: var(--border-radius)!important;
     box-shadow: var(--box-shadow)!important;
-    color: var(--app-color-text)!important;
     height: 45px!important;
     background-color: var(--app-color-subtle)!important;
+}
+
+input {
+    color: var(--app-color-text)!important;
+}
+
+select {
+    color: #8E877F!important;
 }
 
 input:focus, textarea:focus {
@@ -268,6 +275,7 @@ form {
 
 ::placeholder {
     text-transform: uppercase;
+    color: #8E877F!important;
 }
 
 .present-description::placeholder {
@@ -282,6 +290,8 @@ form {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     background-color: var(--app-color-subtle);
+    color: var(--app-color-text);
+    font-size: 14px;
 }
 
 .present-description {
@@ -289,7 +299,7 @@ form {
     margin-bottom: 30px!important;
 }
 
-.present-form-div input, .present-form-div textarea {
+.present-form-div input, .present-form-div textarea, .present-form-div select {
     width: 277px;
     margin: 3px auto 10px auto;
     /* height: 540px;

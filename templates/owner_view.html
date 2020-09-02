@@ -33,7 +33,8 @@
 <p>
 {% for present in displayed_presents %}
         <li>
-            <h5>{{ present.present_description }}</h5>
+            <h5>{{ present.present_title }}</h5>
+            <p>{{ present.present_description }}</p>
             <p>Present booked by: "{{ present.present_booked_by_name }}"</p>
             <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
             <!-- Button trigger modal - Present-->
@@ -98,24 +99,31 @@
             <form action="{{ url_for('add_new_present', wishlist_username=wishlist_username) }}" method="POST">
                 <div class="form-group-present">
 
-                        <label class="d-none" for="present_header_image_URL">Present Image</label>
-                        <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL">
                         <!-- present title -->
                         <label class="d-none" for="present_title">Present Title</label>
-                        <input type="text" class="form-control" id="present_title" name="present_title" placeholder="Add Title">
+                        <input type="text" class="form-control" id="present_title" name="present_title" placeholder="Add Title" required>
+                        <!-- present header image -->
+                        <label class="d-none" for="present_header_image_URL">Present Image</label>
+                        <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" required>
                         <!-- present description -->
                         <label class="d-none" for="present_description">Present Description</label>
-                        <textarea class="form-control present-description" id="present_description" name="present_description" rows="4"  placeholder="We have always wanted to get this beautiful camera to capture our moments together"></textarea>
+                        <textarea class="form-control present-description" id="present_description" name="present_description" rows="4" maxlength="130" placeholder="We have always wanted to get this beautiful camera to capture our favourite moments together." required></textarea>
 
                         <!-- present quantity -->
                         <label class="d-none" for="present_quantity">Present Quantity</label>
-                        <input type="text" class="form-control" id="present_quantity" name="present_quantity" placeholder="Add Quantity">
+                        <input type="text" class="form-control" id="present_quantity" name="present_quantity" placeholder="Add Quantity" required>
                         <!-- present price -->
                         <label class="d-none" for="present_price">Present Price</label>
-                        <input type="text" class="form-control" id="present_price" name="present_price" placeholder="Add Price">
+                        <input type="text" class="form-control" id="present_price" name="present_price" placeholder="Add Price (€)" required>
                         <!-- present category -->
                         <label class="d-none" for="present_category">Present Category</label>
-                        <input type="text" class="form-control" id="present_category" name="present_category" placeholder="">
+                        <select class="form-control" id="present_category" name="present_category" required>
+                            <option value="placeholder" disabled selected>PRESENT CATEGORY</option>
+                            <option value="voucher">VOUCHER</option>
+                            <option value="experience">EXPERIENCE</option>
+                            <option value="home">HOME</option>
+                            <option value="money">MONEY</option>
+                        </select>
 
                     <button type="submit" class="cta cta-button cta-present-form">Submit</button>
 

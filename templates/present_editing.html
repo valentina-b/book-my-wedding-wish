@@ -10,17 +10,59 @@
 <p>{{ the_present }}</p>
 
 
-<h4>FORM TO EDIT THE PRESENTS:</h4>
-    <form action="{{ url_for('update_present', wishlist_username=wishlist_username, present_id=present._id) }}" method="POST">
+<section id="section-presents">
+    <div class="container">
+
+<div class="present-form-div">
+
+            <form action="{{ url_for('update_present', wishlist_username=wishlist_username, present_id=present._id) }}" method="POST">
+                <div class="form-group-present">
+
+                        <!-- present title -->
+                        <label class="d-none" for="present_title">Present Title</label>
+                        <input type="text" class="form-control" id="present_title" name="present_title" placeholder="Add Title" value="{{ present.present_title }}">
+                        <!-- present header image -->
+                        <label class="d-none" for="present_header_image_URL">Present Image</label>
+                        <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" value="{{ present.present_header_image_URL }}">
+                        <!-- present description -->
+                        <label class="d-none" for="present_description">Present Description</label>
+                        <textarea class="form-control present-description" id="present_description" name="present_description" rows="4" maxlength="130" placeholder="We have always wanted to get this beautiful camera to capture our moments together" value="{{ present.present_description }}"></textarea>
+
+                        <!-- present quantity -->
+                        <label class="d-none" for="present_quantity">Present Quantity</label>
+                        <input type="text" class="form-control" id="present_quantity" name="present_quantity" placeholder="Add Quantity" value="{{ present.present_quantity }}">
+                        <!-- present price -->
+                        <label class="d-none" for="present_price">Present Price</label>
+                        <input type="text" class="form-control" id="present_price" name="present_price" placeholder="Add Price (€)" value="{{ present.present_price }}">
+                        <!-- present category -->
+                        <label class="d-none" for="present_category">Present Category</label>
+                        <select class="form-control" id="present_category" name="present_category" value="{{ present.present_category }}">
+                            <option value="placeholder" disabled selected>PRESENT CATEGORY</option>
+                            <option value="voucher">VOUCHER</option>
+                            <option value="experience">EXPERIENCE</option>
+                            <option value="home">HOME</option>
+                            <option value="money">MONEY</option>
+                        </select>
+
+                    <button type="submit" class="cta cta-button cta-present-form">Submit</button>
+
+                </div>
+            </form>
+
+</div>
+    </div>
+</section>
+
+    <!-- <form action="{{ url_for('update_present', wishlist_username=wishlist_username, present_id=present._id) }}" method="POST">
         <div class="form-group">
-            <!-- wishlist description -->
             <label for="present_description">Present Description</label>
             <input type="text" class="form-control" id="present_description" name="present_description" value="{{ present.present_description }}">
-            <!-- header image -->
             <label for="present_header_image_URL">Present Header Image</label>
             <input type="text" class="form-control" id="present_header_image_URL" name="present_header_image_URL" value="{{ present.present_header_image_URL }}">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </form>
+    </form> -->
+
+
 
 {% endblock %}

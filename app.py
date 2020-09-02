@@ -139,8 +139,12 @@ def update_present(wishlist_username, present_id):
     presents.update({'_id': ObjectId(present_id)},
         {'$set':
             {
+                'present_title': request.form.get('present_title'),
                 'present_description': request.form.get('present_description'),
-                'present_header_image_URL': request.form.get('present_header_image_URL')
+                'present_header_image_URL': request.form.get('present_header_image_URL'),
+                'present_quantity': request.form.get('present_quantity'),
+                'present_price': request.form.get('present_price'),
+                'present_category': request.form.get('present_category')
             }
         })
     return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username))

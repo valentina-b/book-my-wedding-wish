@@ -35,9 +35,10 @@
                             </div>
                             <div class="present-content-div">
                                 <h4 class="">{{ present.present_title }}</h4>
-                                <p class="text-center">{{ present.present_description }}</p>
-                                <p class="">Quantity: "{{ present.present_quantity }}"</p>
-                                <p class="">Price: "{{ present.present_price }}"</p>
+                                <p class="text-center font-italic">{{ present.present_description }}</p>
+                                <p class="">Quantity: {{ present.present_quantity }}</p>
+                                <p class="">Price: {{ present.present_price }}</p>
+                                <p class="">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
                                 <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
                                 <!-- Button trigger modal - Present-->
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#presentModal{{ present._id }}">
@@ -95,10 +96,9 @@
                                             <label class="d-none" for="present_category">Present Category</label>
                                             <select class="form-control" id="present_category" name="present_category" required>
                                                 <option value="" disabled selected>PRESENT CATEGORY</option>
-                                                <option value="voucher">VOUCHER</option>
-                                                <option value="experience">EXPERIENCE</option>
-                                                <option value="home">HOME</option>
-                                                <option value="money">MONEY</option>
+                                                {% for category in displayed_categories %}
+                                                    <option value="{{ category.category_value }}">{{ category.category_name }}</option>
+                                                {% endfor %}
                                             </select>
 
                                         <button type="submit" class="cta cta-button cta-present-form">Submit</button>

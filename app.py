@@ -92,10 +92,13 @@ def owner_view_dynamic(wishlist_username):
     wishlist_id = the_wishlist['_id']
     presents = mongo.db.present
     displayed_presents = presents.find({'wishlist_id_username': wishlist_username})
+    categories = mongo.db.categories
+    displayed_categories = categories.find()
     return render_template('owner_view.html', wishlist_id=wishlist_id,
                             the_wishlist=the_wishlist,
                             displayed_presents=displayed_presents,
-                            wishlist_username=wishlist_username)
+                            wishlist_username=wishlist_username,
+                            displayed_categories=displayed_categories)
 
 
 # function that lets you add presents stored with the created wishlist id in the presents collection
@@ -128,8 +131,10 @@ def delete_present(wishlist_username, present_id):
 @app.route('/<wishlist_username>/edit_present/<present_id>')
 def edit_present(wishlist_username, present_id):
     the_present = mongo.db.present.find_one({'_id': ObjectId(present_id)})
+    categories = mongo.db.categories.find()
     return render_template('present_editing.html', wishlist_username=wishlist_username,
-                            present_id=present_id, present=the_present)
+                            present_id=present_id, present=the_present,
+                            categories=categories)
 
 
 # update the present in the edit view

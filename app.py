@@ -158,9 +158,9 @@ def update_present(wishlist_username, present_id):
 # edit the wishlist
 @app.route('/<wishlist_username>/owner/edit_wishlist')
 def edit_wishlist(wishlist_username):
-    the_wishlist =  mongo.db.wishlists.find_one({"wishlist_username": wishlist_username})
+    the_wishlist = mongo.db.wishlists.find_one({"wishlist_username": wishlist_username})
     return render_template('wishlist_editing.html', wishlist_username=wishlist_username,
-                            wishlist=the_wishlist)
+                            the_wishlist=the_wishlist)
 
 
 # update the wishlist in the edit view

@@ -27,41 +27,40 @@
     <div class="container">
         <div class="presents">
             <div class="row ">
-                <!-- <div class="present"> -->
+                
                     {% for present in displayed_presents %}
                         <div class="col-lg-4 present-card">
                         <div class="present-div">
 
-
+                        <!-- edit and delete present buttons -->
                         <div class="present-availability-btns">
-
                             <div class="present-availability-div">
                                 <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">
                                     <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-edit.svg') }}" class="present-availability-img" alt="">
                                 </a>
                             </div>
-                            
                             <div class="present-availability-div">
                                 <button class="present-availability-btn" data-toggle="modal" data-target="#presentModal{{ present._id }}">
                                     <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
                                 </button>
                             </div>
-
-
                         </div>
 
-                            <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 300px; filter: opacity(0.9)">
+                        <!-- present header image -->
+                            <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 250px; filter: opacity(0.9)">
                             </div>
+                        <!-- present information -->
                             <div class="present-content-div">
                                 <h4 class="">{{ present.present_title }}</h4>
-                                <p class="text-center font-italic present-description-p">{{ present.present_description }}</p>
+                                <p class="font-italic present-description-p">{{ present.present_description }}</p>
                                 <p class="present-p">Quantity: {{ present.present_quantity }}</p>
-                                <p class="present-p">Price: {{ present.present_price }}</p>
+                                <p class="present-p">Price: {{ present.present_price }}€</p>
                                 <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
-
-
-                                <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
-
+                                {% if present.present_availability == True %}
+                                    <p class="present-p"><span class="text-uppercase present-free">Free</span></p>
+                                {% else %}
+                                    <p class="present-p"><span class="text-uppercase present-reserved">Reserved</span> by {{ present.present_booked_by_name }}</p>
+                                {% endif %}
                             </div>
                             
                             <!-- Present Modal -->
@@ -91,10 +90,11 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         </div>
                     {% endfor %}
-                <!-- </div> -->
+
                 <div class="col-lg-4 present-card-form">
                         <div class="present-form-div">
 
@@ -103,7 +103,7 @@
 
                                             <!-- present title -->
                                             <label class="d-none" for="present_title">Present Title</label>
-                                            <input type="text" class="form-control" id="present_title" name="present_title" placeholder="Add Title" required>
+                                            <input type="text" class="form-control" id="present_title" name="present_title" maxlength="35" placeholder="Add Title" required>
                                             <!-- present header image -->
                                             <label class="d-none" for="present_header_image_URL">Present Image</label>
                                             <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" required>
@@ -141,40 +141,48 @@
 
 <div class="container">
     <div class="row">
-        <a href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}">Edit wishlist</a>
-        <!-- Button trigger modal - Wishlist -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wishlistModal">
-            Delete Wishlist
-        </button>
-        <a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" target="_blank" class="">Visit Guest Page</a>
+        <div class="wishlist-links">
+            <div class="wishlist-link-div">
+                <a href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}" class="return-link">Edit wishlist</a>
+            </div>
+            <div class="wishlist-link-div">
+                <!-- Button trigger modal - Wishlist -->
+                <button type="button" class="return-link" data-toggle="modal" data-target="#wishlistModal">
+                    Delete Wishlist
+                </button>
+            </div>
+            <div class="wishlist-link-div">
+                <a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" target="_blank" class="return-link">Visit Guest Page</a>
+            </div>
+        </div>
     </div>
 </div>
-
-
-
 <!-- Wishlist Modal -->
 <div class="modal fade" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <button type="button" class="close close-modal-button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                    </span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>
-                    Are you sure you want to delete your "{{ wishlist_username }}" wishlist?
+                <p class="text-center">
+                    Are you sure you want to delete 
+                    <br>
+                    your wishlist?
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <a href="{{ url_for('delete_wishlist', wishlist_username=wishlist_username) }}">Delete wishlist</a>
+                <button type="button" class="cta cta-button" data-dismiss="modal">Cancel</button>
+                <a href="{{ url_for('delete_wishlist', wishlist_username=wishlist_username) }}" class="return-link">Delete</a>
             </div>
         </div>
     </div>
 </div>
 
 
-</div>
+
 {% endblock %}

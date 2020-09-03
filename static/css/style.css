@@ -25,6 +25,7 @@ body {
     background-color: var(--app-color-subtle);
     font-family: var(--app-font-family);
     color: var(--app-color-text);
+    font-weight: 400;
 }
 
 .navbar-brand, .nav-link {
@@ -56,6 +57,7 @@ h4 {
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 25px;
+    font-weight: 400;
 }
 
 label {
@@ -66,15 +68,18 @@ p {
     line-height: 155%;
 }
 
-input, select {
+input, select, textarea {
     border: 1px solid var(--app-color-supporting-2)!important;
     border-radius: var(--border-radius)!important;
     box-shadow: var(--box-shadow)!important;
-    height: 45px!important;
     background-color: var(--app-color-subtle)!important;
 }
 
-input {
+input, select {
+    height: 45px!important;
+}
+
+input, textarea {
     color: var(--app-color-text)!important;
 }
 
@@ -107,7 +112,7 @@ input:focus, textarea:focus, textarea:active {
 }
 
 header {
-    margin-bottom: 55px;
+    margin-bottom: 30px;
 }
 
 .header-content {
@@ -177,6 +182,9 @@ header {
 .return-link {
     color: var(--app-color-text);
     text-decoration: underline;
+    /* overwrite buttons */
+    border: none!important;
+    background-color: transparent!important;
 }
 
 .return-link-form {
@@ -326,15 +334,17 @@ form {
 
 .present-description-p {
     font-size: 14px;
+    margin-bottom: 25px;
 }
 
 .present-p {
     margin: 0;
+    margin-bottom: 7px;
 }
 
 .present-img-div {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin: 50px auto 23px auto;
@@ -387,6 +397,28 @@ form {
     float: right;
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+.present-free {
+    color: #31943B;
+}
+
+.present-reserved {
+    color: #C75E80;
+}
+
+.wishlist-links {
+    margin: auto;
+}
+
+.wishlist-link-div {
+    margin: 0 15px;
+    display: inline;
+}
+
+.wishlist-link-div button {
+    padding: 0;
+    margin: 0;
 }
 
 /* Footer */
@@ -587,6 +619,11 @@ footer {
     }
     form {
         margin-top: 1rem;
+    }
+    .wishlist-link-div {
+        margin: 15px 0;
+        display: block;
+        text-align: center;
     }
 }
 /* Media - responsiveness */

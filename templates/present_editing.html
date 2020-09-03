@@ -20,7 +20,7 @@
 
                         <!-- present title -->
                         <label class="d-none" for="present_title">Present Title</label>
-                        <input type="text" class="form-control" id="present_title" name="present_title" placeholder="Add Title" value="{{ present.present_title }}">
+                        <input type="text" class="form-control" id="present_title" name="present_title" maxlength="35" placeholder="Add Title" value="{{ present.present_title }}">
                         <!-- present header image -->
                         <label class="d-none" for="present_header_image_URL">Present Image</label>
                         <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" value="{{ present.present_header_image_URL }}">

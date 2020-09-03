@@ -31,19 +31,37 @@
                     {% for present in displayed_presents %}
                         <div class="col-lg-4 present-card">
                         <div class="present-div">
-                            <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 300px; filter: opacity(0.9);">
+
+
+                        <div class="present-availability-btns">
+
+                            <div class="present-availability-div">
+                                <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">
+                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-edit.svg') }}" class="present-availability-img" alt="">
+                                </a>
+                            </div>
+                            
+                            <div class="present-availability-div">
+                                <button class="present-availability-btn" data-toggle="modal" data-target="#presentModal{{ present._id }}">
+                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                                </button>
+                            </div>
+
+
+                        </div>
+
+                            <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 300px; filter: opacity(0.9)">
                             </div>
                             <div class="present-content-div">
                                 <h4 class="">{{ present.present_title }}</h4>
-                                <p class="text-center font-italic">{{ present.present_description }}</p>
-                                <p class="">Quantity: {{ present.present_quantity }}</p>
-                                <p class="">Price: {{ present.present_price }}</p>
-                                <p class="">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
-                                <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
-                                <!-- Button trigger modal - Present-->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#presentModal{{ present._id }}">
-                                    Delete
-                                </button>
+                                <p class="text-center font-italic present-description-p">{{ present.present_description }}</p>
+                                <p class="present-p">Quantity: {{ present.present_quantity }}</p>
+                                <p class="present-p">Price: {{ present.present_price }}</p>
+                                <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
+
+
+                                <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
+
                             </div>
                             
                             <!-- Present Modal -->
@@ -51,17 +69,24 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
+                                            <button type="button" class="close close-modal-button" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">
+                                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                                                </span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Are you sure you want to delete your "{{ present.present_description }}" present?
+                                            <p class="text-center">
+                                                Are you sure you want to delete 
+                                                <br>
+                                                <span class="text-uppercase">"{{ present.present_title }}"</span>
+                                                <br>
+                                                from your wishlist?
+                                            </p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                            <a href="{{ url_for('delete_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Delete</a>
+                                            <button type="button" class="cta cta-button" data-dismiss="modal">Cancel</button>
+                                            <a href="{{ url_for('delete_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="return-link">Delete</a>
                                         </div>
                                     </div>
                                 </div>

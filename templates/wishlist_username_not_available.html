@@ -1,11 +1,18 @@
 {% extends 'base.html'%}
+
+{% block header %}
+<img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
+<img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
+{% endblock %}
+
 {% block content %}
-
-
-<h4 class="text-center">We are so sorry - the wishlist name has already been taken</h4>
-<p class="text-center">Please try again</p>
-    
-<p class="text-center"><a href="{{ url_for('homepage') }}">Return to homepage</a></p>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-center message-h3">The name is unavailable</h3>
+            <p class="text-center message">The wishlist name has already been taken - please try again with a different name suggestion.</p>
+            <p class="text-center"><a href="{{ url_for('homepage') }}" class="return-link">Return to homepage</a></p>
+        </div>
+    </div>
+</div>
 {% endblock %}

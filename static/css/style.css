@@ -421,6 +421,14 @@ form {
     margin: 0;
 }
 
+/* Wishlist deleted, Username unavailable */
+.message {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Wishlist deleted, Username unavailable */
+
 /* Footer */
 footer {
     margin-top: 50px;
@@ -624,6 +632,9 @@ footer {
         margin: 15px 0;
         display: block;
         text-align: center;
+    }
+    .message-h3 {
+        line-height: 40px;
     }
 }
 /* Media - responsiveness */

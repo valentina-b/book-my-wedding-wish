@@ -30,6 +30,8 @@ body {
 
 .navbar-brand, .nav-link {
     color: var(--app-color-text);
+    border: none;
+    background-color: transparent;
 }
 
 .navbar-brand:hover, .nav-link:hover {
@@ -558,7 +560,7 @@ footer {
 }
 
 .modal-dialog {
-    margin-top: 20%;
+    margin-top: 15vh;
 }
 
 .modal .cta {
@@ -753,7 +755,7 @@ footer {
         font-size: 16px;
     }
     .modal-dialog {
-        margin-top: 33%;
+        margin-top: 30vh;
     }
 }
 

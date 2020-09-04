@@ -312,6 +312,10 @@ form {
     color: var(--app-color-text);
 }
 
+.present-form-div-editing {
+    margin: 20px auto;
+}
+
 .present-description {
     height: 105px!important;
     margin-bottom: 30px!important;

@@ -132,9 +132,11 @@ def delete_present(wishlist_username, present_id):
 def edit_present(wishlist_username, present_id):
     the_present = mongo.db.present.find_one({'_id': ObjectId(present_id)})
     categories = mongo.db.categories.find()
+    the_wishlist = mongo.db.wishlists.find_one({"wishlist_username": wishlist_username})
     return render_template('present_editing.html', wishlist_username=wishlist_username,
                             present_id=present_id, present=the_present,
-                            categories=categories)
+                            categories=categories,
+                            the_wishlist=the_wishlist)
 
 
 # update the present in the edit view

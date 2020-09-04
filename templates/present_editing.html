@@ -1,20 +1,36 @@
 {% extends 'base.html'%}
+
+{% block header %}
+    <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
+        <path d="M0 0H1440V428C1154.28 463.616 994.274 464.759 708.5 430C435.096 396.559 279.852 395.667 0 428V0Z" fill="#CFB7A5"/>
+    </svg>
+    <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-display">
+        <path d="M0 0H600V375.93C480.948 407.213 414.281 408.217 295.208 377.687C181.29 348.314 116.605 347.531 0 375.93V0Z" fill="#CFB7A5"/>
+    </svg>
+    <div class="owner-header">
+        <div class="owner-header-image-div">
+            <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Couple Photo">
+        </div>
+        <h1>{{ the_wishlist.wishlist_name }}</h1>
+        <h3 class="text-center">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3>
+    </div>
+{% endblock %}
+
 {% block content %}
-
-<h1>PRESENT BEING EDITED</h1>
-<p>return to the wishlist</p>
-
-<p>{{ wishlist_username }} hi</p>
-
-<a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}">Return to wishlist</a>
-<p>{{ the_present }}</p>
-
 
 <section id="section-presents">
     <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center message-h3">Please edit your present information below:</h3>
+            </div>
+        </div>
+    </div>
 
-<div class="present-form-div">
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <div class="present-form-div present-form-div-editing">
             <form action="{{ url_for('update_present', wishlist_username=wishlist_username, present_id=present._id) }}" method="POST">
                 <div class="form-group-present">
 
@@ -51,21 +67,22 @@
 
                 </div>
             </form>
-
+</div>
+</div>
 </div>
     </div>
+
 </section>
 
-    <!-- <form action="{{ url_for('update_present', wishlist_username=wishlist_username, present_id=present._id) }}" method="POST">
-        <div class="form-group">
-            <label for="present_description">Present Description</label>
-            <input type="text" class="form-control" id="present_description" name="present_description" value="{{ present.present_description }}">
-            <label for="present_header_image_URL">Present Header Image</label>
-            <input type="text" class="form-control" id="present_header_image_URL" name="present_header_image_URL" value="{{ present.present_header_image_URL }}">
-            <button type="submit" class="btn btn-primary">Submit</button>
+<div class="container">
+    <div class="row">
+        <div class="wishlist-links">
+            <div class="wishlist-link-div">
+                <a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}" class="return-link">Return to wishlist</a>
+            </div>
         </div>
-    </form> -->
-
+    </div>
+</div>
 
 
 {% endblock %}

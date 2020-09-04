@@ -1,4 +1,21 @@
 {% extends 'base.html'%}
+
+{% block header %}
+    <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
+        <path d="M0 0H1440V428C1154.28 463.616 994.274 464.759 708.5 430C435.096 396.559 279.852 395.667 0 428V0Z" fill="#CFB7A5"/>
+    </svg>
+    <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-display">
+        <path d="M0 0H600V375.93C480.948 407.213 414.281 408.217 295.208 377.687C181.29 348.314 116.605 347.531 0 375.93V0Z" fill="#CFB7A5"/>
+    </svg>
+    <div class="owner-header">
+        <div class="owner-header-image-div">
+            <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Couple Photo">
+        </div>
+        <h1>{{ the_wishlist.wishlist_name }}</h1>
+        <h3 class="text-center">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3>
+    </div>
+{% endblock %}
+
 {% block content %}
 
 <h1>WELCOME GUEST</h1>
@@ -24,26 +41,36 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unbookPresentModal{{ present._id }}">
                     UNBOOK ME
                 </button>
-                <!-- Modal -->
+                <!-- Present Modal -->
                 <div class="modal fade" id="unbookPresentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to unbook this "{{ present.present_description }}" present?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="">Unbook present</a>
-                        </div>
+                            <div class="modal-header">
+                                <button type="button" class="close close-modal-button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">
+                                        <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">
+                                    Are you sure you want to unbook
+                                    <br>
+                                    <span class="text-uppercase">"{{ present.present_title }}"?</span>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="cta cta-button" data-dismiss="modal">Cancel</button>
+                                <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="return-link">Unbook</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
             {% elif present.present_availability == False %}
                 <p>I am booked already by someone else</p>
                 <p class="text-muted">BOOK MY WISH</p>

@@ -1,104 +1,216 @@
 {% extends 'base.html'%}
+
+{% block navlinks %} 
+    <li class="nav-item">
+        <a class="nav-link text-uppercase" href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}">Edit Wishlist</a>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="nav-link text-uppercase" data-toggle="modal" data-target="#wishlistModal">
+            Delete Wishlist
+        </button>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-uppercase" href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" target="_blank">Visit Guest Page</a>
+    </li>
+{% endblock %}
+
+{% block header %}
+    <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
+        <path d="M0 0H1440V428C1154.28 463.616 994.274 464.759 708.5 430C435.096 396.559 279.852 395.667 0 428V0Z" fill="#E2D6CD"/>
+    </svg>
+    <svg viewBox="0 0 600 400" fill="#E2D6CD" xmlns="http://www.w3.org/2000/svg" class="svg svg-display">
+        <path d="M0 0H600V375.93C480.948 407.213 414.281 408.217 295.208 377.687C181.29 348.314 116.605 347.531 0 375.93V0Z" fill="#E2D6CD"/>
+    </svg>
+    <div class="owner-header">
+        <div class="owner-header-image-div">
+            <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Couple Photo">
+        </div>
+        <h1>{{ the_wishlist.wishlist_name }}</h1>
+        <h3 class="text-center">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3>
+    </div>
+{% endblock %}
+
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p class="text-center font-italic wishlist-description-p">"{{ the_wishlist.wishlist_description }}"</p>
+        </div>
+    </div>
+</div>
+<div class="line desktop-line">
+</div>
 
-<h1>WELCOME OWNER</h1>
-<p>here add presents below</p>
 
-<p>THIS IS THE DOC ID: {{ wishlist_id }}</p>
-<p>wishlist username: {{ wishlist_username }}</p>
-<p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
 
-<h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
-<p>
-{% for present in displayed_presents %}
-        <li>
-            <h5>{{ present.present_description }}</h5>
-            <p>Present booked by: "{{ present.present_booked_by_name }}"</p>
-            <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Edit</a>
-            <!-- Button trigger modal - Present-->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#presentModal{{ present._id }}">
-                Delete
-            </button>
-        </li>
-        
-        <!-- Present Modal -->
-        <div class="modal fade" id="presentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete your "{{ present.present_description }}" present?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <a href="{{ url_for('delete_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">Delete</a>
-                    </div>
+<section id="section-presents">
+    <div class="container">
+        <div class="presents">
+            <div class="row ">
+                
+                    {% for present in displayed_presents %}
+                        <div class="line mobile-line">
+                        </div>
+                        <div class="col-lg-4 col-md-6 present-card">
+                        <div class="present-div">
+
+                        <!-- edit and delete present buttons -->
+                        <div class="present-availability-btns">
+                            <div class="present-availability-div">
+                                <a href="{{ url_for('edit_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="">
+                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-edit.svg') }}" class="present-availability-img" alt="">
+                                </a>
+                            </div>
+                            <div class="present-availability-div">
+                                <button class="present-availability-btn" data-toggle="modal" data-target="#presentModal{{ present._id }}">
+                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- present header image -->
+                            <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 250px; filter: opacity(0.9)">
+                            </div>
+                        <!-- present information -->
+                            <div class="present-content-div">
+                                <h4 class="">{{ present.present_title }}</h4>
+                                <p class="font-italic present-description-p">{{ present.present_description }}</p>
+                                <p class="present-p">Quantity: {{ present.present_quantity }}</p>
+                                <p class="present-p">Price: {{ present.present_price }}€</p>
+                                <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
+                                {% if present.present_availability == True %}
+                                    <p class="present-p"><span class="text-uppercase present-free">Free</span></p>
+                                {% else %}
+                                    <p class="present-p"><span class="text-uppercase present-reserved">Reserved</span> by {{ present.present_booked_by_name }}</p>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Present Modal -->
+                            <div class="modal fade" id="presentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close close-modal-button" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">
+                                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-center">
+                                                Are you sure you want to delete 
+                                                <br>
+                                                <span class="text-uppercase">"{{ present.present_title }}"</span>
+                                                <br>
+                                                from your wishlist?
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="cta cta-button" data-dismiss="modal">Cancel</button>
+                                            <a href="{{ url_for('delete_present', wishlist_username=wishlist_username, present_id=present._id) }}" class="return-link">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </div>
+                    {% endfor %}
+                <div class="line mobile-line" id="mobile-line">
+                </div>
+                <div class="col-lg-4 col-md-6 present-card-form">
+                        <div class="present-form-div">
+
+                                <form action="{{ url_for('add_new_present', wishlist_username=wishlist_username) }}" method="POST">
+                                    <div class="form-group-present">
+
+                                            <!-- present title -->
+                                            <label class="d-none" for="present_title">Present Title</label>
+                                            <input type="text" class="form-control" id="present_title" name="present_title" maxlength="35" placeholder="Present Title" required>
+                                            <!-- present header image -->
+                                            <label class="d-none" for="present_header_image_URL">Present Image</label>
+                                            <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" required>
+                                            <!-- present description -->
+                                            <label class="d-none" for="present_description">Present Description</label>
+                                            <textarea class="form-control present-description" id="present_description" name="present_description" rows="4" maxlength="130" placeholder="We have always wanted to get this beautiful camera to capture our favourite moments together." required></textarea>
+
+                                            <!-- present quantity -->
+                                            <label class="d-none" for="present_quantity">Present Quantity</label>
+                                            <input type="text" class="form-control" id="present_quantity" name="present_quantity" placeholder="Add Quantity" required>
+                                            <!-- present price -->
+                                            <label class="d-none" for="present_price">Present Price</label>
+                                            <input type="text" class="form-control" id="present_price" name="present_price" placeholder="Add Price (€)" required>
+                                            <!-- present category -->
+                                            <label class="d-none" for="present_category">Present Category</label>
+                                            <select class="form-control" id="present_category" name="present_category" required>
+                                                <option value="" disabled selected>PRESENT CATEGORY</option>
+                                                {% for category in displayed_categories %}
+                                                    <option value="{{ category.category_value }}">{{ category.category_name }}</option>
+                                                {% endfor %}
+                                            </select>
+
+                                        <button type="submit" class="cta cta-button cta-present-form">Submit</button>
+
+                                    </div>
+                                </form>
+
+                        </div>
                 </div>
             </div>
-        </div>
-{% endfor %}
-</p>
-
-<section id="section-form">
-    <div class="container">
-        <div class="form-text">
-            <h3 class="text-center">FORM TO SUBMIT NEW PRESENTS</h3>
-            <p class="text-center form-p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
-        </div>
-        <div class="row">
-            <form action="{{ url_for('add_new_present', wishlist_username=wishlist_username) }}" method="POST">
-                <div class="form-group">
-                    <!-- wishlist description -->
-                    <label for="present_description">Present Description</label>
-                    <input type="text" class="form-control" id="present_description" name="present_description">
-                    <!-- header image -->
-                    <label for="present_header_image_URL">Present Header Image</label>
-                    <input type="text" class="form-control" id="present_header_image_URL" name="present_header_image_URL">
-                    <button type="submit" class="cta cta-button">Submit</button>
-                </div>
-            </form>
         </div>
     </div>
 </section>
 
-
-<h4>EDIT WISHLIST</h4>
-<a href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}">Edit wishlist</a>
-<!-- Button trigger modal - Wishlist -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wishlistModal">
-    Delete Wishlist
-</button>
-<a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" target="_blank" class="">Visit Guest Page</a>
-
-
-
+<div class="line">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="wishlist-links">
+            <div class="wishlist-link-div">
+                <a href="{{ url_for('edit_wishlist', wishlist_username=wishlist_username) }}" class="return-link">Edit wishlist</a>
+            </div>
+            <div class="wishlist-link-div">
+                <!-- Button trigger modal - Wishlist -->
+                <button type="button" class="return-link" data-toggle="modal" data-target="#wishlistModal">
+                    Delete Wishlist
+                </button>
+            </div>
+            <div class="wishlist-link-div">
+                <a href="{{ url_for('guest_view_static', wishlist_username=wishlist_username) }}" target="_blank" class="return-link">Visit Guest Page</a>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Wishlist Modal -->
 <div class="modal fade" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <button type="button" class="close close-modal-button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                    </span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>
-                    Are you sure you want to delete your "{{ wishlist_username }}" wishlist?
+                <p class="text-center">
+                    Are you sure you want to delete 
+                    <br>
+                    your wishlist?
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <a href="{{ url_for('delete_wishlist', wishlist_username=wishlist_username) }}">Delete wishlist</a>
+                <button type="button" class="cta cta-button" data-dismiss="modal">Cancel</button>
+                <a href="{{ url_for('delete_wishlist', wishlist_username=wishlist_username) }}" class="return-link">Delete</a>
             </div>
         </div>
     </div>
 </div>
 
+<div id="add-present-mobile">
+    <a href="#mobile-line">
+        <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-booked.svg') }}" alt="">
+    </a>
+</div>
 
 {% endblock %}

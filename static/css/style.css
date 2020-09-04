@@ -365,12 +365,20 @@ form {
     height: 20px;
 }
 
+.present-available-div {
+    width: fit-content;
+}
+
 .present-availability-img {
     box-shadow: var(--box-shadow);
 }
 
 .present-availability-img:hover {
     background-color: var(--app-color-supporting-1);
+}
+
+.present-unavailable-img:hover {
+    background-color: transparent;
 }
 
 .present-availability-div {
@@ -397,6 +405,16 @@ form {
     float: right;
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+.present-free-link {
+    font-size: 13px;
+    text-decoration: underline;
+    color: #31943B;
+}
+
+.present-free-link:hover {
+    color: var(--app-color-text);
 }
 
 .present-free {
@@ -538,6 +556,10 @@ footer {
     .present-div, .present-form-div {
         margin: auto;
         margin-bottom: 30px;
+    }
+    .present-card, .present-card-form {
+        margin-bottom: 0;
+        padding: 0;
     }
 }
 

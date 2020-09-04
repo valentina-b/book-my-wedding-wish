@@ -17,71 +17,100 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <p class="text-center font-italic wishlist-description-p">"{{ the_wishlist.wishlist_description }}"</p>
+    </div>
+</div>
 
-<h1>WELCOME GUEST</h1>
-<p>THIS IS YOUR ID: {{ the_full_user_username_id }}</p>
-<p>here add presents below</p>
 
-<p>THIS IS THE DOC ID: {{ wishlist_username }}</p>
+<section id="section-presents">
+    <div class="container">
+        <div class="presents">
+            <div class="row ">
+                
+                    {% for present in displayed_presents %}
+                        <div class="col-lg-4 col-md-6 present-card">
+                        <div class="present-div">
 
-<p>THIS IS THE WHOLE DOC: {{ the_wishlist }}</p>
-
-<h4>THESE ARE ALL PRESENTS IN THE DOC ABOVE:</h4>
-<p>
-{% for present in displayed_presents %}
-        <li>
-            <h5>{{ present.present_description }}</h5>
-            <p>booked by: [ {{ present.present_booked_by_name }} ]</p>
-            <p>ID: [ {{ present._id }} ]</p>
-            
-            <p>
-            {% if present.present_booked_by_id == the_full_user_username_id %}
-                <p>I am booked already by YOU</p>
-                <!-- Button trigger modal - Unbook Present-->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unbookPresentModal{{ present._id }}">
-                    UNBOOK ME
-                </button>
-                <!-- Present Modal -->
-                <div class="modal fade" id="unbookPresentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close close-modal-button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">
-                                        <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="text-center">
-                                    Are you sure you want to unbook
-                                    <br>
-                                    <span class="text-uppercase">"{{ present.present_title }}"?</span>
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="cta cta-button" data-dismiss="modal">Cancel</button>
-                                <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="return-link">Unbook</a>
-                            </div>
+                        <!-- book and unbook present buttons -->
+                        <div class="present-availability-btns">
+                            {% if present.present_booked_by_id == the_full_user_username_id %}
+                                <div class="present-availability-div">
+                                    <!-- Button trigger modal - Unbook Present-->
+                                    <button class="present-availability-btn" data-toggle="modal" data-target="#unbookPresentModal{{ present._id }}">
+                                        <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-unbook.svg') }}" class="present-availability-img" alt="">
+                                    </button>
+                                    <!-- Present Modal -->
+                                    <div class="modal fade" id="unbookPresentModal{{ present._id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close close-modal-button" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">
+                                                                <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-delete.svg') }}" class="present-availability-img" alt="">
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p class="text-center">
+                                                            Are you sure you want to unbook
+                                                            <br>
+                                                            <span class="text-uppercase">"{{ present.present_title }}"?</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="cta cta-button" data-dismiss="modal">Cancel</button>
+                                                        <a href="{{ url_for('unbook_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="return-link">Unbook</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            {% elif present.present_availability == False %}
+                                <div class="present-availability-div">
+                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-booked.svg') }}" class="present-availability-img present-unavailable-img" alt="">
+                                </div>
+                            {% else %}
+                                <div class="present-availability-div present-available-div">
+                                    <a href="{{ url_for('book_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="present-free-link">
+                                        <p class="text-uppercase present-available-text">
+                                            Book me!
+                                        </p> 
+                                        <!-- <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-available.svg') }}" class="present-availability-img" alt=""> -->
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
-                    </div>
-                </div>
+                        <!-- present header image -->
+                            <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 250px; filter: opacity(0.9)">
+                            </div>
+                        <!-- present information -->
+                            <div class="present-content-div">
+                                <h4 class="">{{ present.present_title }}</h4>
+                                <p class="font-italic present-description-p">{{ present.present_description }}</p>
+                                <p class="present-p">Quantity: {{ present.present_quantity }}</p>
+                                <p class="present-p">Price: {{ present.present_price }}€</p>
+                                <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
+                                {% if present.present_availability == True %}
+                                    <p class="present-p"><span class="text-uppercase present-free">Free</span></p>
+                                {% else %}
+                                    <p class="present-p"><span class="text-uppercase present-reserved">Reserved</span> by {{ present.present_booked_by_name }}</p>
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                        </div>
 
 
-
-
-
-            {% elif present.present_availability == False %}
-                <p>I am booked already by someone else</p>
-                <p class="text-muted">BOOK MY WISH</p>
-            {% else %}
-                <p>I am available to you</p>
-                <a href="{{ url_for('book_present', wishlist_username=wishlist_username, the_full_user_username_id=the_full_user_username_id, present_id=present._id) }}" class="text-success">BOOK MY WISH</a>
-            {% endif %}
-            </p>
-        </li>
 {% endfor %}
-</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 
 
 

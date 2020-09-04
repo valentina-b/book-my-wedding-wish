@@ -539,6 +539,9 @@ form {
     .mobile-line {
         display: block;
     }
+    .desktop-line {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
@@ -785,6 +788,7 @@ footer {
     }
     .message-h3 {
         line-height: 30px;
+        margin-bottom: 20px;
     }
     h3, .form-text h3 {
         font-size: 16px;

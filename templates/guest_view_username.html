@@ -29,7 +29,7 @@
         <p class="text-center font-italic wishlist-description-p">"{{ the_wishlist.wishlist_description }}"</p>
     </div>
 </div>
-<div class="line">
+<div class="line desktop-line">
 </div>
 
 <section id="section-presents">
@@ -38,6 +38,8 @@
             <div class="row ">
                 
                     {% for present in displayed_presents %}
+                        <div class="line mobile-line">
+                        </div>
                         <div class="col-lg-4 col-md-6 present-card">
                         <div class="present-div">
 

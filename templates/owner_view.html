@@ -114,7 +114,8 @@
                         </div>
                         </div>
                     {% endfor %}
-
+                <div class="line mobile-line" id="mobile-line">
+                </div>
                 <div class="col-lg-4 col-md-6 present-card-form">
                         <div class="present-form-div">
 
@@ -123,7 +124,7 @@
 
                                             <!-- present title -->
                                             <label class="d-none" for="present_title">Present Title</label>
-                                            <input type="text" class="form-control" id="present_title" name="present_title" maxlength="35" placeholder="Add Title" required>
+                                            <input type="text" class="form-control" id="present_title" name="present_title" maxlength="35" placeholder="Present Title" required>
                                             <!-- present header image -->
                                             <label class="d-none" for="present_header_image_URL">Present Image</label>
                                             <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" required>
@@ -158,7 +159,8 @@
     </div>
 </section>
 
-
+<div class="line">
+</div>
 <div class="container">
     <div class="row">
         <div class="wishlist-links">
@@ -203,6 +205,10 @@
     </div>
 </div>
 
-
+<div id="add-present-mobile">
+    <a href="#mobile-line">
+        <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-booked.svg') }}" alt="">
+    </a>
+</div>
 
 {% endblock %}

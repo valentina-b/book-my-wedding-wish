@@ -2,7 +2,7 @@
 
 {% block navlinks %}
     <li class="nav-item">
-        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home</span></a>
     </li>
 {% endblock %}
 
@@ -17,6 +17,8 @@
         <div class="col">
             <h3 class="text-center message-h3">The name is unavailable</h3>
             <p class="text-center message">The wishlist name has already been taken - please try again with a different name suggestion.</p>
+            <div class="line">
+            </div>
             <p class="text-center"><a href="{{ url_for('homepage') }}" class="return-link">Return to homepage</a></p>
         </div>
     </div>

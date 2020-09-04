@@ -512,6 +512,41 @@ form {
     margin: 0;
 }
 
+#add-present-mobile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    bottom: 5%;
+    right: 10%;
+    background-color: var(--app-color-subtle);
+    border: 1px solid var(--app-color-supporting-1);
+    display: none;
+}
+
+#add-present-mobile img {
+    width: 50%;
+    margin: 14px auto 0 auto;
+    display: none;
+}
+
+.mobile-line {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .mobile-line {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    #add-present-mobile, #add-present-mobile img {
+        display: block;
+    }
+}
+
 /* Wishlist deleted, Username unavailable */
 .message {
     max-width: 500px;

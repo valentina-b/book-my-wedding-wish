@@ -36,7 +36,6 @@ body {
 
 .navbar-brand:hover, .nav-link:hover {
     color: var(--app-color-accent);
-    /* text-decoration: underline!important; */
 }
 
 h1, h3, label {
@@ -236,7 +235,6 @@ header {
 }
 
 .cta-button:focus, .cta:focus, button:focus {
-    /* border: 1.5px solid var(--app-color-text); */
     outline: none!important;
 }
 
@@ -355,8 +353,6 @@ form {
 
 .line {
     width: 45px;
-    /* height: 2px; */
-    /* border-radius: 30%; */
     margin: 0 auto 40px auto;
     border-top: 1px solid var(--app-color-supporting-2)
 }
@@ -394,11 +390,6 @@ form {
 .present-form-div input, .present-form-div textarea, .present-form-div select {
     width: 277px;
     margin: 3px auto 10px auto;
-    /* height: 540px;
-    border: 1px solid var(--app-color-supporting-2);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    background-color: var(--app-color-subtle); */
 }
 
 .cta-present-form {
@@ -712,7 +703,6 @@ footer {
         width: 85%;
         margin: 25px auto;
     }
-    /* --------------------- */
     .cta {
         margin: 40px auto;
     }
@@ -732,12 +722,9 @@ footer {
     }
     .img-additional {
         max-width: 100%;
-        /* margin: auto;
-        display: block; */
     }
     .text-additional {
         width: 85%;
-        /* margin: auto; */
     }
     .usp-row {
         padding: 20px!important;
@@ -788,7 +775,8 @@ footer {
     }
     .message-h3 {
         line-height: 30px;
-        margin-bottom: 20px;
+        width: 85%;
+        margin: 0 auto 20px auto;
     }
     h3, .form-text h3 {
         font-size: 16px;
@@ -831,10 +819,6 @@ footer {
     ::placeholder, input, select {
         font-size: 14px!important;
     }
-    /* .present-description::placeholder {
-        text-transform: none;
-        font-style: italic;
-    } */
 }
 
 @media (max-width: 375px) {

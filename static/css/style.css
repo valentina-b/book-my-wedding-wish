@@ -557,6 +557,10 @@ footer {
     background-color: rgba(142, 135, 127, 0.4);
 }
 
+.modal-dialog {
+    margin-top: 20%;
+}
+
 .modal .cta {
     margin: 5px 20px;
 }
@@ -724,6 +728,9 @@ footer {
         margin-top: 20px;
         font-size: 11px;
     }
+    .modal-footer .return-link {
+        margin: 0;
+    }
 }
 
 @media (max-width: 555px) {
@@ -745,6 +752,9 @@ footer {
     h3, .form-text h3 {
         font-size: 16px;
     }
+    .modal-dialog {
+        margin-top: 33%;
+    }
 }
 
 /* Owner header responsiveness */
@@ -755,12 +765,6 @@ footer {
     .owner-header h1 {
         font-size: 30px;
         margin-bottom: 10px;
-    }
-}
-
-@media (max-width: 585px) {
-    .owner-header {
-        top: 10%;
     }
 }
 

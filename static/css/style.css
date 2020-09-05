@@ -632,6 +632,7 @@ form {
     background-color: var(--app-color-subtle);
     border: 1px solid var(--app-color-supporting-1);
     display: none;
+    z-index: 1;
 }
 
 #add-present-mobile img {

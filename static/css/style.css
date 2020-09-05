@@ -475,6 +475,14 @@ form {
     border-top: 1px solid var(--app-color-supporting-2)
 }
 
+.username-line {
+    margin-bottom: 0;
+}
+
+#username-unavailable-form {
+    margin-top: 0;
+}
+
 ::placeholder {
     text-transform: uppercase;
     color: #8E877F!important;

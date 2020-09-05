@@ -65,11 +65,14 @@
             </div>
             <div class="col-lg-6">
                 <div class="text-additional">
-                    <h3 class="text-left">Book My Wedding Wish</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
-                    sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                    <h3 class="text-left">Ready For The Big Day?</h3>
+                    <p>It's tradition to receive presents for the wedding - but we know it can be 
+                    difficult to communicate to the guests what you need or want. Save efforts and 
+                    time by creating an online shareable wedding registry for your friends and family 
+                    at Book My Wedding Wish. Create the wishlist, add presents and let your guests 
+                    choose what they want to get you. Check out one of our 
+                    <a href="#" class="return-link" target="_blank">registry examples.</a>
+                    </p>
                  </div>
             </div>
         </div>
@@ -113,8 +116,9 @@
         </div>
     </div>
 </section>
+{% endblock %}
 
-
-
-
+{% block footer %}
+    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="">
 {% endblock %}

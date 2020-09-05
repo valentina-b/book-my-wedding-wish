@@ -86,6 +86,12 @@ input, textarea {
 
 select {
     color: #8E877F!important;
+    /* remove firefox arrow */
+    /* -webkit-appearance: none; */
+    -moz-appearance: none;
+    /* appearance: none; */
+    background: url(/static/images/icons/icon-select-arrow.svg) no-repeat right;
+    background-position-x: 95%;
 }
 
 input:focus, textarea:focus, textarea:active {
@@ -338,6 +344,7 @@ header {
     margin: 55px auto;
     display: block;
     width: fit-content;
+    width: -moz-fit-content;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }

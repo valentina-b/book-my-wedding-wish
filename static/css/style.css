@@ -431,7 +431,7 @@ header {
 }
 
 .container-icons, .container-footer {
-    height: 0px;
+    height: 0;
 }
 
 #section-additional {
@@ -581,6 +581,7 @@ form {
 .present-availability-div {
     margin: 10px 2px;
     display: inline-block;
+    width: -moz-fit-content;
 }
 
 .present-availability-btn {
@@ -749,6 +750,7 @@ footer {
     }
     .container-icons {
         height: fit-content;
+        height: -moz-fit-content;
         box-shadow: var(--box-shadow);
     }
     .usp-row {
@@ -957,7 +959,7 @@ footer {
 
 @media (max-width: 375px) {
     .owner-header {
-        top: 8%;
+        top: 10%;
     }
     .owner-header h3 {
         max-width: 90%;
@@ -981,7 +983,7 @@ footer {
 
 @media (max-width: 345px) {
     .owner-header {
-        top: 9%;
+        top: 12%;
     }
     .owner-header h3 {
         max-width: 90%;

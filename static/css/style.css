@@ -144,6 +144,13 @@ input:focus, textarea:focus, textarea:active {
     padding-left: 0!important;
 }
 
+@media (max-width: 425px) {
+    .col-2 {
+        flex: none!important;
+        max-width: 33%!important;
+    }
+}
+
 .label-radio {
     line-height: normal!important;
     display: inline-block;

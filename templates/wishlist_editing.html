@@ -12,15 +12,15 @@
 {% block header %}
     <!-- header desktop -->
     <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
-        <path d="M0 0H1440V428C1154.28 463.616 994.274 464.759 708.5 430C435.096 396.559 279.852 395.667 0 428V0Z" fill="#E2D6CD"/>
+        <path d="M0 0H1440V428C1154.28 463.616 994.274 464.759 708.5 430C435.096 396.559 279.852 395.667 0 428V0Z" fill="{{ the_wishlist.wishlist_theme }}"/>
     </svg>
     <!-- header mobile -->
     <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-display">
-        <path d="M0 0H600V375.93C480.948 407.213 414.281 408.217 295.208 377.687C181.29 348.314 116.605 347.531 0 375.93V0Z" fill="#E2D6CD"/>
+        <path d="M0 0H600V375.93C480.948 407.213 414.281 408.217 295.208 377.687C181.29 348.314 116.605 347.531 0 375.93V0Z" fill="{{ the_wishlist.wishlist_theme }}"/>
     </svg>
     <!-- header xs mobile -->
     <svg viewBox="0 0 320 250" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-xs-display">
-        <path d="M0 0H320V234.956C256.506 254.508 220.95 255.136 157.444 236.054C96.688 217.696 62.1894 217.207 0 234.956V0Z" fill="#E2D6CD"/>
+        <path d="M0 0H320V234.956C256.506 254.508 220.95 255.136 157.444 236.054C96.688 217.696 62.1894 217.207 0 234.956V0Z" fill="{{ the_wishlist.wishlist_theme }}"/>
     </svg>
     <div class="owner-header">
         <div class="owner-header-image-div">
@@ -54,7 +54,59 @@
                     <!-- wedding location -->
                     <label for="wishlist_wedding_location">Wedding Location</label>
                     <input type="text" class="form-control" id="wishlist_wedding_location" name="wishlist_wedding_location" value="{{ the_wishlist.wishlist_wedding_location }}">
-
+                    <!-- wishlist theme radio buttons -->
+                    <!-- <p class="label-title-radios">Wishlist colour theme</p> -->
+                    <!-- https://bootsnipp.com/snippets/O5oAl -->
+                    <!-- <div class="radio-buttons row">
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-1">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-1" value="#CFB7A5" checked>
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-1">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-2">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-2" value="#DBC7AF">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-2">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-3">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-3" value="#CEB0A5">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-3">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-4">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-4" value="#E2D6CD">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-4">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-5">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-5" value="#CEBEC3">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-5">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-6">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-6" value="#D1D1CF">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-6">
+                                </div>
+                            </label>
+                        </div>
+                    </div> -->
                     <button type="submit" class="cta cta-button">Submit</button>
                     <a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}" class="return-link return-link-form text-center">Return to wishlist</a>
                 </div>

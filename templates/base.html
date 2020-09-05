@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"/>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest') }}">
     <title>Book My Wedding Wish - Free Wedding Registry</title>
 </head>
 
@@ -35,30 +39,13 @@
 
 
 
-    <div>
-        {% block content %} {% endblock %}
-    </div>
+
+{% block content %} {% endblock %}
+
 
 
 <footer>
-    <!-- <svg viewBox="0 0 1440 456" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-hide-display">
-        <defs>
-            <clipPath id="theClippingPathFooter"> 
-                <path d="M1440 456L8.07047e-05 456V27.4397C285.724 -8.22297 445.726 -9.36743 731.5 25.4371C1004.9 58.9221 1160.15 59.815 1440 27.4397V456Z" fill="#E2D6CD"/>
-            </clipPath> 
-        </defs> 
-        <image xlink:href="{{ url_for('static', filename='images/img-footer.png') }}" clip-path="url(#theClippingPathFooter)"></image>
-    </svg>
-    <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg svg-display">
-        <defs>
-            <clipPath id="theClippingPathFooterMob"> 
-                <path d="M600 400L5.03659e-06 400V24.0699C119.052 -7.21314 185.719 -8.21705 304.792 22.3132C418.71 51.686 483.395 52.4693 600 24.0699V400Z" fill="#E2D6CD"/>
-            </clipPath> 
-        </defs> 
-        <image xlink:href="{{ url_for('static', filename='images/img-footer-mob.png') }}" clip-path="url(#theClippingPathFooterMob)"></image>
-    </svg> -->
-    <img src="{{ url_for('static', filename='images/footer-dsk.png') }}" class="img-hide-display img-width-100" alt="">
-    <img src="{{ url_for('static', filename='images/footer-mob.png') }}" class="img-display img-width-100" alt="">
+    {% block footer %} {% endblock %}
     <div id="footer-content" class="container-footer">
         <div class="row">
         <div class="social-icons">

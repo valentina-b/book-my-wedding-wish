@@ -33,13 +33,68 @@
                     <!-- wedding location -->
                     <label for="wishlist_wedding_location">Wedding Location</label>
                     <input type="text" class="form-control" id="wishlist_wedding_location" name="wishlist_wedding_location" value="" required>
-
+                    <!-- wishlist theme radio buttons -->
+                    <p class="label-title-radios">Wishlist colour theme</p>
+                    <!-- https://bootsnipp.com/snippets/O5oAl -->
+                    <div class="radio-buttons row">
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-1">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-1" value="#CFB7A5" checked>
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-1">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-2">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-2" value="#DBC7AF">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-2">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-3">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-3" value="#CEB0A5">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-3">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-4">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-4" value="#E2D6CD">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-4">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-5">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-5" value="#CEBEC3">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-5">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label class="label-radio" for="wishlist-theme-6">
+                                <input type="radio" name="wishlist_theme" id="wishlist-theme-6" value="#D1D1CF">
+                                <span class="checkround"></span>
+                                <div class="wishlist-theme-option" id="wishlist-theme-option-6">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
                     <button type="submit" class="cta cta-button">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
+{% endblock %}
 
-
+{% block footer %}
+    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="">
 {% endblock %}

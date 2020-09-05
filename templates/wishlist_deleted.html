@@ -24,3 +24,8 @@
     </div>
 </div>
 {% endblock %}
+
+{% block footer %}
+    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="">
+{% endblock %}

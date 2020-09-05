@@ -77,7 +77,8 @@ def complete_wishlist(new_wishlist_id):
                 'wishlist_description': request.form.get('wishlist_description'),
                 'wishlist_header_image_URL': request.form.get('wishlist_header_image_URL'),
                 'wishlist_wedding_date': request.form.get('wishlist_wedding_date'),
-                'wishlist_wedding_location': request.form.get('wishlist_wedding_location')
+                'wishlist_wedding_location': request.form.get('wishlist_wedding_location'),
+                'wishlist_theme': request.form.get('wishlist_theme')
             }
         })
     return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username))

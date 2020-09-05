@@ -38,7 +38,7 @@ body {
     color: var(--app-color-accent);
 }
 
-h1, h3, label {
+h1, h3, label, .label-title-radios {
     line-height: 67px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -95,6 +95,117 @@ input:focus, textarea:focus, textarea:active {
     -webkit-appearance:none; */
     box-shadow: var(--box-shadow)!important;
 }
+
+.wishlist-theme-option {
+    border: 1px solid var(--app-color-text);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    box-shadow: var(--box-shadow);
+}
+
+#wishlist-theme-option-1 {
+    background-color: #CFB7A5;
+}
+
+#wishlist-theme-option-2 {
+    background-color: #DBC7AF;
+}
+
+#wishlist-theme-option-3 {
+    background-color: #CEB0A5;
+}
+
+#wishlist-theme-option-4 {
+    background-color: #E2D6CD;
+}
+
+#wishlist-theme-option-5 {
+    background-color: #CEBEC3;
+}
+
+#wishlist-theme-option-6 {
+    background-color: #D1D1CF;
+}
+
+/* The radio */
+/* credits to: https://bootsnipp.com/snippets/O5oAl */
+.label-title-radios {
+    margin-bottom: 0;
+}
+
+.radio-buttons {
+    width: 100%;
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+.col-2 {
+    padding-left: 0!important;
+}
+
+.label-radio {
+    line-height: normal!important;
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* width: 16%; */
+}
+
+/* Hide the browser's default radio button */
+.label-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkround {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border: 1px solid var(--app-color-supporting-2);
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+}
+
+/* When the radio button is checked, change border colour */
+.label-radio input:checked ~ .checkround {
+    border: 1px solid var(--app-color-text);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkround:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.label-radio input:checked ~ .checkround:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.label-radio .checkround:after {
+    left: 2px;
+    top: 2px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--app-color-text);
+}
+/* credits to: https://bootsnipp.com/snippets/O5oAl */
+/* The radio */
 
 .navbar {
     box-shadow: var(--box-shadow);

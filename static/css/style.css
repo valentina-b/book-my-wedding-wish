@@ -87,9 +87,9 @@ input, textarea {
 select {
     color: #8E877F!important;
     /* remove firefox arrow */
-    /* -webkit-appearance: none; */
+    -webkit-appearance: none;
     -moz-appearance: none;
-    /* appearance: none; */
+    appearance: none;
     background: url(/static/images/icons/icon-select-arrow.svg) no-repeat right;
     background-position-x: 95%;
 }

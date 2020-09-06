@@ -28,6 +28,7 @@ body {
     font-weight: 400;
 }
 
+/* navigation */
 .navbar-brand, .nav-link {
     color: var(--app-color-text);
     border: none;
@@ -38,6 +39,20 @@ body {
     color: var(--app-color-accent);
 }
 
+.navbar {
+    box-shadow: var(--box-shadow);
+    background-color: var(--app-color-subtle);
+    height: 45px;
+}
+
+.navbar-toggler:focus, .navbar-toggler:active:focus, .navbar-toggler:focus {
+    outline: none;
+    border: 1px solid var(--app-color-text);
+    border-radius: var(--border-radius);
+}
+/* navigation */
+
+/* headings and text */
 h1, h3, label, .label-title-radios {
     line-height: 67px;
     letter-spacing: 0.15em;
@@ -68,7 +83,9 @@ label {
 p {
     line-height: 155%;
 }
+/* headings and text */
 
+/* form elements */
 input, select, textarea {
     border: 1px solid var(--app-color-supporting-2)!important;
     border-radius: var(--border-radius)!important;
@@ -134,7 +151,7 @@ input:focus, textarea:focus, textarea:active {
     background-color: #D1D1CF;
 }
 
-/* The radio */
+/* radio buttons */
 /* credits to: https://bootsnipp.com/snippets/O5oAl */
 .label-title-radios {
     margin-bottom: 0;
@@ -171,7 +188,7 @@ input:focus, textarea:focus, textarea:active {
     /* width: 16%; */
 }
 
-/* Hide the browser's default radio button */
+/* Hide browser's default radio button */
 .label-radio input {
     position: absolute;
     opacity: 0;
@@ -218,24 +235,14 @@ input:focus, textarea:focus, textarea:active {
     background-color: var(--app-color-text);
 }
 /* credits to: https://bootsnipp.com/snippets/O5oAl */
-/* The radio */
-
-.navbar {
-    box-shadow: var(--box-shadow);
-    background-color: var(--app-color-subtle);
-    height: 45px;
-}
-
-.navbar-toggler:focus, .navbar-toggler:active:focus, .navbar-toggler:focus {
-    outline: none;
-    border: 1px solid var(--app-color-text);
-    border-radius: var(--border-radius);
-}
+/* radio buttons */
+/* form elements */
 
 .container {
     max-width: 1060px;
 }
 
+/* header */
 header {
     margin-bottom: 30px;
 }
@@ -334,7 +341,9 @@ header {
 .img-width-100 {
     width: 100%;
 }
+/* header */
 
+/* buttons and links */
 .cta {
     text-transform: uppercase;
     color: var(--app-color-subtle);
@@ -379,7 +388,9 @@ header {
 .return-link:hover, .return-link:focus {
     color: var(--app-color-accent);
 }
+/* buttons and links */
 
+/* HP sections */
 .usp-img-background {
     margin: auto;
     width: 150px;
@@ -413,11 +424,9 @@ header {
 
 .usp-row {
     position: relative;
-    /* bottom: 350px; */
     bottom: 21rem;
 }
 
-/* how to fix svg responsiveness */
 @media (max-width: 1280px) {
     .usp-row {
         bottom: 18rem;
@@ -446,7 +455,9 @@ header {
 #section-break {
     margin-bottom: 55px;
 }
+/* HP sections */
 
+/* forms */
 .form-p {
     max-width: 707px;
 }
@@ -468,7 +479,9 @@ form {
     min-width: 85%;
     margin-top: 2rem;
 }
+/* forms */
 
+/* custom pages */
 .wishlist-description-p {
     display: block;
     margin: auto;
@@ -586,8 +599,6 @@ form {
 
 .present-availability-btn {
     width: 20px;
-    /* Safari fix */
-    /* height: 20px; */
     padding: 0;
     border: none;
     margin: 0;
@@ -677,15 +688,14 @@ form {
     }
 }
 
-/* Wishlist deleted, Username unavailable */
 .message {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
-/* Wishlist deleted, Username unavailable */
+/* custom pages */
 
-/* Footer */
+/* footer */
 footer {
     margin-top: 50px;
 }
@@ -717,9 +727,9 @@ footer {
     margin: auto;
     margin-top: 40px;
 }
-/* Footer */
+/* footer */
 
-/* Modal */
+/* modal */
 .modal {
     background-color: rgba(142, 135, 127, 0.4);
 }
@@ -742,13 +752,12 @@ footer {
     border: 1px solid var(--app-color-text);
     background-color: var(--app-color-subtle);
 }
-/* Modal */
+/* modal */
 
-/* Media - responsiveness */
+/* media - responsiveness */
 @media (max-width: 991px) {
     .navbar {
         height: auto;
-        /* height: fit-content; */
     }
     .container-icons {
         height: fit-content;
@@ -924,7 +933,7 @@ footer {
     }
 }
 
-/* Owner header responsiveness */
+/* owner header responsiveness */
 @media (max-width: 585px) {
     .owner-header {
         top: 10%;
@@ -1000,5 +1009,5 @@ footer {
         display: block;
     }
 }
-/* Owner header responsiveness */
-/* Media - responsiveness */
+/* owner header responsiveness */
+/* media - responsiveness */

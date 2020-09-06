@@ -32,8 +32,26 @@ The psychology of giving wedding gifts is truly fascinating. In NPR's [interview
 who did a research on this topic, Shankar says the tensions are produced from the fact that we want the gift to please the people getting married but 
 at the same time, the gift should reflect well on us. One of the reasons why guests deviate from buying off the wedding registry is that it doesn't 
 feel special enough. It is the close friends that normally deviate from the registry, saying that "they're doing it because they know what we really 
-want more than we know ourselves."
+want more than we know ourselves." It doesn't seem like those 82% newlyweds who end up selling their wedding presents on eBay would agree.
 
+### Conclusion of the Research
 
+For a life event that is expected to be full of joy and harmony, the reasearch shows otherwise for majority of the participants - newlyweds and guests both.
+The wedding planning is already stressful enough and the research shows the happy couple doesn't seem to be as happy with the presents despite the 
+availability of wedding registries. This project follows the general UX of other online wedding registries such as [MyRegistry](https://www.myregistry.com/) 
+and [Zola](https://www.zola.com/) with an important twist - a present is submitted with a personal note from the couple explaining why they want 
+exactly this present. This might help the guests to realise the importance of the item on the list and encourage them to stick to the list.
 
+![App Competitors](readme-files/images/img-competitors.png)
 
+### Customer Goals
+
+As a wishlist owner...
+
+* I need help with 
+* I need help with 
+
+### Business Goals
+
+* I need help with 
+* I need help with 

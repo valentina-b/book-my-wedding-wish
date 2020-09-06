@@ -586,7 +586,8 @@ form {
 
 .present-availability-btn {
     width: 20px;
-    height: 20px;
+    /* Safari fix */
+    /* height: 20px; */
     padding: 0;
     border: none;
     margin: 0;
@@ -746,7 +747,8 @@ footer {
 /* Media - responsiveness */
 @media (max-width: 991px) {
     .navbar {
-        height: fit-content;
+        height: auto;
+        /* height: fit-content; */
     }
     .container-icons {
         height: fit-content;

@@ -86,17 +86,20 @@ def complete_wishlist(new_wishlist_id):
 @app.route('/<wishlist_username>/owner')
 def owner_view_dynamic(wishlist_username):
     the_wishlist = mongo.db.wishlists.find_one({'wishlist_username': wishlist_username})
-    wishlist_username = the_wishlist['wishlist_username']
-    wishlist_id = the_wishlist['_id']
-    presents = mongo.db.present
-    displayed_presents = presents.find({'wishlist_id_username': wishlist_username})
-    categories = mongo.db.categories
-    displayed_categories = categories.find()
-    return render_template('owner_view.html', wishlist_id=wishlist_id,
-                            the_wishlist=the_wishlist,
-                            displayed_presents=displayed_presents,
-                            wishlist_username=wishlist_username,
-                            displayed_categories=displayed_categories)
+    if the_wishlist:
+        wishlist_username = the_wishlist['wishlist_username']
+        wishlist_id = the_wishlist['_id']
+        presents = mongo.db.present
+        displayed_presents = presents.find({'wishlist_id_username': wishlist_username})
+        categories = mongo.db.categories
+        displayed_categories = categories.find()
+        return render_template('owner_view.html', wishlist_id=wishlist_id,
+                                the_wishlist=the_wishlist,
+                                displayed_presents=displayed_presents,
+                                wishlist_username=wishlist_username,
+                                displayed_categories=displayed_categories)
+    else:
+        return redirect(url_for('homepage'))
 
 
 # add presents stored with the created wishlist name in the presents collection
@@ -193,11 +196,14 @@ def delete_wishlist(wishlist_username):
 @app.route('/<wishlist_username>/guest')
 def guest_view_static(wishlist_username):
     the_wishlist = mongo.db.wishlists.find_one({"wishlist_username": wishlist_username})
-    presents = mongo.db.present
-    displayed_presents = presents.find({"wishlist_id_username": wishlist_username})
-    return render_template('guest_view.html', wishlist_username=wishlist_username,
-                            the_wishlist=the_wishlist,
-                            displayed_presents=displayed_presents)
+    if the_wishlist:
+        presents = mongo.db.present
+        displayed_presents = presents.find({"wishlist_id_username": wishlist_username})
+        return render_template('guest_view.html', wishlist_username=wishlist_username,
+                                the_wishlist=the_wishlist,
+                                displayed_presents=displayed_presents)
+    else:
+        return redirect(url_for('homepage'))
 
 
 # create a guest username to book the presents
@@ -231,12 +237,15 @@ def add_guest_username(wishlist_username):
 @app.route('/<wishlist_username>/guest/<the_full_user_username_id>')
 def guest_view_dynamic(wishlist_username, the_full_user_username_id):
     the_wishlist = mongo.db.wishlists.find_one({'wishlist_username': wishlist_username})
-    presents = mongo.db.present
-    displayed_presents = presents.find({'wishlist_id_username': wishlist_username})
-    return render_template('guest_view_username.html', wishlist_username=wishlist_username,
-                            the_full_user_username_id=the_full_user_username_id,
-                            displayed_presents=displayed_presents,
-                            the_wishlist=the_wishlist)
+    if the_wishlist:
+        presents = mongo.db.present
+        displayed_presents = presents.find({'wishlist_id_username': wishlist_username})
+        return render_template('guest_view_username.html', wishlist_username=wishlist_username,
+                                the_full_user_username_id=the_full_user_username_id,
+                                displayed_presents=displayed_presents,
+                                the_wishlist=the_wishlist)
+    else:
+        return redirect(url_for('homepage'))
 
 
 # book a present with a guest name

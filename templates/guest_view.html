@@ -73,7 +73,7 @@
                                     <p class="present-p">Price: {{ present.present_price }}€</p>
                                     <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
                                     {% if present.present_availability == True %}
-                                        <p class="present-p"><span class="text-uppercase present-free">Free</span></p>
+                                        <p class="present-p"><span class="text-uppercase present-free">Available</span></p>
                                     {% else %}
                                         <p class="present-p"><span class="text-uppercase present-reserved">Reserved</span> by {{ present.present_booked_by_name }}</p>
                                     {% endif %}

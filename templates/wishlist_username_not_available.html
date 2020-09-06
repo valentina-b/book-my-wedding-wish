@@ -2,40 +2,37 @@
 
 {% block navlinks %}
     <li class="nav-item">
-        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home</span></a>
+        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home</a>
     </li>
 {% endblock %}
 
 {% block header %}
-<img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
-<img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="Header image">
+    <img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="Header image">
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h3 class="text-center message-h3">The name is unavailable</h3>
-            <p class="text-center message">The wishlist name has already been taken - please try again with a different name suggestion.</p>
-            <div class="line username-line">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center message-h3">The name is unavailable</h3>
+                <p class="text-center message">The wishlist name has already been taken - please try again with a different name suggestion.</p>
+                <div class="line username-line">
+                </div>
             </div>
         </div>
+        <form action="{{ url_for('create_wishlist_name') }}" method="POST" id="username-unavailable-form">
+            <div class="form-group">
+                <label for="wishlist_name">Wishlist Name</label>
+                <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" required>
+                <button type="submit" class="cta cta-button">Submit</button>
+            </div>
+        </form>
+        <p class="text-center"><a href="{{ url_for('homepage') }}" class="return-link">Return to Homepage</a></p>
     </div>
-            <form action="{{ url_for('create_wishlist_name') }}" method="POST" id="username-unavailable-form">
-                <div class="form-group">
-                    <label for="wishlist_name">Wishlist Name</label>
-                    <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" required>
-
-                    <button type="submit" class="cta cta-button">Submit</button>
-                </div>
-            </form>
-            <p class="text-center"><a href="{{ url_for('homepage') }}" class="return-link">Return to Homepage</a></p>
-
-</div>
-
 {% endblock %}
 
 {% block footer %}
-    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="">
-    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="Footer image">
+    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="Footer image">
 {% endblock %}

@@ -24,7 +24,7 @@
     </svg>
     <div class="owner-header">
         <div class="owner-header-image-div">
-            <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Couple Photo">
+            <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Wishlist photo">
         </div>
         <h1>{{ the_wishlist.wishlist_name }}</h1>
         <h3 class="text-center">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3>
@@ -32,79 +32,70 @@
 {% endblock %}
 
 {% block content %}
+    <section id="section-presents">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="line mobile-line">
+                    </div>
+                    <h3 class="text-center message-h3">Please edit your present below:</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="present-form-div present-form-div-editing">
+                        <form action="{{ url_for('update_present', wishlist_username=wishlist_username, present_id=present._id) }}" method="POST">
+                            <div class="form-group-present">
+                                <!-- present title -->
+                                <label class="d-none" for="present_title">Present Title</label>
+                                <input type="text" class="form-control" id="present_title" name="present_title" maxlength="35" placeholder="Present Title" value="{{ present.present_title }}" required>
+                                <!-- present header image -->
+                                <label class="d-none" for="present_header_image_URL">Present Image</label>
+                                <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" value="{{ present.present_header_image_URL }}" required>
+                                <!-- present description -->
+                                <label class="d-none" for="present_description">Present Description</label>
+                                <textarea class="form-control present-description" id="present_description" name="present_description" rows="4" maxlength="130" placeholder="We have always wanted to get this beautiful camera to capture our moments together" required>{{ present.present_description }}</textarea>
+                                <!-- present quantity -->
+                                <label class="d-none" for="present_quantity">Present Quantity</label>
+                                <input type="text" class="form-control" id="present_quantity" name="present_quantity" placeholder="Add Quantity" value="{{ present.present_quantity }}" required>
+                                <!-- present price -->
+                                <label class="d-none" for="present_price">Present Price</label>
+                                <input type="text" class="form-control" id="present_price" name="present_price" placeholder="Add Price (€)" value="{{ present.present_price }}" required>
+                                <!-- present category -->
+                                <label class="d-none" for="present_category">Present Category</label>
+                                <select class="form-control" id="present_category" name="present_category" required>
+                                    <option value="" disabled selected>PRESENT CATEGORY</option>
+                                    {% for category in categories %}
+                                        {% if category.category_value == present.present_category %}
+                                            <option value="{{ category.category_value }}" selected>{{ category.category_name }}</option>
+                                        {% else %}
+                                            <option value="{{ category.category_value }}">{{ category.category_name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                <button type="submit" class="cta cta-button cta-present-form">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="section-presents">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="line mobile-line">
+            <div class="wishlist-links">
+                <div class="wishlist-link-div">
+                    <a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}" class="return-link">Return to Wishlist</a>
                 </div>
-                <h3 class="text-center message-h3">Please edit your present below:</h3>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-            <div class="present-form-div present-form-div-editing">
-            <form action="{{ url_for('update_present', wishlist_username=wishlist_username, present_id=present._id) }}" method="POST">
-                <div class="form-group-present">
-
-                        <!-- present title -->
-                        <label class="d-none" for="present_title">Present Title</label>
-                        <input type="text" class="form-control" id="present_title" name="present_title" maxlength="35" placeholder="Present Title" value="{{ present.present_title }}" required>
-                        <!-- present header image -->
-                        <label class="d-none" for="present_header_image_URL">Present Image</label>
-                        <input type="url" class="form-control" id="present_header_image_URL" name="present_header_image_URL" placeholder="Paste Image URL" value="{{ present.present_header_image_URL }}" required>
-                        <!-- present description -->
-                        <label class="d-none" for="present_description">Present Description</label>
-                        <textarea class="form-control present-description" id="present_description" name="present_description" rows="4" maxlength="130" placeholder="We have always wanted to get this beautiful camera to capture our moments together" required>{{ present.present_description }}</textarea>
-
-                        <!-- present quantity -->
-                        <label class="d-none" for="present_quantity">Present Quantity</label>
-                        <input type="text" class="form-control" id="present_quantity" name="present_quantity" placeholder="Add Quantity" value="{{ present.present_quantity }}" required>
-                        <!-- present price -->
-                        <label class="d-none" for="present_price">Present Price</label>
-                        <input type="text" class="form-control" id="present_price" name="present_price" placeholder="Add Price (€)" value="{{ present.present_price }}" required>
-                        <!-- present category -->
-                        <label class="d-none" for="present_category">Present Category</label>
-                        <select class="form-control" id="present_category" name="present_category" required>
-                            <option value="" disabled selected>PRESENT CATEGORY</option>
-                            {% for category in categories %}
-                                {% if category.category_value == present.present_category %}
-                                    <option value="{{ category.category_value }}" selected>{{ category.category_name }}</option>
-                                {% else %}
-                                    <option value="{{ category.category_value }}">{{ category.category_name }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-
-                    <button type="submit" class="cta cta-button cta-present-form">Submit</button>
-
-                </div>
-            </form>
-</div>
-</div>
-</div>
-    </div>
-
-</section>
-
-<div class="container">
-    <div class="row">
-        <div class="wishlist-links">
-            <div class="wishlist-link-div">
-                <a href="{{ url_for('owner_view_dynamic', wishlist_username=wishlist_username) }}" class="return-link">Return to Wishlist</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 {% endblock %}
 
 {% block footer %}
-    <img src="{{ url_for('static', filename='images/footer-dsk.png') }}" class="img-hide-display img-width-100" alt="">
-    <img src="{{ url_for('static', filename='images/footer-mob.png') }}" class="img-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-dsk.png') }}" class="img-hide-display img-width-100" alt="Footer image">
+    <img src="{{ url_for('static', filename='images/footer-mob.png') }}" class="img-display img-width-100" alt="Footer image">
 {% endblock %}

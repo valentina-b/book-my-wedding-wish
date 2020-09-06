@@ -10,115 +10,105 @@
 {% endblock %}
 
 {% block header %}
-<img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
-<img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
-<!-- header part -->
-<div class="header-content">
-    <h1 class="text-uppercase">Book My Wedding Wish</h1>
-    <p class="header-p text-center">Free online shareable wedding gift wishlist for your friends and family</p>
-    <a href="#scroll" class="cta">Create Your Wishlist</a>
-</div>
-<!-- header part -->
+    <!-- header image -->
+    <img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="Header image">
+    <img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="Header image">
+    <!-- header content -->
+    <div class="header-content">
+        <h1 class="text-uppercase">Book My Wedding Wish</h1>
+        <p class="header-p text-center">Free online shareable wedding gift wishlist for your friends and family</p>
+        <a href="#scroll" class="cta">Create Your Wishlist</a>
+    </div>
 {% endblock %}
 
 {% block content %}
-<section id="section-usp">
-    <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-content d-none d-lg-block">
-        <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
-    </svg>
-    <div class="container container-icons">
-        <div class="row usp-row">
-            <div class="col-md-4">
-                <div class="usp-container">
-                    <div class="usp-img-background">
-                        <img src="{{ url_for('static', filename='images/icons/icon-list.svg') }}" class="usp-icon" alt="Wishlist icon">
+    <section id="section-usp">
+        <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-content d-none d-lg-block">
+            <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
+        </svg>
+        <div class="container container-icons">
+            <div class="row usp-row">
+                <div class="col-md-4">
+                    <div class="usp-container">
+                        <div class="usp-img-background">
+                            <img src="{{ url_for('static', filename='images/icons/icon-list.svg') }}" class="usp-icon" alt="Wishlist icon">
+                        </div>
+                        <p class="usp-text">Create an <strong>online list</strong> of your desired presents</p>
                     </div>
-                
-                <p class="usp-text">Create an <strong>online list</strong> of your desired presents</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="usp-container">
+                        <div class="usp-img-background">
+                            <img src="{{ url_for('static', filename='images/icons/icon-letter.svg') }}" class="usp-icon" alt="Letter icon">
+                        </div>
+                        <p class="usp-text">Send the wishlist to your <strong>friends and family</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="usp-container">
+                        <div class="usp-img-background">
+                            <img src="{{ url_for('static', filename='images/icons/icon-present.svg') }}" class="usp-icon-3" alt="Present icon">
+                        </div>
+                        <p class="usp-text">Enjoy the <strong>lovely presents</strong> after the celebration</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="usp-container">
-                    <div class="usp-img-background">
-                    <img src="{{ url_for('static', filename='images/icons/icon-letter.svg') }}" class="usp-icon" alt="Letter icon">
+        </div>
+    </section>
+
+    <section id="section-additional">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='images/img-additional.png') }}" class="img-additional" alt="Wedding rings">
                 </div>
-                <p class="usp-text">Send the wishlist to your <strong>friends and family</strong></p>
-                            </div>
-            </div>
-            <div class="col-md-4">
-                            <div class="usp-container">
-                <div class="usp-img-background">
-                    <img src="{{ url_for('static', filename='images/icons/icon-present.svg') }}" class="usp-icon-3" alt="Present icon">
+                <div class="col-lg-6">
+                    <div class="text-additional">
+                        <h3 class="text-left">Ready For The Big Day?</h3>
+                        <p>It's tradition to receive presents for the wedding - but we know it can be 
+                        difficult to communicate to the guests what you need or want. Save efforts and 
+                        time by creating an online shareable wedding registry for your friends and family 
+                        at Book My Wedding Wish. Create the wishlist, add presents and let your guests 
+                        choose what they want to get you. Check out one of our 
+                        <a href="#" class="return-link" target="_blank">registry examples.</a>
+                        </p>
+                    </div>
                 </div>
-                <p class="usp-text">Enjoy the <strong>lovely presents</strong> after the celebration</p>
-                            </div>
+            </div>
+            <div class="row">
+                <a href="#scroll" class="cta">Create Your Wishlist</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="section-additional">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <img src="{{ url_for('static', filename='images/img-additional.png') }}" class="img-additional" alt="Wedding Rings">
-            </div>
-            <div class="col-lg-6">
-                <div class="text-additional">
-                    <h3 class="text-left">Ready For The Big Day?</h3>
-                    <p>It's tradition to receive presents for the wedding - but we know it can be 
-                    difficult to communicate to the guests what you need or want. Save efforts and 
-                    time by creating an online shareable wedding registry for your friends and family 
-                    at Book My Wedding Wish. Create the wishlist, add presents and let your guests 
-                    choose what they want to get you. Check out one of our 
-                    <a href="#" class="return-link" target="_blank">registry examples.</a>
-                    </p>
-                 </div>
-            </div>
+    <section id="section-break">
+        <img src="{{ url_for('static', filename='images/section-img.png') }}" class="img-width-100" alt="Wedding flowers image">
+        <div id="scroll">
         </div>
-        <div class="row">
-            <a href="#scroll" class="cta">Create Your Wishlist</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="section-break">
-    <!-- <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
-        <defs>
-            <clipPath id="theClippingPathBreak"> 
-                <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
-            </clipPath> 
-        </defs> 
-        <image xlink:href="{{ url_for('static', filename='images/img-break.png') }}" clip-path="url(#theClippingPathBreak)"></image>
-   </svg> -->
-    <img src="{{ url_for('static', filename='images/section-img.png') }}" class="img-width-100" alt="">
-    <div id="scroll">
-    </div>
-</section>
-
-<section id="section-form">
-    <div class="container">
-        <div class="row">
-            <div class="form-text">
-                <h3 class="text-center">Create a Unique Wishlist Name and Add Presents to it</h3>
-                <p class="text-center form-p">After submitting a wishlist name, you will be able to customise the wishlist and send it to the guests.</p>
-            </div>
-        </div>
-        <div class="row">
-            <form action="{{ url_for('create_wishlist_name') }}" method="POST" id="form">
-                <div class="form-group">
-                    <label for="wishlist_name">Wishlist Name</label>
-                    <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" required>
-
-                    <button type="submit" class="cta cta-button">Submit</button>
+    <section id="section-form">
+        <div class="container">
+            <div class="row">
+                <div class="form-text">
+                    <h3 class="text-center">Create a Unique Wishlist Name and Add Presents to It</h3>
+                    <p class="text-center form-p">After submitting a wishlist name, you will be able to customise the wishlist and send it to the guests.</p>
                 </div>
-            </form>
+            </div>
+            <div class="row">
+                <form action="{{ url_for('create_wishlist_name') }}" method="POST" id="form">
+                    <div class="form-group">
+                        <label for="wishlist_name">Wishlist Name</label>
+                        <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" required>
+                        <button type="submit" class="cta cta-button">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
 
 {% block footer %}
-    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="">
-    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="Footer image">
+    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="Footer image">
 {% endblock %}

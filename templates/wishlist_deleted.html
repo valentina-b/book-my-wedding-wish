@@ -2,30 +2,30 @@
 
 {% block navlinks %}
     <li class="nav-item">
-        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home</span></a>
+        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home</a>
     </li>
 {% endblock %}
 
 {% block header %}
-<img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="">
-<img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/header-dsk.png') }}" class="img-hide-display img-width-100" alt="Header image">
+    <img src="{{ url_for('static', filename='images/header-mob.png') }}" class="img-display img-width-100" alt="Header image">
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h3 class="text-center message-h3">Hope to see you soon!</h3>
-            <p class="text-center message">Thank you for using BMWL - we're sad to see you go but remember you can create new wishlists anytime!</p>
-            <div class="line">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center message-h3">Hope to see you soon!</h3>
+                <p class="text-center message">Thank you for using BMWL - we're sad to see you go but remember you can create new wishlists anytime!</p>
+                <div class="line">
+                </div>
+                <p class="text-center"><a href="{{ url_for('homepage') }}" class="return-link">Return to Homepage</a></p>
             </div>
-            <p class="text-center"><a href="{{ url_for('homepage') }}" class="return-link">Return to Homepage</a></p>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block footer %}
-    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="">
-    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-dsk-hp.png') }}" class="img-hide-display img-width-100" alt="Footer image">
+    <img src="{{ url_for('static', filename='images/footer-mob-hp.png') }}" class="img-display img-width-100" alt="Footer image">
 {% endblock %}

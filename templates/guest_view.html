@@ -2,13 +2,12 @@
 
 {% block navlinks %}
     <li class="nav-item">
-        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home</span></a>
+        <a class="nav-link text-uppercase" href="{{ url_for('homepage') }}">Home</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-uppercase" href="#scroll">Create Guest Username</a>
     </li>
 {% endblock %}
-
 
 {% block header %}
     <!-- header desktop -->
@@ -25,7 +24,7 @@
     </svg>
     <div class="owner-header">
         <div class="owner-header-image-div">
-            <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Couple Photo">
+            <img src="{{ the_wishlist.wishlist_header_image_URL }}" alt="Wishlist photo">
         </div>
         <h1>{{ the_wishlist.wishlist_name }}</h1>
         <h3 class="text-center">{{ the_wishlist.wishlist_wedding_location }} - {{ the_wishlist.wishlist_wedding_date }}</h3>
@@ -33,108 +32,88 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <p class="text-center font-italic wishlist-description-p">"{{ the_wishlist.wishlist_description }}"</p>
-    </div>
-</div>
-<div class="line desktop-line">
-</div>
-
-<section id="section-presents">
     <div class="container">
-        <div class="presents">
-            <div class="row ">
-                
+        <div class="row">
+            <p class="text-center font-italic wishlist-description-p">"{{ the_wishlist.wishlist_description }}"</p>
+        </div>
+    </div>
+    <div class="line desktop-line">
+    </div>
+    <section id="section-presents">
+        <div class="container">
+            <div class="presents">
+                <div class="row ">
                     {% for present in displayed_presents %}
                         <div class="line mobile-line">
                         </div>
                         <div class="col-lg-4 col-md-6 present-card">
-                        <div class="present-div">
-
-                        <!-- book present button -->
-                        <div class="present-availability-btns">
-                            {% if present.present_availability == True %}
-                                <div class="present-availability-div present-available-div">
-                                    <a href="#scroll" class="present-free-link">
-                                        <p class="text-uppercase present-available-text">
-                                            Book me!
-                                        </p> 
-                                        <!-- <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-available.svg') }}" class="present-availability-img" alt=""> -->
-                                    </a>
+                            <div class="present-div">
+                                <!-- book present button -->
+                                <div class="present-availability-btns">
+                                    {% if present.present_availability == True %}
+                                        <div class="present-availability-div present-available-div">
+                                            <a href="#scroll" class="present-free-link">
+                                                <p class="text-uppercase present-available-text">Book me!</p> 
+                                            </a>
+                                        </div>
+                                    {% else %}
+                                        <div class="present-availability-div">
+                                            <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-booked.svg') }}" class="present-availability-img present-unavailable-img" alt="Unavailable present icon">
+                                        </div>
+                                    {% endif %}
                                 </div>
-                            {% else %}
-                                <div class="present-availability-div">
-                                    <img src="{{ url_for('static', filename='images/icons/present-form-icons/icon-present-booked.svg') }}" class="present-availability-img present-unavailable-img" alt="">
+                                <!-- present header image -->
+                                <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 250px; filter: opacity(0.9)">
                                 </div>
-                            {% endif %}
-                        </div>
-                        <!-- present header image -->
-                            <div class="present-img-div" style="background: url({{ present.present_header_image_URL}}) no-repeat center; background-size: 250px; filter: opacity(0.9)">
+                                <!-- present information -->
+                                <div class="present-content-div">
+                                    <h4 class="">{{ present.present_title }}</h4>
+                                    <p class="font-italic present-description-p">{{ present.present_description }}</p>
+                                    <p class="present-p">Quantity: {{ present.present_quantity }}</p>
+                                    <p class="present-p">Price: {{ present.present_price }}€</p>
+                                    <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
+                                    {% if present.present_availability == True %}
+                                        <p class="present-p"><span class="text-uppercase present-free">Free</span></p>
+                                    {% else %}
+                                        <p class="present-p"><span class="text-uppercase present-reserved">Reserved</span> by {{ present.present_booked_by_name }}</p>
+                                    {% endif %}
+                                </div>
                             </div>
-                        <!-- present information -->
-                            <div class="present-content-div">
-                                <h4 class="">{{ present.present_title }}</h4>
-                                <p class="font-italic present-description-p">{{ present.present_description }}</p>
-                                <p class="present-p">Quantity: {{ present.present_quantity }}</p>
-                                <p class="present-p">Price: {{ present.present_price }}€</p>
-                                <p class="present-p">Category: <span class="text-uppercase">{{ present.present_category }}</span></p>
-                                {% if present.present_availability == True %}
-                                    <p class="present-p"><span class="text-uppercase present-free">Free</span></p>
-                                {% else %}
-                                    <p class="present-p"><span class="text-uppercase present-reserved">Reserved</span> by {{ present.present_booked_by_name }}</p>
-                                {% endif %}
-                            </div>
-                        </div>
                         </div>
                     {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-
-<section id="section-break">
-    <!-- <svg viewBox="0 0 1440 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
-        <defs>
-            <clipPath id="theClippingPathBreak"> 
-                <path d="M0 21.5874C280.961 -8.7993 439.535 -5.48794 720.5 21.4021C1001.45 44.6809 1159.08 45.1683 1440 21.4021V417.402C1165.12 449.261 1006.99 446.483 720.5 417.402C433.966 394.854 274.947 392.71 0 417.403V21.5874Z" fill="#E2D6CD"/>
-            </clipPath> 
-        </defs> 
-        <image xlink:href="{{ url_for('static', filename='images/img-break.png') }}" clip-path="url(#theClippingPathBreak)"></image>
-   </svg> -->
-    <!-- <img src="{{ url_for('static', filename='images/section-img.png') }}" class="img-width-100" alt=""> -->
-    <div class="line">
-</div>
-    <div id="scroll">
-    </div>
-</section>
-
-
-<section id="section-form">
-    <div class="container">
-        <div class="form-text">
-            <h3 class="text-center">Please submit your name and surname below:</h3>
+    </section>
+    <section id="section-break">
+        <div class="line">
         </div>
-        <div class="row">
-            <form action="{{ url_for('add_guest_username', wishlist_username=wishlist_username) }}" method="POST">
-                <div class="form-group">
-                    <!-- Name -->
-                    <label for="user_name">Guest Name</label>
-                    <input type="text" class="form-control" id="user_name" name="user_name" required>
-                    <!-- Surname -->
-                    <label for="user_surname">Guest Surname</label>
-                    <input type="text" class="form-control" id="user_surname" name="user_surname" required>
-                    <button type="submit" class="cta cta-button">Submit</button>
-                </div>
-            </form>
+        <div id="scroll">
         </div>
-    </div>
-</section>
-
+    </section>
+    <section id="section-form">
+        <div class="container">
+            <div class="form-text">
+                <h3 class="text-center">Please submit your name and surname below:</h3>
+            </div>
+            <div class="row">
+                <form action="{{ url_for('add_guest_username', wishlist_username=wishlist_username) }}" method="POST">
+                    <div class="form-group">
+                        <!-- Name -->
+                        <label for="user_name">Guest Name</label>
+                        <input type="text" class="form-control" id="user_name" name="user_name" required>
+                        <!-- Surname -->
+                        <label for="user_surname">Guest Surname</label>
+                        <input type="text" class="form-control" id="user_surname" name="user_surname" required>
+                        <button type="submit" class="cta cta-button">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 {% block footer %}
-    <img src="{{ url_for('static', filename='images/footer-dsk.png') }}" class="img-hide-display img-width-100" alt="">
-    <img src="{{ url_for('static', filename='images/footer-mob.png') }}" class="img-display img-width-100" alt="">
+    <img src="{{ url_for('static', filename='images/footer-dsk.png') }}" class="img-hide-display img-width-100" alt="Footer image">
+    <img src="{{ url_for('static', filename='images/footer-mob.png') }}" class="img-display img-width-100" alt="Footer image">
 {% endblock %}

@@ -14,9 +14,6 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
-# @app.route('/')
-# def hello():
-#     return 'Hello world'
 
 @app.route('/')
 @app.route('/homepage')
@@ -24,7 +21,7 @@ def homepage():
     return render_template('homepage.html')
 
 
-# on the homepage, enter and submit a wishlist name/description through a form
+# validate wishlist name and update the wishlist with new information
 @app.route('/complete_wishlist', methods=['POST'])
 def create_wishlist_name():
     wishlists = mongo.db.wishlists
@@ -53,7 +50,7 @@ def create_wishlist_name():
         return render_template('wishlist_completing.html', new_wishlist_id=new_wishlist_id,
                                 wishlist=the_wishlist_name_capitalised)
     else:
-        # delete this document and return error page
+        # delete this old document and return error page
         mongo.db.wishlists.remove({'_id': ObjectId(new_wishlist_id)})
         mongo.db.present.remove({"wishlist_id": ObjectId(new_wishlist_id)})
         return redirect(url_for('wishlist_username_not_available'))
@@ -84,8 +81,8 @@ def complete_wishlist(new_wishlist_id):
     return redirect(url_for('owner_view_dynamic', wishlist_username=wishlist_username))
 
 
-# go to created wishlist owner page where owner can add presents
-# display all the presents stored with the created wishlist id in the presents collection
+# owner's page where owner can add presents
+# display all the presents stored with the created wishlist name in the presents collection
 @app.route('/<wishlist_username>/owner')
 def owner_view_dynamic(wishlist_username):
     the_wishlist = mongo.db.wishlists.find_one({'wishlist_username': wishlist_username})
@@ -102,8 +99,8 @@ def owner_view_dynamic(wishlist_username):
                             displayed_categories=displayed_categories)
 
 
-# function that lets you add presents stored with the created wishlist id in the presents collection
-# create a link back to the owner's wishlist
+# add presents stored with the created wishlist name in the presents collection
+# link back to the owner's wishlist
 @app.route('/<wishlist_username>/present_added', methods=['POST'])
 def add_new_present(wishlist_username):
     presents = mongo.db.present
@@ -192,7 +189,7 @@ def delete_wishlist(wishlist_username):
 
 
 # go to guest page where guests can book presents
-# display all the presents stored with the created wishlist id in the presents collection
+# display all the presents stored with the created wishlist name in the presents collection
 @app.route('/<wishlist_username>/guest')
 def guest_view_static(wishlist_username):
     the_wishlist = mongo.db.wishlists.find_one({"wishlist_username": wishlist_username})
@@ -230,7 +227,7 @@ def add_guest_username(wishlist_username):
                             the_full_user_username_id=the_full_user_username_id))
 
 
-# go back to the guest wishlist as a 'registered' wishlist guest
+# go to the guest wishlist preview as a 'registered' wishlist guest
 @app.route('/<wishlist_username>/guest/<the_full_user_username_id>')
 def guest_view_dynamic(wishlist_username, the_full_user_username_id):
     the_wishlist = mongo.db.wishlists.find_one({'wishlist_username': wishlist_username})
@@ -242,7 +239,7 @@ def guest_view_dynamic(wishlist_username, the_full_user_username_id):
                             the_wishlist=the_wishlist)
 
 
-# book a present as a guest
+# book a present with a guest name
 @app.route('/<wishlist_username>/guest/<the_full_user_username_id>/<present_id>/present_booked', methods=["POST", "GET"])
 def book_present(wishlist_username, the_full_user_username_id, present_id):
     usernames = mongo.db.username
@@ -261,7 +258,7 @@ def book_present(wishlist_username, the_full_user_username_id, present_id):
                             the_full_user_username_id=the_full_user_username_id))
 
 
-# unbook a present as a guest
+# unbook a present
 @app.route('/<wishlist_username>/guest/<the_full_user_username_id>/<present_id>/present_unbooked', methods=["POST", "GET"])
 def unbook_present(wishlist_username, the_full_user_username_id, present_id):
     presents = mongo.db.present

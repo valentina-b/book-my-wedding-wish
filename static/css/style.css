@@ -586,7 +586,7 @@ form {
 
 .present-availability-btn {
     width: 20px;
-    height: 20px;
+    /* height: 20px; */
     padding: 0;
     border: none;
     margin: 0;

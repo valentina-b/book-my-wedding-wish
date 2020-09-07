@@ -234,7 +234,7 @@ This project mostly focuses on the following technologies:
 1. [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - for styling the website’s HTML code
 1. [Bootstrap](https://getbootstrap.com/) - for additional styling and adding responsiveness to the website
 1. [JavaScript](https://en.wikipedia.org/wiki/JavaScript) and [jQuery](https://jquery.com/) - for collapsing the Bootstrap's burger menu
-1. [Python](https://en.wikipedia.org/wiki/Python_(programming_language) and [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework) - for backed loginc and structure
+1. [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) and [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) - for backed loginc and structure
 1. [MongoDB](https://en.wikipedia.org/wiki/MongoDB) - for storing data in a database
 1. [Git](https://git-scm.com/) - for version control
 
@@ -396,3 +396,49 @@ see your name has been removed for some reason and the unbooking process is fair
 * 
 * 
 * 
+
+## Deployment
+
+### GitHub Pages
+
+To deploy a website on GitHub Pages, follow these steps:
+
+1. Go to the repository page
+1. Click on settings icon in the top of the page
+1. Find "GitHub Pages" section
+1. Click on the "Source" dropdown menu
+1. Select "master branch" option
+1. A green success message should appear in the "GitHub Pages" section with the link to the live preview of the project.
+
+For more information please visit [here.](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+In my case I have added a .gitignore file to the project with env.py file in it. In the env.py I have put MongoDB URI which allows me to connect to my database and interact with it.
+
+
+### Local Deployment
+
+To create a local copy of a repository, follow these steps:
+
+1. Go to the repository page
+1. Click on the "Clone or download" button in the top of the page
+1. Click the check list icon on the right of the newly opened window to clone the repository using HTTPS
+1. Open Terminal
+1. Change the current working directory to the location where you want the cloned directory to be made
+1. Type "git clone" and paste the URL you copied in step 3 and run the command
+
+For more information please visit [here.](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+You will need the connection to the database and install packages from the provided requirements.txt file.
+
+### Heroku deployment
+
+To deploy a project on Heroku, follow these steps:
+
+1. Set up a Heroku account at [Heroku](https://www.heroku.com/)
+1. Click on "New" button and select "Create new app"
+1. Add a unique name and select your region (for example Europe)
+1. In your "Settings" tab add config vars if needed
+1. Go back to your terminal and log in to your heroku account by entering `heroku login -i`
+1. Submit your login details
+1. In the terminal enter `heroku git:remote -a your-heroku-app` to link to the app
+1. Deploy the project to Heroku by entering `git push heroku master`
+
+For more information please visit [here.](https://devcenter.heroku.com/start)

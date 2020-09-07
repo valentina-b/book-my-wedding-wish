@@ -163,21 +163,21 @@ with an eccomerce system like [Tipser](https://tipser.co/en/) so the guests can 
 The wireframes can be found at the links below:
 
 Desktop:
-* [Desktop homepage wireframe]()
-* [Desktop owner view wireframe]()
-* [Desktop owner view popup message wireframe]()
-* [Desktop guest view wireframe]()
+* [Desktop homepage wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-dsk-hp.png)
+* [Desktop owner view wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-dsk-owner-view.png)
+* [Desktop owner view popup message wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-dsk-owner-view-popup.png)
+* [Desktop guest view wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-dsk-guest-view.png)
 
 
 Tablet:
-* [Tablet homepage wireframe]()
-* [Tablet owner view wireframe]()
-* [Tablet owner view popup message wireframe]()
-* [Tablet guest view wireframe]()
+* [Tablet homepage wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-tab-hp.png)
+* [Tablet owner view wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-tab-owner-view.png)
+* [Tablet owner view popup message wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-tab-owner-view-popup.png)
+* [Tablet guest view wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-tab-guest-view.png)
 
 Mobile:
-* [Mobile homepage wireframe]()
-* [Mobile owner view wireframe]()
-* [Mobile owner view popup message wireframe]()
-* [Mobile guest view wireframe]()
+* [Mobile homepage wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-mob-hp.png)
+* [Mobile owner view wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-mob-owner-view.png)
+* [Mobile owner view popup message wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-mob-owner-view-popup.png)
+* [Mobile guest view wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-mob-guest-view.png)
 

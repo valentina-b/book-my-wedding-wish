@@ -455,3 +455,32 @@ first project draft done. It's been very exciting exploring different solutions 
 * I know it's old for many - but I've literally discovered just a few days ago that other browsers, not just Chrome, also have inspect functions! I also dived into solving cross-browser issues and getting familiar with why different browsers display things differently.
 * Styling radio buttons is a skill on it's own! I would have never figured this out without additional help online. It took me a lot of time and efforts to figure out the logic of styling them but I did it and you can see the results live.
 
+## Credits
+
+### Content
+
+* The content for this web app is completely original, written by me.
+
+### Media
+
+* The homepage photos, including header and footer images on the other pages, were downloaded from [Unsplash](https://unsplash.com/).
+* The images submitted through a link come from various sources, mostly [Unsplash](https://unsplash.com/) and [Google](https://www.google.com/).
+* Social media icons were downloaded from [Flaticon](https://www.flaticon.com/).
+* All other icons were created by me in [Figma](https://www.figma.com/).
+* The product showcase image was taken with the help of [Ami.ResponsiveDesign](http://ami.responsivedesign.is/).
+* I've also went through design projects on [Dribbble](https://dribbble.com/) to get inspired about the app layout.
+
+### Coding Sources
+
+* Helped me understand how to [connect Bootstrap modal with Flask and MongoDB](https://stackoverflow.com/questions/60623203/modal-in-flask-displays-only-the-first-record).
+* Helped me understand [how to style `select` tags with CSS](https://stackoverflow.com/questions/14218307/select-arrow-style-change).
+* Helped me understand [how to remove glossy effect for `select` tags in Safari](https://stackoverflow.com/questions/7638677/how-can-i-remove-the-gloss-on-a-select-element-in-safari-on-mac).
+* Helped me create [collapsible burger menu](https://stackoverflow.com/questions/42401606/how-to-hide-collapsible-bootstrap-4-navbar-on-click?rq=1).
+* Helped me with [styling radio buttons](https://stackoverflow.com/questions/8287779/how-to-use-the-required-attribute-with-a-radio-input-field) - the credits are also in my HTML and CSS files.
+* Helped me with [adding filters to images](https://css-tricks.com/almanac/properties/f/filter/).
+
+### Acknowledgments
+
+* Once again - a huge and warm thank you to my mentor [Dick Vlaanderen](https://github.com/dickvla) who has been my biggest source of encouragement and inspiration throughout my coding journey - your support and direction have been a huge confidence boost 
+as well as comfort throughout the whole process! Thank you for all your kind words and the help!
+* Thank you [CodeInstitute's](https://codeinstitute.net/) Tutors and Slack community for being there for annoying little bug questions!

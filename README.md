@@ -12,7 +12,7 @@ that would fit a guest's budget, getting the same present twice or end up not li
 aims to help the happy couple by allowing them to create an online place where guests can choose among the presents the couple wishes
 to receive.
 
-As the guests also struggle with choosing a present for the newlyweds - which is often quite expensive - this online 
+As the guests also struggle with choosing a present for the bride and the groom - which is often quite an expensive decision - this online 
 wedding gift wishlist helps them with deciding on what to buy while they can be sure the present will be greatly appreciated. 
 Therefore, the secondary purpose of this app is to provide a simple overview of desired wedding presents and an easy booking process.
 
@@ -30,7 +30,7 @@ expect their gifts to be left unused, returned or sold while 82% of newlyweds ac
 
 The psychology of giving wedding gifts is truly fascinating. In NPR's [interview with Shankar Vedantam](https://www.npr.org/2016/06/24/483426485/new-study-explores-psychology-of-giving-wedding-gifts?t=1599418748672), 
 who did a research on this topic, Shankar says the tensions are produced from the fact that we want the gift to please the people getting married but 
-at the same time, the gift should reflect well on us. One of the reasons why guests deviate from buying off the wedding registry is that it doesn't 
+at the same time, the gift should reflect well on us. One of the reasons why guests deviate from buying off of the wedding registry is that it doesn't 
 feel special enough. It is the close friends that normally deviate from the registry, saying that "they're doing it because they know what we really 
 want more than we know ourselves." It doesn't seem like those 82% newlyweds who end up selling their wedding presents on eBay would agree.
 
@@ -56,7 +56,7 @@ As a wishlist owner...
 * I want to be able to see which gifts will be bought so that I can add more if I have to.
 * I want to have control over the presents I put on the wishlist so that I know the guests have the updated list.
 * I want to be able to add a personal message to each present so the guests know why I want that particular present.
-* I want to have a variety of presents on the wishlist so that everyone can pick something it fits their budget best.
+* I want to have a variety of presents on the wishlist so that everyone can pick something that fits their budget best.
 
 As a wedding guest...
 
@@ -74,7 +74,7 @@ The features related to business goals can be implemented in the future product 
 As a business owner...
 
 * I want to be able to analyse what users are buying, so I can earn by selling data to 3rd parties.
-* I want to see which brands people are buying from so that I could start brand partnership with them.
+* I want to see which brands people are buying from so that I could start brand partnerships with them.
 * I want the user to have an interface they will love because they will want to come back.
 * I want the users to be able to connect to the product online so that the chances of buying the item and earning from its comission are increased.
 
@@ -94,7 +94,7 @@ the MVP was created.
 
 ### App Sections
 
-1. **Navigation on the top** - fixed navigation on the top which differs to different user type so that the users have shortcuts to the main functions of the particular 
+1. **Navigation on the top** - fixed navigation on the top which is different to each user type so that the users have shortcuts to the main functions of the particular 
 page view (edit present, edit wishlist, delete wishlist, etc.) and are able to navigate themselves back to the homepage if needed.
 1. **Header** - introduction to the website or to the wishlist - different to different user type with the appropriate information in the header.
 1. **Homepage USP section** - a quick overview of the steps how the app works.
@@ -188,7 +188,7 @@ Book My Wedding Wish is imagined to be a non-commercial, customisable online spa
 such as sharp edges and earthy colours, to symbolise the modern approach to a traditional topic. 
 
 Although I did my best to be as neutral as possible with choosing the fonts, colours and general design approach, I'm aware that this web app might be more appealing to the female audience rather than 
-the male audience. I have also tried to be respectful of different religious orientations by avoiding religious symbols and indications. That being said, I felt that it's difficult to represent a wedding-related 
+the male audience. I have also tried to be respectful of different religious orientations by avoiding religious symbols and indicators. That being said, I felt that it's difficult to represent a wedding-related 
 topic in design without following some kind of widely-spread association to weddings. I will elaborate this more in the next sections.
 
 ### Fonts
@@ -213,12 +213,12 @@ have been used as accent colours for the CTAs, borders and actively selected ele
 ### Images
 
 The wedding ambience has also been expressed through the images. As mentioned in the introduction section above, I felt that it's difficult to represent a wedding-related topic in design without following some kind of 
-widely-spread association to weddings. For me that meant white wedding dress, flowers and bridal bouquets, rings and hearts. This could also be done differently - for example, [TheKnot](https://www.theknot.com/) 
+widely-spread association to weddings. For me that got ttranslated into a white wedding dress, flowers and bridal bouquets, rings and hearts. This could have also be done differently - for example, [TheKnot](https://www.theknot.com/) 
 decided to feature in their header video clips of a Christian wedding, a Hindu wedding, etc. to be more inclusive.
 
 ### Visual Style
 
-Once the font, colour palette and images were selected, I've focused on the design of the elements. I wanted the app to look professional and presentable but at the same harmonious and balanced.
+Once the font, colour palette and images were selected, I've focused on the design of the elements. I wanted the app to look professional and presentable but at the same time harmonious and balanced.
 
 Since my goal was to achieve a mix of modern and traditional look, the elements such as buttons, input fields, present cards, icons, etc. are with slightly rounded or sharp edges. The shadows are light and often barely 
 noticeable. Visual identity in general is heavily relying on a combination of pastel colours with their darker shades and elegant font style. There are no additional decorations apart from the simple lines that help out 
@@ -259,7 +259,7 @@ The project's code was frequently validated through:
 * [W3 HTML validator](https://validator.w3.org/nu/)
 * [W3 CSS validator](http://www.css-validator.org/)
 
-The web app was tested on the devices and browsers listed below. I loaded the page on each of the device and browser combination and looked for any visual and functional errors. I've also tried to resize the webpages on 
+The web app was tested on the devices and browsers listed below. I loaded the page on each of the device and browser combination and looked for any visual and functional errors. I've also tried to resize the web pages on 
 desktop in Chrome, Firefox, Opera and Safari developer tools to look for hidden irregularities and finding out the solutions. More about the errors I've encountered can be found under the 'Bugs and Problems'.
 
 Desktop:
@@ -373,7 +373,7 @@ one books a present - the other one will still have the active 'Book me!' link o
 
 The owners in their views have also displayed information about whether the present has been booked or not. If they want to edit the present - for example exchange the image or change the price - the booking information will not be removed. I was thinking what 
 would generally be a better user experience regarding that. Should the guest see their name has been removed - or should they keep the reserved present while the price might have jumped from €80 to €300. As in my opinion it might be too confusing to 
-see your name has been removed for some reason and the unbooking process is fairly easy, I have decided not to update the b=present back to being available. This also might have some other solutions, like removing the booked presents from the guest view pages.
+see your name has been removed for some reason and the unbooking process is fairly easy, I have decided not to update the present back to being available. This also might have some other solutions, like removing the booked presents from the guest view pages.
 
 
 **Discovered cross-browser issues:**
@@ -382,13 +382,13 @@ see your name has been removed for some reason and the unbooking process is fair
 * Height and width values such as `fit-content` were problematic on Safari and Firefox browsers - solved!
 * SVGs displaying images via `clipPath` solution were invisible in Safari desktop browser. I haven't dived deeper into finding the SVG-related solution due to lack of time, so I've solved this by exchanging images with PNG files - solved, but can be improved!
 * Smooth scrolling (`html {scroll-behavior: smooth;}`) doesn't work in Internet Explorer and Safari - not solved.
-* When a user is filling in and submitting a form in Safari mobile browser, the view zooms in on click and stays that way unless the user doesn't zoom out. Can be a bit annoying if the user decides not to finish the form and scroll away - not solved.
+* When a user is filling in and submitting a form in Safari mobile browser, the view zooms in on click and stays that way unless the user doesn't zoom out. Can be a bit annoying if the user decides not to finish the form and to scroll away - not solved.
 * Although the app works perfectly fine in Internet Explorer on my Acer, the UI is completely distorted. The buttons are without styling, links are all blue, navigation bar is transparent, present cards are transparent, images don't fit their sizes, etc. - not solved.
 
 **Other important remarks:**
 
 * I'm so grateful to my mentor who has recommended adding comments with [PyDoc](https://docs.python.org/2/library/pydoc.html) to my Python code but I, unfortunately, ran out of time and had to prioritise different things. 
-I did my best to have clear and easy to follow comments in the code instead and will try to implement the comments properly in the future from the start!
+I did my best to have clear and easy-to-follow comments in the code instead and will try to implement the comments properly in the future from the start!
 
 ## Deployment
 
@@ -452,7 +452,7 @@ first project draft done. It's been very exciting exploring different solutions 
 
 ### Content
 
-* The content for this web app is completely original, written by me.
+* The textual content for this web app is completely original, written by me.
 
 ### Media
 

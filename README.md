@@ -349,3 +349,50 @@ Guest features:
   1. Click on 'Unbook' hyperlink.
   1. The feature works if you have been redirected to the registered guest view and the present previously reserved under your username is now available again.
 
+### Bugs, Problems and Vulnerabilities
+
+**Linking logic and structure issues**
+
+Since this app doesn't require authentication to access the information, the app can be manipulated through URL structure. This makes the app quite vulnerable in general. In order to expose the vulnerabilities, a short overview of the linking logic 
+and information passed through the URLs might be helpful.
+
+When a wishlist name is created, it is converted to lower case and the spaces are replaced with hyphens. For example, 'Amy and Robert' will be turned into `amy-and-robert`. This is then stored as a unique wishlist name which is used in the URLs linking to 
+the owner and guest views. The owner view adds `/owner` to the URL containing the wishlist name, such as `www.domain.com/amy-and-robert/owner`. An unregistered guest acceses the wishlist by adding `/guest` to the URL, such as `www.domain.com/amy-and-robert/guest`.
+A registered guest will have to add their submitted name and surname in lower case with space between them like so - `www.domain.com/amy-and-robert/guest/ashley-smith`.
+
+This logic is great for accessing your information again and makes the links look more pleasant than having a bunch of id numbers in them. However, this also means that - whoever has the guest view can also manipulate the link to access owner page view and edit the data.
+
+This also means that someone could type in different values in the URL and reach error pages. I have tried to avoid this by redirecting a non existing owner view and guest view to the homepage, although I believe it can be done better and more detailed in the future.
+
+**Page refreshing**
+
+If there are multiple regstered guests on the page, they can book each others' presents. This happens because the page is not refreshing itself so the data is not always displayed updated in real time. If two guests open their registered guest views at the same time, 
+one books a present - the other one will still have the active 'Book me!' link on his page view. By clicking on the link, he can override the booking of the first guest.
+
+**Editing present that is booked**
+
+The owners in their views have also displayed information about whether the present has been booked or not. If they want to edit tthe present - for example exchange the image or change the price - the booking information will not be removed. I was thinking what 
+would generally be a better user experience regarding that. Should the guest see their name has been removed - or should they keep the reserved present while the price might have jumped from 80€ to 300€. As in my personal opinion it might be too confusing to 
+see your name has been removed for some reason and the unbooking process is fairly easy, I have decided not to update the b=present back to being available. This also might have some other solutions, like removing the booked presents from the guest view pages.
+
+
+**Discovered cross-browser issues:**
+
+* 
+* 
+* 
+* 
+
+**Discovered bugs:**
+
+* 
+* 
+* 
+* 
+
+**Other important remarks:**
+
+* 
+* 
+* 
+* 

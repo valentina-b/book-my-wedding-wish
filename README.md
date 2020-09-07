@@ -181,3 +181,52 @@ Mobile:
 * [Mobile owner view popup message wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-mob-owner-view-popup.png)
 * [Mobile guest view wireframe](https://github.com/valentina-b/book-my-wedding-wish/blob/master/readme-files/images/wireframes/img-wireframe-mob-guest-view.png)
 
+## Graphic Design and Brand Elements
+
+Book My Wedding Wish is imagined to be a non-commercial, customisable online space whose look-and-feel is inspired by traditional western wedding ambience. The major inspirations for the app were 
+[Zola](https://www.zola.com/), [TheKnot](https://www.theknot.com/) and [MyRegistry](https://www.myregistry.com/). The UI follows clean design principles intertwined with traditional-looking elements, 
+such as sharp edges and earthy colours, to symbolise the modern approach to a traditional topic. 
+
+Although I did my best to be as neutral as possible with choosing the fonts, colours and general design approach, I'm aware that this web app might be more appealing to the female audience rather than 
+the male audience. I have also tried to be respectful of different religious orientations by avoiding religious symbols and indications. That being said, I felt that it's difficult to represent a wedding-related 
+topic in design without following some kind of widely-spread association to weddings. I will elaborate this more in the next sections.
+
+### Fonts
+
+Originally I have planned to have a mix of a modern, web-friendly font and a handwritten, i.e. cursive, font. The cursive font was supposed to give the personal touch to the app, just as if 
+someone would go the extra mile to write somethiing themselves - what you normally see in wedding invitations and wedding favours. However, as I was working on the design, I've felt that the app 
+itself already gives enough ways of personalising the wishlists to feel personal to the guests and a handwritten font might evoke unnecessary luxuriousness.
+
+The font I've used for the app is [Montserrat](https://fonts.google.com/specimen/Montserrat), a font that I personally consider to be semi-formal and well-suited for topics such as weddings. I have customised 
+it by changing the line height, letter spacing and weight of the font. All the headings are also in uppercase form to look more elegant.
+
+### Colours
+
+The inspiration for the colour palette comes from the header image which I've found on [Unsplash](https://unsplash.com/). My colour selection consists of earthy light and dark colours. The lighter colours have been 
+used for the background, borders of the elements that shouldn't be overly accentuated, such as present cards, and subtle section dividers like lines.
+
+The font is in the darker shade of brown instead of pure black to make the reading more pleasant to the eyes but also to evoke the warm, earthy feeling of harmony. This darker shade of brown and wine red colour 
+have been used as accent colours for the CTAs, borders and actively selected elements.
+
+![Colour palette](readme-files/images/img-colour-palette.png)
+
+### Images
+
+The wedding ambience has also been expressed through the images. As mentioned in the introduction section above, I felt that it's difficult to represent a wedding-related topic in design without following some kind of 
+widely-spread association to weddings. For me that meant white wedding dress, flowers and bouquet of flowers, rings and hearts. This could also be done differently - for example, [TheKnot](https://www.theknot.com/) 
+decided to feature in their header video clips of a Christian wedding, a Hindu wedding, etc. to be more inclusive.
+
+### Visual Style
+
+Once the font, colour palette and images were selected, I've focused on the design of the elements. I wanted the app to look professional and presentable but at the same harmonious and balanced.
+
+Since my goal was to achieve a mix of modern and traditional look, the elements such as buttons, input fields, present cards, icons, etc. are with slightly rounded or sharp edges. The shadows are light and often barely 
+noticable. Visual identity in general is heavily relying on a combination of pastel colours with their darker shades and elegant font style. There are no additional decorations appart from the simple lines that help out 
+with breaking down the sections for easier information grasping.
+
+All the icons were also custom-made by me to fit the concept best - except for the social media icons.
+
+
+
+
+

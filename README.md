@@ -413,7 +413,6 @@ To deploy a website on GitHub Pages, follow these steps:
 For more information please visit [here.](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 In my case I have added a .gitignore file to the project with env.py file in it. In the env.py I have put MongoDB URI which allows me to connect to my database and interact with it.
 
-
 ### Local Deployment
 
 To create a local copy of a repository, follow these steps:
@@ -442,3 +441,17 @@ To deploy a project on Heroku, follow these steps:
 1. Deploy the project to Heroku by entering `git push heroku master`
 
 For more information please visit [here.](https://devcenter.heroku.com/start)
+
+## Lessons Learned
+
+My favourite part of writing this documentation is looking back and self-reflect on my progress since the previous project. Besides obviously learning Python and Flask from scratch and learning how to use MongoDB and Heroku, there has been numerous other small wins 
+and achievements throughout the process. Here are some points I wanted to highlight:
+
+* Getting familiarised with Bootstrap classes and components definitely pays off! I have already noticed that during my previous project when I started to use Bootstrap for more than just columns and rows. This time I focused more on the form elements and styles while continuing 
+to use text- and display-related classes such as `text-uppercase`, `text-center`, `d-none`.
+* Creativity with using SVGs is unlimited! I have learned so much about creating and using SVG codes instead of uploading images and bothering with styling `div` elements. 
+* Backend-first way of thinking is much more logical than frontend-first approach - in my humble opinion at least! It took me some time to shft the mindset that I have to know beforehand what I'm trying to achieve with this project and start planing it before having a 
+first project draft done. It's been very exciting exploring different solutions and feature options before being able to see the app.
+* I know it's old for many - but I've literally discovered just a few days ago that other browsers, not just Chrome, also have inspect functions! I also dived into solving cross-browser issues and getting familiar with why different browsers display things differently.
+* Styling radio buttons is a skill on it's own! I would have never figured this out without additional help online. It took me a lot of time and efforts to figure out the logic of styling them but I did it and you can see the results live.
+

@@ -280,3 +280,72 @@ Mobile:
   * Safari
 2. HTC
   * Google Chrome
+
+### Testing the Features
+
+Owner features:
+
+* Unique wishlist creation
+  1. Visit the homepage.
+  1. Click on 'Create your wishlist' button, 'New wishlist' navigation link or scroll to the bottom of the page.
+  1. Submit a unique wishlist name.
+  1. The feature works if you have been redirected to complete the wishlist information or to an error page that will ask you to submit another name since submitted one has already been taken.
+
+* Additional wishlist information
+  1. Submit a unique wishlist name.
+  1. Complete the wishlist with additional information.
+  1. The feature works if you have been redirected to the owner view with the correct information displayed on the page (title, wedding details, colour theme, header image etc.).
+
+* Add presents to the list
+  1. Visit the owner view page.
+  1. Scroll to the bottom of the page.
+  1. Use the present form to submit presents.
+  1. The feature works if after submitting the present information you're redirected to the same owner view page with the present displayed on the page.
+
+* Edit presents
+  1. Visit the owner view page.
+  1. Click on a pencil (edit) icon at the right corner of the present description (present card).
+  1. Once you are redirected to the edit page, edit the present information and submit it.
+  1. The feature works if you have been successfully redirected to the edit present page and were able to submit the edited information.
+  1. You should expect to be redirected to the owner page and see your present edited.
+
+* Delete presents
+  1. Visit the owner view page.
+  1. Click on the X (delete) icon at the right corner of the present description (present card).
+  1. You should expect a popup to open and ask you to confirm the action.
+  1. Click on 'Delete' hyperlink.
+  1. The feature works if you have been successfully redirected to the owner view page and the deleted present is gone.
+
+* Edit wishlist
+  1. Visit the owner view page.
+  1. Click on the 'Edit wishlist' hyperlink in the navigation or bottom of the page.
+  1. Once you are redirected to the edit page, edit the wishlist information and submit it.
+  1. The feature works if you have been successfully redirected to the edit wishlist page and were able to submit the edited information.
+  1. You should expect to be redirected to the owner page and see your wishlist information edited.
+
+* Delete wishlist
+  1. Visit the owner view page.
+  1. Click on the 'Delete wishlist' hyperlink in the navigation or bottom of the page.
+  1. You should expect a popup to open and ask you to confirm the action.
+  1. Click on 'Delete' hyperlink.
+  1. The feature works if you have been successfully redirected to the thank you page and you can't access the owner view page anymore.
+
+Guest features:
+
+* Submit username
+  1. Visit the guest view page.
+  1. Scroll to the bottom of the page and submit your name and surname
+  1. The feature works if you have been redirected to the registered guest view and you are able to book and unbook presents.
+
+* Book a present
+  1. Visit the guest view page.
+  1. Click on the 'Book me!' hyperlink at the right corner of the present description (present card).
+  1. The feature works if you have been redirected to the registered guest view and the present is reserved under your username.
+
+* Unbook a present
+  1. Visit the guest view page.
+  1. Click on the X (delete) icon at the right corner of the present description (present card).
+  1. You should expect a popup to open and ask you to confirm the action.
+  1. Click on 'Unbook' hyperlink.
+  1. The feature works if you have been redirected to the registered guest view and the present previously reserved under your username is now available again.
+

@@ -105,7 +105,7 @@ page view (edit present, edt wishlist, delete wishlist, etc.) and are able to na
 
 ### Features
 
-The features are split into owner related features and guest related features.
+The features are split into owner-related features and guest-related features, although, every owner can also be a guest and vice versa.
 
 Owner features:
 
@@ -126,4 +126,22 @@ Guest features:
 1. **Submit username** - a feature that let's the user register to the wishlist with their name. An important step to be able to reserve the presents.
 1. **Book a present** - a feature that allows registered guests to reserve the presents.
 1. **Unbook a present** - allows registered guests to unbook the presents they have previously reserved.
+
+### Features Left to Implement
+
+1. **Category filter** - even though it was originally planned - unfortunately, I didn't have enough time to implement this feature that would allow the owners and the guests filter out 
+the presents by category and perhaps additionally whether the present is available or not, etc.
+
+![Category filter](readme-files/images/future-features/img-future-feature-filter.png)
+
+2. **Edit wishlist theme** - as mentioned in the previous section above, currently the wishlist owners can't change the wishlist theme. This feature has also been postponed due to lack 
+of time - I have implemented the wishlist theme feature too late in the process and since it's based on submitting data through radio buttons, I simply ran out of time to find an appropriate 
+solution for getting this nformation back and displaying it again in the form of radioi buttons.
+
+![Edit wishlist theme](readme-files/images/future-features/img-future-feature-theme-edit.png)
+
+
+
+
+
 

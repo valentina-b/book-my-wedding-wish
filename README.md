@@ -253,3 +253,30 @@ Additionally, I have also used the following platforms to help me shape the webs
 1. [Figma](https://www.figma.com/) - for creating wireframes, web designs and icons
 1. [Favicon](https://favicon.io/) - for creating browser tab icons
 
+## Testing
+
+The project's code was frequently validated through:
+* [W3 HTML validator](https://validator.w3.org/nu/)
+* [W3 CSS validator](http://www.css-validator.org/)
+
+The web app was tested on the devices and browsers listed below. I loaded the page on each of the device and browser combination and looked for any visual and functional errors. I've also tried to resize the webpages on 
+desktop in Chrome, Firefox, Opera and Safari developer tools to look for hidden irregularities and finding out the solutions. More about the errors I've encountered can be found under the 'Bugs and Problems'.
+
+Desktop:
+
+1. Acer
+  * Google Chrome
+  * Internet Explorer
+  * Firefox
+2. MacBook
+  * Google Chrome
+  * Safari
+  * Opera
+  * Firefox
+
+Mobile:
+
+1. iPhone 8
+  * Safari
+2. HTC
+  * Google Chrome

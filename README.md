@@ -67,9 +67,9 @@ As a wedding guest...
 
 ### Business Goals
 
-This project is mostly focusing on the end-user needs, such as wishlist owners and their wedding guests. The main goal was to make sure the web app is 
+This project is mostly focusing on the end-user needs, such as wishlist owners and their wedding guests, since the main goal was to make sure the web app is 
 suitable and useful for them. However, the business idea for this app could follow the affiliate business model most online weddng registries follow. 
-The feature related to business goals can be implemented in the future product releases.
+The features related to business goals can be implemented in the future product releases.
 
 As a business owner...
 
@@ -77,4 +77,53 @@ As a business owner...
 * I want to see which brands people are buying from so that I could start brand partnership with them.
 * I want the user to have an interface they will love because they will want to come back.
 * I want the users to be able to connect to the product online so that the chances of buying itand earning from it's commision are higher.
+
+## Features and App Sections
+
+As this project relies on backend technologes more than my previous projects, my process for defining features and information architecture was different. 
+I've started with listing the actions that the users should be able to do with this app - first wishlist owners and then their wedding guests. This also meant that 
+dfferent types of users, owners and the guests, should have different page views. Finally, I didn't want this project to be accessble to only logged in or signed in 
+website visitors because I've often felt discouraged to proceed to explore projects from the others that required me to give them my personal details like my email 
+address or having to create passwords to remember how to access my account. Therefore, I had to be sure the features are grouped per user type and reflected well 
+in the website structure as well as having an easy way to come back to the submitted information.
+
+As a result, I prepared this short overview of what each website section should be able to do or provide, which was my main guide when working on the app. This is how 
+the MVP was created.
+
+![Feature and Information Architecture Overview](readme-files/images/img-feature-overview.png)
+
+### App Sections
+
+1. **Navigation on the top** - fixed navigation on the top which differs to different user type so that the users have shortcuts to the main functions of the particular 
+page view (edit present, edt wishlist, delete wishlist, etc.) and are able to navigate themselves back to the homepage if needed.
+1. **Header** - introduction to the website or to the wishlist - different to different user type with the appropriate information in the header.
+1. **Homepage USP section** - a quick overview of the steps how the app works.
+1. **Hmepage about section** - rather than speaking about the project itself, this small textual section addresses users' pain points and introduces Book My Wedding Wish as a solution to their problems.
+1. **Owner view** - a set of pages where the wishlist owners can add presents to their list, update and delete the wishlist and the products and link to the guest view.
+1. **Guest view** - a set of pages where the first time guest visitor can submit their username to book and unbook the presents they want to buy.
+1. **Footer** - gives users the option to stay up to date with the app via links to social media profiles.
+
+### Features
+
+The features are split into owner related features and guest related features.
+
+Owner features:
+
+1. **Unique wishlist creation** - a feature that allows users to create their wishlists by submitting a unique wishlist name. The app validates the submitted name and encourages a new 
+one if needed. It is important the name is unique because it appears in the link to the wishlist. The name cannot be edited afterwards - thought he owner has the possibility to delete 
+the whole wishlist and create a new one if neeeded.
+1. **Additional wishlist information** - a feature that let's the wishlist owners customize their wishlist preview by adding wishlist description, header image, wedding details and customize 
+the header colour of the wishlist (i.e. choosing the wishlist theme).
+1. **Add presents to the list** - a feature that let's the owners add presents to the list. The older presents appear at the top of the page.
+1. **Edit presents** - a feature that allows the owners to edit a submitted present's details.
+1. **Delete presents** - a feature that allows the owners delete the presents they don't want to have on the list.
+1. **Edit wishlist** - a feature that allows the owners to edit wishlist information. The wishlist name and the theme are not editable. Name can't be edited to preserve the uniqueness 
+of the shareable link. Wishlist theme editing has been explained in the future features below.
+1. **Delete wishlist** - a feature that allows the owners delete the wishlist.
+
+Guest features:
+
+1. **Submit username** - a feature that let's the user register to the wishlist with their name. An important step to be able to reserve the presents.
+1. **Book a present** - a feature that allows registered guests to reserve the presents.
+1. **Unbook a present** - allows registered guests to unbook the presents they have previously reserved.
 

@@ -140,8 +140,44 @@ solution for getting this nformation back and displaying it again in the form of
 
 ![Edit wishlist theme](readme-files/images/future-features/img-future-feature-theme-edit.png)
 
+3. **Owner's statistics overview** - another useful feature would be a dashboard for the owners. It could be as detailed as being able to see how many presents have been booked per user, 
+per category, per date, etc. - or it can be as simple as the short overview below.
+
+![Owner's statistics overview](readme-files/images/future-features/img-future-feature-owner-stats.png)
+
+4. **Broken image placeholder** - this feature was originally planned but hasn't been prioritised. At the moment the user can submit any kind of URL in the forms instead of links to the images 
+for wishlist header image and present images. It would be great to have a placeholder image that appears in case the image link gets broken. Alternatively, the owners would be able to upload the 
+images themselves instead of linking.
+
+![Broken image placeholder](readme-files/images/future-features/img-future-feature-image-placeholder.png)
+
+5. **Recommendation system for owners** - since the app could potentially store a lot of data about the presents submitted in various wishlists, an additional feature that could help save time and 
+efforts could be recommendation system for the owners. The system would analyse which presents, brands and present categories have been most wanted lately by the soon-to-be married couples. 
+
+6. **Affiliate links or direct purchase on BMWL** - at last, a business-related feature that should help with scaling up the MVP into a profitable product. A simple idea would be to implement 
+a list of products with affiliate links behind them and let the owners browse through the presents on the site with the option of submitting presents that are missing. A step further would be to integrate 
+with an eccomerce system like [Tipser](https://tipser.co/en/) so the guests can order presents at once directly from BMWL.
+
+### Wireframes
+
+The wireframes can be found at the links below:
+
+Desktop:
+* [Desktop homepage wireframe]()
+* [Desktop owner view wireframe]()
+* [Desktop owner view popup message wireframe]()
+* [Desktop guest view wireframe]()
 
 
+Tablet:
+* [Tablet homepage wireframe]()
+* [Tablet owner view wireframe]()
+* [Tablet owner view popup message wireframe]()
+* [Tablet guest view wireframe]()
 
-
+Mobile:
+* [Mobile homepage wireframe]()
+* [Mobile owner view wireframe]()
+* [Mobile owner view popup message wireframe]()
+* [Mobile guest view wireframe]()
 

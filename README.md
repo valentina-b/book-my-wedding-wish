@@ -46,12 +46,35 @@ exactly this present. This might help the guests to realise the importance of th
 
 ### Customer Goals
 
+The primary customers for this app are the wshlist owners, however, since guests are interactng with the wishlist as well, they can be considered as 
+the secondary customers.
+
 As a wishlist owner...
 
-* I need help with 
-* I need help with 
+* I need to communicate well to my guests which presents I'd like to receive so that I don't get something I don't want or need.
+* I want to save my gift wishlist online so that I can easily share it with the guests.
+* I want to be able to see which gifts will be bought so that I can add more if I have to.
+* I want to have control over the presents I put on the wishlist so that I know the guests have the updated list.
+* I want to be able to add a personal message to each present so the guests know why I want that particular present.
+* I want to have a variety of presents on the wishlist so that everyone can pick something it fits their budget best.
+
+As a wedding guest...
+
+* I need help with deciding what to buy to the happy couple because the buying process is stressful for me.
+* I need to be sure the couple will love the present I buy so that I don't feel like I've wasted my money.
+* I want to know that other guests will not buy the same product so that the couple doesn't get the same present twice.
+* I want to buy a present that I am also happy with so that I feel like I'm giving something unique or special.
 
 ### Business Goals
 
-* I need help with 
-* I need help with 
+This project is mostly focusing on the end-user needs, such as wishlist owners and their wedding guests. The main goal was to make sure the web app is 
+suitable and useful for them. However, the business idea for this app could follow the affiliate business model most online weddng registries follow. 
+The feature related to business goals can be implemented in the future product releases.
+
+As a business owner...
+
+* I want to be able to analyse what users are buying so I can earn by selling data to 3rd parties.
+* I want to see which brands people are buying from so that I could start brand partnership with them.
+* I want the user to have an interface they will love because they will want to come back.
+* I want the users to be able to connect to the product online so that the chances of buying itand earning from it's commision are higher.
+
